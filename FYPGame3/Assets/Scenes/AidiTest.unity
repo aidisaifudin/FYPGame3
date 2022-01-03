@@ -741,6 +741,7 @@ GameObject:
   - component: {fileID: 1174452275}
   - component: {fileID: 1174452274}
   - component: {fileID: 1174452277}
+  - component: {fileID: 1174452278}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -845,6 +846,24 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &1174452278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174452273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf731ead7e0afe46b72fa8265ef60f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldRotate: 1
+  target: {fileID: 1976066383}
+  distance: 10
+  height: 5
+  heightDamping: 2
+  rotationDamping: 3
 --- !u!1 &1664262584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,6 +1356,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 373162505, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 373162505, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 90000
+      objectReference: {fileID: 0}
+    - target: {fileID: 403163479, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+      propertyPath: m_Mass
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 403163479, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 403163479, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 90000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061674674, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+      propertyPath: m_Mass
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061674674, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061674674, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 90000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233422582357796152, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+      propertyPath: m_Mass
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233422582357796152, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233422582357796152, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 90000
+      objectReference: {fileID: 0}
     - target: {fileID: 8300486193076699132, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1347,7 +1410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8300486193076699132, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7715609
+      value: 1.22
       objectReference: {fileID: 0}
     - target: {fileID: 8300486193076699132, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1398,6 +1461,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198f629690460a24fb1b5d4e8da32a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1976066383 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8300486193076699132, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+  m_PrefabInstance: {fileID: 1976066368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2053436077
 GameObject:
   m_ObjectHideFlags: 0
