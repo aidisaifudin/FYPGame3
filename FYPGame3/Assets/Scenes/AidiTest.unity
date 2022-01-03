@@ -729,6 +729,11 @@ MonoBehaviour:
   ReleaseSpeed: 150
   OutPut: 0
   Car: {fileID: 1976066374}
+--- !u!4 &1117428197 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1117428197, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+  m_PrefabInstance: {fileID: 1976066368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1174452273
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,9 +864,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shouldRotate: 1
-  target: {fileID: 1976066383}
-  distance: 10
-  height: 5
+  target: {fileID: 1117428197}
+  distance: 4
+  height: 1
   heightDamping: 2
   rotationDamping: 3
 --- !u!1 &1664262584
@@ -1356,49 +1361,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 373162505, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
-      propertyPath: m_SuspensionSpring.damper
-      value: 9000
-      objectReference: {fileID: 0}
-    - target: {fileID: 373162505, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
-      propertyPath: m_SuspensionSpring.spring
-      value: 90000
-      objectReference: {fileID: 0}
-    - target: {fileID: 403163479, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
-      propertyPath: m_Mass
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 403163479, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
-      propertyPath: m_SuspensionSpring.damper
-      value: 9000
-      objectReference: {fileID: 0}
-    - target: {fileID: 403163479, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
-      propertyPath: m_SuspensionSpring.spring
-      value: 90000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2061674674, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
-      propertyPath: m_Mass
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2061674674, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
-      propertyPath: m_SuspensionSpring.damper
-      value: 9000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2061674674, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
-      propertyPath: m_SuspensionSpring.spring
-      value: 90000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8233422582357796152, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
-      propertyPath: m_Mass
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 8233422582357796152, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
-      propertyPath: m_SuspensionSpring.damper
-      value: 9000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8233422582357796152, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
-      propertyPath: m_SuspensionSpring.spring
-      value: 90000
+    - target: {fileID: 1117428196, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8300486193076699132, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
       propertyPath: m_RootOrder
@@ -1461,11 +1426,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198f629690460a24fb1b5d4e8da32a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1976066383 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8300486193076699132, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
-  m_PrefabInstance: {fileID: 1976066368}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2053436077
 GameObject:
   m_ObjectHideFlags: 0
