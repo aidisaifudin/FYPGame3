@@ -647,6 +647,7 @@ GameObject:
   - component: {fileID: 1061801512}
   - component: {fileID: 1061801514}
   - component: {fileID: 1061801513}
+  - component: {fileID: 1061801515}
   m_Layer: 5
   m_Name: SteeringWheel
   m_TagString: Untagged
@@ -711,6 +712,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061801511}
   m_CullTransparentMesh: 1
+--- !u!114 &1061801515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061801511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d003617d3f684641b476d094aa5bfaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Wheel: {fileID: 1061801512}
+  MaxSteerAngle: 200
+  ReleaseSpeed: 150
+  OutPut: 0
+  Car: {fileID: 1976066374}
 --- !u!1 &1174452273
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,7 +807,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174452273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: -3.83, y: 1.88, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -839,6 +857,7 @@ GameObject:
   - component: {fileID: 1664262588}
   - component: {fileID: 1664262587}
   - component: {fileID: 1664262586}
+  - component: {fileID: 1664262589}
   m_Layer: 5
   m_Name: Brake
   m_TagString: Untagged
@@ -948,6 +967,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664262584}
   m_CullTransparentMesh: 1
+--- !u!114 &1664262589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664262584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1976066374}
+          m_TargetAssemblyTypeName: UnityStandardAssets.Vehicles.Car.CarUserControl,
+            Assembly-CSharp
+          m_MethodName: AccelInput
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: -1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1976066374}
+          m_TargetAssemblyTypeName: UnityStandardAssets.Vehicles.Car.CarUserControl,
+            Assembly-CSharp
+          m_MethodName: AccelInput
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: -1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1976066374}
+          m_TargetAssemblyTypeName: UnityStandardAssets.Vehicles.Car.CarUserControl,
+            Assembly-CSharp
+          m_MethodName: AccelInput
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1976066374}
+          m_TargetAssemblyTypeName: UnityStandardAssets.Vehicles.Car.CarUserControl,
+            Assembly-CSharp
+          m_MethodName: AccelInput
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1892032363
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,6 +1060,7 @@ GameObject:
   - component: {fileID: 1892032367}
   - component: {fileID: 1892032366}
   - component: {fileID: 1892032365}
+  - component: {fileID: 1892032368}
   m_Layer: 5
   m_Name: Accelerate
   m_TagString: Untagged
@@ -1069,6 +1170,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892032363}
   m_CullTransparentMesh: 1
+--- !u!114 &1892032368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892032363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1976066374}
+          m_TargetAssemblyTypeName: UnityStandardAssets.Vehicles.Car.CarUserControl,
+            Assembly-CSharp
+          m_MethodName: AccelInput
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1976066374}
+          m_TargetAssemblyTypeName: UnityStandardAssets.Vehicles.Car.CarUserControl,
+            Assembly-CSharp
+          m_MethodName: AccelInput
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 1
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1976066374}
+          m_TargetAssemblyTypeName: UnityStandardAssets.Vehicles.Car.CarUserControl,
+            Assembly-CSharp
+          m_MethodName: AccelInput
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1976066374}
+          m_TargetAssemblyTypeName: UnityStandardAssets.Vehicles.Car.CarUserControl,
+            Assembly-CSharp
+          m_MethodName: AccelInput
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1907705230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,6 +1387,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+--- !u!114 &1976066374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1976066374, guid: 3f1222ddb4607cc4d8e878d6c89986cf, type: 3}
+  m_PrefabInstance: {fileID: 1976066368}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198f629690460a24fb1b5d4e8da32a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2053436077
 GameObject:
   m_ObjectHideFlags: 0
