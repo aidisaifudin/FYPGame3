@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<inventory>
+  <food>
+    <cost>5</cost>
+    <quantity>2</quantity>
+  </food>
+  <weapon>
+    <closeRange>
+      <staff>
+        <cost>6</cost>
+        <quantity>1</quantity>
+      </staff>
+      <dagger>
+        <cost>8</cost>
+        <quantity>3</quantity>
+      </dagger>
+    </closeRange>
+    <farRange>
+      <bow>
+        <cost>12</cost>
+        <quantity>1</quantity>
+      </bow>
+      <slingshot>
+        <cost>4</cost>
+        <quantity>1</quantity>
+      </slingshot>
+    </farRange>
+  </weapon>
+  <potions>
+    <offensive>
+      <poison>
+        <cost>8</cost>
+        <quantity>2</quantity>
+      </poison>
+      <magic>
+        <cost>15</cost>
+        <quantity />
+      </magic>
+    </offensive>
+    <defensive>
+      <heal>
+        <cost>15</cost>
+        <quantity>5</quantity>
+      </heal>
+      <resurrect>
+        <cost>100</cost>
+        <quantity />
+      </resurrect>
+    </defensive>
+  </potions>
+</inventory>
