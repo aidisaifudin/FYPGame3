@@ -21,10 +21,11 @@ namespace GleyTrafficSystem
         public float yellowLightTime =1;
         [Tooltip("How long green light is on (if = -1 the value from the intersection component will be used)")]
         public float greenLightTime = 1;
+        public float redLightTime = 1;
 
         void Start()
         {
-            Manager.Initialize(player, nrOfVehicles, vehiclePool, minDistanceToAdd, distanceToRemove, greenLightTime, yellowLightTime);
+            Manager.Initialize(player, nrOfVehicles, vehiclePool, minDistanceToAdd, distanceToRemove, greenLightTime, yellowLightTime, redLightTime);
             //Uncomment this and a new traffic car will be added in front of your car most of the time
             //Manager.SetSpawnWaypointSelectorDelegate(GetBestNeighbor.GetForwardSpawnWaypoint);
         }

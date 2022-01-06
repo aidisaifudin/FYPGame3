@@ -11016,31 +11016,23 @@ MonoBehaviour:
     - roadWaypoints: 5a01000077010000
       redLightObjects:
       - {fileID: 1301901909}
-      yellowLightObjects:
-      - {fileID: 290037958}
-      greenLightObjects:
-      - {fileID: 552877561}
-    - roadWaypoints: 45000000c5010000
-      redLightObjects:
-      - {fileID: 1766733496}
-      yellowLightObjects:
-      - {fileID: 418750105}
-      greenLightObjects:
-      - {fileID: 46533038}
-    - roadWaypoints: e000000075000000
-      redLightObjects:
-      - {fileID: 1659909013}
-      yellowLightObjects:
-      - {fileID: 1190734728}
-      greenLightObjects:
-      - {fileID: 788850953}
-    - roadWaypoints: 
-      redLightObjects:
       - {fileID: 2087692246}
       yellowLightObjects:
+      - {fileID: 290037958}
       - {fileID: 2020737614}
       greenLightObjects:
+      - {fileID: 552877561}
       - {fileID: 1034143137}
+    - roadWaypoints: e000000075000000c501000045000000
+      redLightObjects:
+      - {fileID: 1659909013}
+      - {fileID: 1766733496}
+      yellowLightObjects:
+      - {fileID: 1190734728}
+      - {fileID: 418750105}
+      greenLightObjects:
+      - {fileID: 788850953}
+      - {fileID: 46533038}
     greenLightTime: 10
     yellowLightTime: 2
 --- !u!4 &104041707
@@ -16734,7 +16726,7 @@ Transform:
   - {fileID: 599936800}
   - {fileID: 1152872946}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &270198986
 PrefabInstance:
@@ -26565,7 +26557,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498226615}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -76.217926, y: 1.6797006e-15, z: -75.64699}
+  m_LocalPosition: {x: -79.70586, y: 1.8258388e-15, z: -82.22847}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1205448981}
@@ -26589,42 +26581,32 @@ MonoBehaviour:
   - roadWaypoints:
     - {fileID: 510558364}
     - {fileID: 393454458}
+    - {fileID: 2006739823}
+    - {fileID: 135085056}
     redLightObjects:
     - {fileID: 1301901909}
+    - {fileID: 2087692246}
     yellowLightObjects:
     - {fileID: 290037958}
+    - {fileID: 2020737614}
     greenLightObjects:
     - {fileID: 552877561}
-    draw: 0
-  - roadWaypoints:
-    - {fileID: 1876770170}
-    - {fileID: 51858955}
-    redLightObjects:
-    - {fileID: 1766733496}
-    yellowLightObjects:
-    - {fileID: 418750105}
-    greenLightObjects:
-    - {fileID: 46533038}
+    - {fileID: 1034143137}
     draw: 0
   - roadWaypoints:
     - {fileID: 1092144959}
     - {fileID: 1679757890}
+    - {fileID: 51858955}
+    - {fileID: 1876770170}
     redLightObjects:
     - {fileID: 1659909013}
+    - {fileID: 1766733496}
     yellowLightObjects:
     - {fileID: 1190734728}
+    - {fileID: 418750105}
     greenLightObjects:
     - {fileID: 788850953}
-    draw: 0
-  - roadWaypoints:
-    - {fileID: 135085056}
-    - {fileID: 2006739823}
-    redLightObjects:
-    - {fileID: 2087692246}
-    yellowLightObjects:
-    - {fileID: 2020737614}
-    greenLightObjects:
-    - {fileID: 1034143137}
+    - {fileID: 46533038}
     draw: 1
 --- !u!1001 &498494602
 PrefabInstance:
@@ -52776,7 +52758,7 @@ Transform:
   - {fileID: 1278922448}
   - {fileID: 1113551857}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1205448980
 GameObject:
@@ -57771,36 +57753,6 @@ Transform:
   - {fileID: 2029908069}
   m_Father: {fileID: 267188469}
   m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1355756532
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1355756533}
-  m_Layer: 12
-  m_Name: CenterOfMass (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1355756533
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355756532}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.019996643, y: -0.35000002, z: -0.02999878}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8300486192186288151}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1355923046
 GameObject:
@@ -70806,6 +70758,7 @@ MonoBehaviour:
   distanceToRemove: 150
   yellowLightTime: -1
   greenLightTime: -1
+  redLightTime: 1
 --- !u!4 &1706975993
 Transform:
   m_ObjectHideFlags: 0
@@ -88912,7 +88865,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8300486192186288151}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2139622927
 GameObject:
@@ -89438,7 +89391,7 @@ Transform:
   - {fileID: 4335899918452434046}
   - {fileID: 7162292070907596167}
   m_Father: {fileID: 8300486192186288151}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &887046421208737302
 MeshFilter:
@@ -89680,12 +89633,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4207241097941821793}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.105, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4855899912881038741}
   m_Father: {fileID: 8300486192186288151}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2662624537111840051
 BoxCollider:
@@ -90464,10 +90417,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8681410224403002029}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -84.45, y: 0.85, z: -63.43}
+  m_LocalPosition: {x: -79.39, y: 0.85, z: -63.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1355756533}
   - {fileID: 2583046935892105467}
   - {fileID: 805330965082782277}
   - {fileID: 2139622926}
