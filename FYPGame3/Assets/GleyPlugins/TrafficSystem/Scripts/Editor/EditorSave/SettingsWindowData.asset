@@ -22,8 +22,8 @@ MonoBehaviour:
       viewLaneChanges: 0
   viewRoadsSave:
     viewRoadsSettings:
-      viewLanes: 0
-      viewWaypoints: 0
+      viewLanes: 1
+      viewWaypoints: 1
       viewLaneChanges: 0
   connectRoadsSave:
     viewRoadsSettings:
@@ -103,7 +103,7 @@ MonoBehaviour:
     - {r: 1, g: 1, b: 1, a: 1}
     active: 01
   intersectionSave:
-    showAll: 1
+    showAll: 0
     showExit: 1
     priorityColor: {r: 0, g: 1, b: 0, a: 1}
     lightsColor: {r: 0, g: 1, b: 1, a: 1}
