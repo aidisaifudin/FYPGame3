@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
 
     public void MainGame()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("Testroad");
     }
 
     public void Credit()
