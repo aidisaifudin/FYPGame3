@@ -7,6 +7,7 @@ public class RandomPassenger : MonoBehaviour
     public Vector3[] passengerSpawn;
     public Vector3[] destinationSpawn;
     public GameObject passenger;
+    public GameObject destination;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,7 @@ public class RandomPassenger : MonoBehaviour
         int randomDestination = Random.Range(0, destinationSpawn.Length);
 
         Instantiate(passenger, passengerSpawn[randomPassenger], transform.rotation);
-
+        Instantiate(destination, destinationSpawn[randomDestination], transform.rotation);
     }
 
     // Update is called once per frame
@@ -27,6 +28,7 @@ public class RandomPassenger : MonoBehaviour
             int randomDestination = Random.Range(0, destinationSpawn.Length);
 
             Instantiate(passenger, passengerSpawn[randomPassenger], transform.rotation);
+            Instantiate(destination, destinationSpawn[randomDestination], transform.rotation);
             TaxiManager.destinationReached = false;
         }
     }

@@ -9,7 +9,7 @@ public class TaxiManager : MonoBehaviour
     public bool passengerInTaxi;
     public GameObject destination;
     public static bool destinationReached;
-    public GameObject reachedPassenger;
+    //public GameObject reachedPassenger;
     public GameObject summary;
     //public GameObject arrow;
 
@@ -20,7 +20,7 @@ public class TaxiManager : MonoBehaviour
         destination = GameObject.FindGameObjectWithTag("Destination");
         passengerInTaxi = false;
         destinationReached = false;
-        reachedPassenger.SetActive(false);
+        //reachedPassenger.SetActive(false);
         summary.SetActive(false);
         //arrow.SetActive(false);
 
@@ -32,14 +32,14 @@ public class TaxiManager : MonoBehaviour
         if (passengerInTaxi)
         {
             //passenger.transform.SetParent(this.transform);
-            passenger.SetActive(false);
-            //Destroy(passenger);
+            Destroy(passenger);
             Debug.Log("Gone");
         }
 
         if (destinationReached)
         {
-            reachedPassenger.SetActive(true);
+            //reachedPassenger.SetActive(true);
+            Destroy(destination);
             StartCoroutine(EndDay());
         }
     }
@@ -49,6 +49,7 @@ public class TaxiManager : MonoBehaviour
         if (other.gameObject.tag == "Passenger")
         {
             passengerInTaxi = true;
+
             //arrow.SetActive(true);
         }
         else if (other.gameObject.tag == "Destination")
