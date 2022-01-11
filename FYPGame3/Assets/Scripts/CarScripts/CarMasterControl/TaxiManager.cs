@@ -8,7 +8,7 @@ public class TaxiManager : MonoBehaviour
     public GameObject passenger;
     public bool passengerInTaxi;
     public GameObject destination;
-    public bool destinationReached;
+    public static bool destinationReached;
     public GameObject reachedPassenger;
     public GameObject summary;
     //public GameObject arrow;
