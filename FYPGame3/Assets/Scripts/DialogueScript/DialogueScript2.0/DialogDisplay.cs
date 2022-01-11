@@ -31,7 +31,7 @@ public class DialogDisplay : MonoBehaviour {
             AdvanceConversation();
         }
     }
-    void AdvanceConversation() {
+    public void AdvanceConversation() {
 		if(activeLineIndex < conversation.lines.Length) {
 			DisplayLine();
 			activeLineIndex += 1;
