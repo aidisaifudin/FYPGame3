@@ -31,7 +31,7 @@ public class Earnings : MonoBehaviour
 
     public void EarnMoney()
     {
-        earnings += 300;
+        earnings += 5;
         earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
     }
