@@ -33,7 +33,7 @@ public class ParseXML : MonoBehaviour {
 		XmlNode scoreNode = playerNode.NextSibling;
 		XmlNode dateNode = scoreNode.NextSibling;
 		
-		return "Player = " + playerNode.InnerXml + ", score = " + scoreNode.InnerXml + ", date = " + DateString(dateNode);
+		return "Player = " + playerNode.InnerXml ;
 	}
 	
 	string DateString(XmlNode dateNode) {
