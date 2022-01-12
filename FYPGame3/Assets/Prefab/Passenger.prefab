@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3455481526044995025}
   - component: {fileID: 1241405651151849148}
   - component: {fileID: 5069246354795499788}
+  - component: {fileID: -3682717919474466300}
   m_Layer: 0
   m_Name: Passenger
   m_TagString: Passenger
@@ -96,3 +97,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3682717919474466300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2835052299376391224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12641247ed6b99448b94025dc583b1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversation: {fileID: 11400000, guid: 83a684d54c925404fa6667388af88a31, type: 2}
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 0}
