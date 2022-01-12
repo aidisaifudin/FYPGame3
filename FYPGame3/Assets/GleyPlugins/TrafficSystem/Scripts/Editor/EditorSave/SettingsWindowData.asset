@@ -40,8 +40,8 @@ MonoBehaviour:
     maxSpeed: 50
     globalCarList: 
   roadDefaults:
-    nrOfLanes: 4
-    laneWidth: 2
+    nrOfLanes: 2
+    laneWidth: 4
     waypointDistance: 4
   roadColors:
     textColor: {r: 1, g: 1, b: 1, a: 1}
@@ -96,8 +96,9 @@ MonoBehaviour:
     showCars: 0
   speedRoutesSave:
     routesColor:
+    - {r: 0.2271074, g: 1, b: 0, a: 1}
     - {r: 1, g: 1, b: 1, a: 1}
-    active: 01
+    active: 0101
   carRoutesSave:
     routesColor:
     - {r: 1, g: 1, b: 1, a: 1}
