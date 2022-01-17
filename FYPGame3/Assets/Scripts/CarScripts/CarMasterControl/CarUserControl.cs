@@ -13,6 +13,11 @@ namespace UnityStandardAssets.Vehicles.Car
         public float Brake;
         public void AccelInput(float input) {  Accel = input; }
         public void BrakeInput(float input) {  Brake = input; }
+        public void SteerInput(float input) {  Steer = input; }
+
+        public GameObject UI;
+
+
         private void Awake()
         {
             // get the car controller
