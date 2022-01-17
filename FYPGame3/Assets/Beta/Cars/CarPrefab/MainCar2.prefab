@@ -813,6 +813,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa6e758bcf3956c4d9d25bc4720ec8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marker: {fileID: 0}
+  destination: {fileID: 0}
+  dest: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &1865859368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,11 +861,11 @@ MonoBehaviour:
   m_MaximumSteerAngle: 25
   m_SteerHelper: 0.6
   m_TractionControl: 1
-  m_FullTorqueOverAllWheels: 2500
-  m_ReverseTorque: 500
+  m_FullTorqueOverAllWheels: 1000
+  m_ReverseTorque: 100
   m_MaxHandbrakeTorque: 100000000
   m_Downforce: 100
-  m_SpeedType: 0
+  m_SpeedType: 1
   m_Topspeed: 20
   m_RevRangeBoundary: 10
   m_SlipLimit: 0.2

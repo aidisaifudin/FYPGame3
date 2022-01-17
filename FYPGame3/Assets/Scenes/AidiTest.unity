@@ -1031,7 +1031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Wheel: {fileID: 1061801512}
-  MaxSteerAngle: 200
+  MaxSteerAngle: 50
   ReleaseSpeed: 150
   OutPut: 0
   Car: {fileID: 1187143286}
@@ -1255,7 +1255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1192379827
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2624,6 +2624,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1865859369, guid: 432c30d743b59eb4483d819d1783b6db, type: 3}
+      propertyPath: m_Topspeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865859369, guid: 432c30d743b59eb4483d819d1783b6db, type: 3}
+      propertyPath: m_SpeedType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865859369, guid: 432c30d743b59eb4483d819d1783b6db, type: 3}
+      propertyPath: m_ReverseTorque
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865859369, guid: 432c30d743b59eb4483d819d1783b6db, type: 3}
+      propertyPath: m_FullTorqueOverAllWheels
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 8454167825322518485, guid: 432c30d743b59eb4483d819d1783b6db, type: 3}
       propertyPath: m_RootOrder
       value: 5
