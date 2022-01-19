@@ -10,21 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 929382b761954a14f8b91d84455e81c9, type: 3}
-  m_Name: New Conversation
+  m_Name: Passenger3Convo
   m_EditorClassIdentifier: 
   speakerLeft: {fileID: 11400000, guid: 70d68268e9463ca4a9c41b991c4bfe4c, type: 2}
-  speakerRight: {fileID: 11400000, guid: 8ff6e3b07f8093c4898f06fbcdb1af0b, type: 2}
+  speakerRight: {fileID: 11400000, guid: 6c2d911a27ee7b044ad16c6ae1b81ed5, type: 2}
   speakerCenter: {fileID: 0}
   lines:
   - character: {fileID: 11400000, guid: 70d68268e9463ca4a9c41b991c4bfe4c, type: 2}
     number: 0
-    text: Hello can I buy Insurance?
-  - character: {fileID: 11400000, guid: 8ff6e3b07f8093c4898f06fbcdb1af0b, type: 2}
-    number: 0
-    text: Sure you can !
+    text: 'Hello!
+
+'
   - character: {fileID: 11400000, guid: 70d68268e9463ca4a9c41b991c4bfe4c, type: 2}
     number: 0
-    text: Nice ! Thank you !
-  - character: {fileID: 11400000, guid: 8ff6e3b07f8093c4898f06fbcdb1af0b, type: 2}
+    text: 'Hello!
+
+'
+  - character: {fileID: 11400000, guid: 6c2d911a27ee7b044ad16c6ae1b81ed5, type: 2}
     number: 0
-    text: Your welcome !
+    text: "\u2026.\r\n"
+  - character: {fileID: 11400000, guid: 70d68268e9463ca4a9c41b991c4bfe4c, type: 2}
+    number: 0
+    text: Location?
+  - character: {fileID: 11400000, guid: 6c2d911a27ee7b044ad16c6ae1b81ed5, type: 2}
+    number: 0
+    text: ' Hospital please, thank you
+
+'

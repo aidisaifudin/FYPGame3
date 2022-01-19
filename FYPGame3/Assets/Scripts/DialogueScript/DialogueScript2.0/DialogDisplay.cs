@@ -31,6 +31,18 @@ public class DialogDisplay : MonoBehaviour {
             AdvanceConversation();
         }
     }
+
+    public void PauseConvo()
+    {
+        Time.timeScale = 0;
+
+    }
+
+    public void ResumeConvo()
+    {
+        Time.timeScale = 1;
+    }
+
     public void AdvanceConversation() {
 		if(activeLineIndex < conversation.lines.Length) {
 			DisplayLine();
