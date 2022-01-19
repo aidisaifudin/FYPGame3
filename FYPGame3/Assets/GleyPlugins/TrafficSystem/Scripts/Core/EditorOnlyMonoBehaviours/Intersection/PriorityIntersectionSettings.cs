@@ -59,6 +59,7 @@ namespace GleyTrafficSystem
             return enterWaypoints;
         }
 
+
         public override List<WaypointSettings> GetExitWaypoints()
         {
             return exitWaypoints;

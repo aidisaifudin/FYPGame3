@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using GleyUrbanAssets;
+using System.Collections.Generic;
 using UnityEngine;
 namespace GleyTrafficSystem
 {
     [System.Serializable]
-    public class PriorityIntersection : GenericIntersection
+    public partial class PriorityIntersection : GenericIntersection
     {
         public List<IntersectionStopWaypointsIndex> enterWaypoints;
         public List<int> exitWaypoints;
@@ -36,7 +37,7 @@ namespace GleyTrafficSystem
         /// <param name="waypointManager"></param>
         /// <param name="greenLightTime"></param>
         /// <param name="yellowLightTime"></param>
-        public override void Initialize(WaypointManager waypointManager, float greenLightTime, float yellowLightTime)
+        public override void Initialize(WaypointManagerBase waypointManager, float greenLightTime, float yellowLightTime)
         {
             carsInIntersection = new List<int>();
             requiredTime = 3;
@@ -44,13 +45,13 @@ namespace GleyTrafficSystem
             {
                 for (int j = 0; j < enterWaypoints[i].roadWaypoints.Count; j++)
                 {
-                    waypointManager.GetWaypoint(enterWaypoints[i].roadWaypoints[j]).SetIntersection(this, true, false, true, false);
+                    waypointManager.GetWaypoint<Waypoint>(enterWaypoints[i].roadWaypoints[j]).SetIntersection(this, true, false, true, false);
                 }
             }
 
             for (int i = 0; i < exitWaypoints.Count; i++)
             {
-                waypointManager.GetWaypoint(exitWaypoints[i]).SetIntersection(this, false, false, false, true);
+                waypointManager.GetWaypoint<Waypoint>(exitWaypoints[i]).SetIntersection(this, false, false, false, true);
             }
         }
 
@@ -196,9 +197,9 @@ namespace GleyTrafficSystem
             carsInIntersection.Add(vehicleIndex);
         }
 
-        public override void UpdateIntersection()
+        public override void UpdateIntersection(float realtimeSinceStartup)
         {
-            base.UpdateIntersection();
+            base.UpdateIntersection(realtimeSinceStartup);
             string text = name;
             for(int i=0;i<carsInIntersection.Count;i++)
             {

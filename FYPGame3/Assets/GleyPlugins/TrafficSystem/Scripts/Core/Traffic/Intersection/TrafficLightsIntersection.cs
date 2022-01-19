@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using GleyUrbanAssets;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GleyTrafficSystem
 {
     [System.Serializable]
-    public class TrafficLightsIntersection : GenericIntersection
+    public partial class TrafficLightsIntersection : GenericIntersection
     {
         public List<IntersectionStopWaypointsIndex> stopWaypoints;
         public float greenLightTime;
@@ -17,6 +18,7 @@ namespace GleyTrafficSystem
         private int currentRoad;
         private bool yellowLight;
         private bool stopUpdate;
+        public bool hasPedestrians;
         private TrafficLightsBehaviour trafficLightsBehaviour;
         private TrafficLightsBehaviour TrafficLightsBehaviour
         {
@@ -53,10 +55,10 @@ namespace GleyTrafficSystem
         /// <param name="waypointManager"></param>
         /// <param name="greenLightTime"></param>
         /// <param name="yellowLightTime"></param>
-        public override void Initialize(WaypointManager waypointManager, float greenLightTime, float yellowLightTime)
+        public override void Initialize(WaypointManagerBase waypointManager, float greenLightTime, float yellowLightTime)
         {
             nrOfRoads = stopWaypoints.Count;
-
+            GetPedestrianRoads();
             if (nrOfRoads == 0)
             {
                 Debug.LogWarning("Intersection " + name + " has some unassigned references");
@@ -67,17 +69,18 @@ namespace GleyTrafficSystem
             {
                 for (int j = 0; j < stopWaypoints[i].roadWaypoints.Count; j++)
                 {
-                    waypointManager.GetWaypoint(stopWaypoints[i].roadWaypoints[j]).SetIntersection(this, false, true, false, false);
+                    waypointManager.GetWaypoint<Waypoint>(stopWaypoints[i].roadWaypoints[j]).SetIntersection(this, false, true, false, false);
                 }
             }
 
             intersectionState = new TrafficLightsColor[nrOfRoads];
+
             currentRoad = Random.Range(0, nrOfRoads);
             ChangeCurrentRoadColors(currentRoad, TrafficLightsColor.Green);
             ChangeAllRoadsExceptSelectd(currentRoad, TrafficLightsColor.Red);
             ApplyColorChanges();
 
-            currentTime = Time.realtimeSinceStartup;
+            currentTime = 0;
             if (greenLightTime >= 0)
             {
                 this.greenLightTime = greenLightTime;
@@ -88,35 +91,37 @@ namespace GleyTrafficSystem
             }
         }
 
+        partial void GetPedestrianRoads();
+
 
         /// <summary>
         /// Change traffic lights color
         /// </summary>
-        public override void UpdateIntersection()
+        public override void UpdateIntersection(float realtimeSinceStartup)
         {
             if (stopUpdate)
                 return;
 
             if (yellowLight == false)
             {
-                if (Time.realtimeSinceStartup - currentTime > greenLightTime)
+                if (realtimeSinceStartup - currentTime > greenLightTime)
                 {
                     ChangeCurrentRoadColors(currentRoad, TrafficLightsColor.Yellow);
                     ApplyColorChanges();
                     yellowLight = true;
-                    currentTime = Time.realtimeSinceStartup;
+                    currentTime = realtimeSinceStartup;
                 }
             }
             else
             {
-                if (Time.realtimeSinceStartup - currentTime > yellowLightTime)
+                if (realtimeSinceStartup - currentTime > yellowLightTime)
                 {
                     ChangeCurrentRoadColors(currentRoad, TrafficLightsColor.Red);
                     currentRoad++;
                     currentRoad = GetValidValue(currentRoad);
                     ChangeCurrentRoadColors(currentRoad, TrafficLightsColor.Green);
                     yellowLight = false;
-                    currentTime = Time.realtimeSinceStartup;
+                    currentTime = realtimeSinceStartup;
                     ApplyColorChanges();
                 }
             }
@@ -162,9 +167,16 @@ namespace GleyTrafficSystem
             {
                 //change waypoint color
                 UpdateCurrentIntersectionWaypoints(i, intersectionState[i] != TrafficLightsColor.Green);
-
-                //change traffic lights color
-                TrafficLightsBehaviour(intersectionState[i], stopWaypoints[i].redLightObjects, stopWaypoints[i].yellowLightObjects, stopWaypoints[i].greenLightObjects, name);
+                
+                if (i < stopWaypoints.Count)
+                {
+                    //change traffic lights color
+                    TrafficLightsBehaviour(intersectionState[i], stopWaypoints[i].redLightObjects, stopWaypoints[i].yellowLightObjects, stopWaypoints[i].greenLightObjects, name);
+                }
+                else
+                {
+                    Debug.Log("Update pedestrian waypoints");
+                }
             }
         }
 
@@ -176,11 +188,18 @@ namespace GleyTrafficSystem
         /// <param name="stop"></param>
         private void UpdateCurrentIntersectionWaypoints(int road, bool stop)
         {
+            if (hasPedestrians && road >= stopWaypoints.Count)
+            {
+                TriggerPedestrianWaypointsUpdate(stop);
+                return;
+            }
             for (int j = 0; j < stopWaypoints[road].roadWaypoints.Count; j++)
             {
-                WaypointEvents.TriggerStopIndicatorChangedEvent(stopWaypoints[road].roadWaypoints[j], stop);
+                WaypointEvents.TriggerTrafficLightChangedEvent(stopWaypoints[road].roadWaypoints[j], stop);
             }
         }
+
+        partial void TriggerPedestrianWaypointsUpdate(bool stop);
 
 
         /// <summary>

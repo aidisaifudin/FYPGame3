@@ -1,32 +1,26 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     public class LayerOperations
     {
-        public static LayerSetup LoadOrCreateLayers()
+        public static T LoadOrCreateLayers<T>(string path) where T:ScriptableObject
         {
-            LayerSetup layerSetup = (LayerSetup)AssetDatabase.LoadAssetAtPath("Assets/GleyPlugins/TrafficSystem/Resources/LayerSetupData.asset", typeof(LayerSetup));
+            T layerSetup = (T)AssetDatabase.LoadAssetAtPath(path, typeof(T));
             if (layerSetup == null)
             {
-                LayerSetup asset = ScriptableObject.CreateInstance<LayerSetup>();
-                FileCreator.CreateFolder("Assets/GleyPlugins/TrafficSystem/Resources");
-                AssetDatabase.CreateAsset(asset, "Assets/GleyPlugins/TrafficSystem/Resources/LayerSetupData.asset");
+                T asset = ScriptableObject.CreateInstance<T>();
+                string folderPath = path.Remove(path.LastIndexOf('/'));
+                FileCreator.CreateFolder(folderPath);
+                AssetDatabase.CreateAsset(asset, path);
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
 
-                layerSetup = (LayerSetup)AssetDatabase.LoadAssetAtPath("Assets/GleyPlugins/TrafficSystem/Resources/LayerSetupData.asset", typeof(LayerSetup));
+                layerSetup = (T)AssetDatabase.LoadAssetAtPath(path, typeof(T));
             }
 
             return layerSetup;
-        }
-
-
-        public static LayerMask LoadRoadLayers()
-        {
-            LayerSetup layerSetup = LoadOrCreateLayers();
-            return layerSetup.roadLayers;
         }
     }
 }

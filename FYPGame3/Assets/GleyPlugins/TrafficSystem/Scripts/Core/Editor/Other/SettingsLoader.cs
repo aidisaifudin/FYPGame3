@@ -2,58 +2,59 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
-    public static class SettingsLoader
+    public partial class SettingsLoader
     {
-        private static SettingsWindowData LoadSettingsAsset()
+        private string path;
+
+
+        public SettingsLoader(string path)
         {
-            SettingsWindowData settingsWindowData = (SettingsWindowData)AssetDatabase.LoadAssetAtPath("Assets/GleyPlugins/TrafficSystem/Scripts/Editor/EditorSave/SettingsWindowData.asset", typeof(SettingsWindowData));
+            this.path = path;
+        }
+
+
+        private SettingsWindowData LoadSettingsAsset()
+        {
+            SettingsWindowData settingsWindowData = (SettingsWindowData)AssetDatabase.LoadAssetAtPath(path, typeof(SettingsWindowData));
+
             if (settingsWindowData == null)
             {
                 SettingsWindowData asset = ScriptableObject.CreateInstance<SettingsWindowData>();
-                if (!AssetDatabase.IsValidFolder("Assets/GleyPlugins"))
+                string[] pathFolders = path.Split('/');
+                string tempPath = pathFolders[0];
+                if (path.Contains("Pedestrian"))
                 {
-                    AssetDatabase.CreateFolder("Assets/", "GleyPlugins");
-                    AssetDatabase.Refresh();
+                    asset.roadDefaults = new RoadDefaults(1, 1, 4);
+                }
+                else
+                {
+                    asset.roadDefaults = new RoadDefaults(2, 4, 4);
+                }
+                for (int i = 1; i < pathFolders.Length - 1; i++)
+                {
+                    if (!AssetDatabase.IsValidFolder(tempPath + "/" + pathFolders[i]))
+                    {
+                        AssetDatabase.CreateFolder(tempPath, pathFolders[i]);
+                        AssetDatabase.Refresh();
+                    }
+
+                    tempPath += "/" + pathFolders[i];
                 }
 
-                if (!AssetDatabase.IsValidFolder("Assets/GleyPlugins/TrafficSystem"))
-                {
-                    AssetDatabase.CreateFolder("Assets/GleyPlugins", "TrafficSystem");
-                    AssetDatabase.Refresh();
-                }
-
-                if (!AssetDatabase.IsValidFolder("Assets/GleyPlugins/TrafficSystem/Scripts"))
-                {
-                    AssetDatabase.CreateFolder("Assets/GleyPlugins/TrafficSystem", "Scripts");
-                    AssetDatabase.Refresh();
-                }
-
-                if (!AssetDatabase.IsValidFolder("Assets/GleyPlugins/TrafficSystem/Scripts/Editor"))
-                {
-                    AssetDatabase.CreateFolder("Assets/GleyPlugins/TrafficSystem/Scripts", "Editor");
-                    AssetDatabase.Refresh();
-                }
-
-                if (!AssetDatabase.IsValidFolder("Assets/GleyPlugins/TrafficSystem/Scripts/Editor/EditorSave"))
-                {
-                    AssetDatabase.CreateFolder("Assets/GleyPlugins/TrafficSystem/Scripts/Editor", "EditorSave");
-                    AssetDatabase.Refresh();
-                }
-
-                AssetDatabase.CreateAsset(asset, "Assets/GleyPlugins/TrafficSystem/Scripts/Editor/EditorSave/SettingsWindowData.asset");
+                AssetDatabase.CreateAsset(asset, path);
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
 
-                settingsWindowData = (SettingsWindowData)AssetDatabase.LoadAssetAtPath("Assets/GleyPlugins/TrafficSystem/Scripts/Editor/EditorSave/SettingsWindowData.asset", typeof(SettingsWindowData));
+                settingsWindowData = (SettingsWindowData)AssetDatabase.LoadAssetAtPath(path, typeof(SettingsWindowData));
             }
 
             return settingsWindowData;
         }
 
 
-        public static void SaveCreateRoadSettings(CreateRoadSave createRoadSave, RoadColors roadColors)
+        internal void SaveCreateRoadSettings(CreateRoadSave createRoadSave, RoadColors roadColors)
         {
             SettingsWindowData settingsWindowData = LoadSettingsAsset();
             settingsWindowData.createRoadSave = createRoadSave;
@@ -62,13 +63,13 @@ namespace GleyTrafficSystem
         }
 
 
-        public static CreateRoadSave LoadCreateRoadSave()
+        internal CreateRoadSave LoadCreateRoadSave()
         {
             return LoadSettingsAsset().createRoadSave;
         }
 
 
-        public static void SaveViewRoadsSettings(ViewRoadsSave viewRoadsSave, RoadColors roadColors)
+        internal void SaveViewRoadsSettings(ViewRoadsSave viewRoadsSave, RoadColors roadColors)
         {
             SettingsWindowData settingsWindowData = LoadSettingsAsset();
             settingsWindowData.roadColors = roadColors;
@@ -77,13 +78,13 @@ namespace GleyTrafficSystem
         }
 
 
-        public static ViewRoadsSave LoadViewRoadsSave()
+        internal ViewRoadsSave LoadViewRoadsSave()
         {
             return LoadSettingsAsset().viewRoadsSave;
         }
 
 
-        public static void SaveConnectRoadsSettings(ConnectRoadsSave connectRoadsSave, RoadColors roadColors)
+        internal void SaveConnectRoadsSettings(ConnectRoadsSave connectRoadsSave, RoadColors roadColors)
         {
             SettingsWindowData settingsWindowData = LoadSettingsAsset();
             settingsWindowData.connectRoadsSave = connectRoadsSave;
@@ -92,37 +93,47 @@ namespace GleyTrafficSystem
         }
 
 
-        public static ConnectRoadsSave LoadConnectRoadsSave()
+        internal ConnectRoadsSave LoadConnectRoadsSave()
         {
             return LoadSettingsAsset().connectRoadsSave;
         }
 
 
-        public static void SaveEditRoadSettings(EditRoadSave editRoadSave, bool[] allowedCarIndex, RoadColors roadColors, RoadDefaults roadDefaults)
+        internal RoadDefaults LoadRoadDefaultsSave()
+        {
+            return LoadSettingsAsset().roadDefaults;
+        }
+
+
+        internal RoadColors LoadRoadColors()
+        {
+            return LoadSettingsAsset().roadColors;
+        }
+
+
+        internal void SaveRoadColors(RoadColors roadColors)
         {
             SettingsWindowData settingsWindowData = LoadSettingsAsset();
-            editRoadSave.globalCarList = new List<VehicleTypes>();
-            for (int i=0;i<allowedCarIndex.Length;i++)
-            {
-                if(allowedCarIndex[i]==true)
-                {
-                    editRoadSave.globalCarList.Add((VehicleTypes)i);
-                }
-            }
-            settingsWindowData.editRoadSave = editRoadSave;
             settingsWindowData.roadColors = roadColors;
-            settingsWindowData.roadDefaults = roadDefaults;
             EditorUtility.SetDirty(settingsWindowData);
         }
 
 
-        public static EditRoadSave LoadEditRoadSave()
+        internal void SaveCarRoutes(CarRoutesSave carRoutesSave)
         {
-            return LoadSettingsAsset().editRoadSave;
+            SettingsWindowData settingsWindowData = LoadSettingsAsset();
+            settingsWindowData.carRoutesSave = carRoutesSave;
+            EditorUtility.SetDirty(settingsWindowData);
         }
 
 
-        public static void SaveAllWaypointsSettings(ViewWaypointsSettings allWaypointsSettings, RoadColors roadColors)
+        internal CarRoutesSave LoadCarRoutes()
+        {
+            return LoadSettingsAsset().carRoutesSave;
+        }
+
+
+        internal void SaveAllWaypointsSettings(ViewWaypointsSettings allWaypointsSettings, RoadColors roadColors)
         {
             SettingsWindowData settingsWindowData = LoadSettingsAsset();
             settingsWindowData.allWaypointsSettings = allWaypointsSettings;
@@ -130,20 +141,12 @@ namespace GleyTrafficSystem
             EditorUtility.SetDirty(settingsWindowData);
         }
 
-
-        public static RoadDefaults LoadRoadDefaultsSave()
-        {
-            return LoadSettingsAsset().roadDefaults;
-        }
-
-
-        public static ViewWaypointsSettings LoadAllWaypointsSave()
+        internal ViewWaypointsSettings LoadAllWaypointsSave()
         {
             return LoadSettingsAsset().allWaypointsSettings;
         }
 
-
-        public static void SaveDisconnectedWaypointsSettings(ViewWaypointsSettings disconnectedWaypointsSettings, RoadColors roadColors)
+        internal void SaveDisconnectedWaypointsSettings(ViewWaypointsSettings disconnectedWaypointsSettings, RoadColors roadColors)
         {
             SettingsWindowData settingsWindowData = LoadSettingsAsset();
             settingsWindowData.disconnectedWaypointsSettings = disconnectedWaypointsSettings;
@@ -151,29 +154,12 @@ namespace GleyTrafficSystem
             EditorUtility.SetDirty(settingsWindowData);
         }
 
-
-        public static ViewWaypointsSettings LoadDisconnectedWaypointsSave()
+        internal ViewWaypointsSettings LoadDisconnectedWaypointsSave()
         {
             return LoadSettingsAsset().disconnectedWaypointsSettings;
         }
 
-
-        public static void SaveGiveWayWaypointsSettings(ViewWaypointsSettings giveWayWaypointsSettings, RoadColors roadColors)
-        {
-            SettingsWindowData settingsWindowData = LoadSettingsAsset();
-            settingsWindowData.giveWayWaypointsSettings = giveWayWaypointsSettings;
-            settingsWindowData.roadColors = roadColors;
-            EditorUtility.SetDirty(settingsWindowData);
-        }
-
-
-        public static ViewWaypointsSettings LoadGiveWayWaypointsSave()
-        {
-            return LoadSettingsAsset().giveWayWaypointsSettings;
-        }
-
-
-        public static void SaveCarEditedWaypointsSettings(ViewWaypointsSettings carEditedWaypointsSettings, RoadColors roadColors)
+        internal void SaveCarEditedWaypointsSettings(ViewWaypointsSettings carEditedWaypointsSettings, RoadColors roadColors)
         {
             SettingsWindowData settingsWindowData = LoadSettingsAsset();
             settingsWindowData.carEditedWaypointsSettings = carEditedWaypointsSettings;
@@ -181,44 +167,12 @@ namespace GleyTrafficSystem
             EditorUtility.SetDirty(settingsWindowData);
         }
 
-
-        public static ViewWaypointsSettings LoadCarEditedWaypointsSave()
+        internal ViewWaypointsSettings LoadCarEditedWaypointsSave()
         {
             return LoadSettingsAsset().carEditedWaypointsSettings;
         }
 
-
-        public static void SaveSpeedEditedWaypointsSettings(ViewWaypointsSettings speedEditedWaypointsSettings, RoadColors roadColors)
-        {
-            SettingsWindowData settingsWindowData = LoadSettingsAsset();
-            settingsWindowData.speedEditedWaypointsSettings = speedEditedWaypointsSettings;
-            settingsWindowData.roadColors = roadColors;
-            EditorUtility.SetDirty(settingsWindowData);
-        }
-
-
-        public static ViewWaypointsSettings LoadSpeedEditedWaypointsSave()
-        {
-            return LoadSettingsAsset().speedEditedWaypointsSettings;
-        }
-
-
-        public static void SaveStopWaypointsSettings(ViewWaypointsSettings stopWaypointsSettings, RoadColors roadColors)
-        {
-            SettingsWindowData settingsWindowData = LoadSettingsAsset();
-            settingsWindowData.stopWaypointsSettings = stopWaypointsSettings;
-            settingsWindowData.roadColors = roadColors;
-            EditorUtility.SetDirty(settingsWindowData);
-        }
-
-
-        public static ViewWaypointsSettings LoadStopdWaypointsSave()
-        {
-            return LoadSettingsAsset().stopWaypointsSettings;
-        }
-
-
-        public static void SavePathProblemsWaypointsSettings(ViewWaypointsSettings pathProblemsWaypointsSettings, RoadColors roadColors)
+        internal void SavePathProblemsWaypointsSettings(ViewWaypointsSettings pathProblemsWaypointsSettings, RoadColors roadColors)
         {
             SettingsWindowData settingsWindowData = LoadSettingsAsset();
             settingsWindowData.pathProblemsWaypointsSettings = pathProblemsWaypointsSettings;
@@ -226,60 +180,9 @@ namespace GleyTrafficSystem
             EditorUtility.SetDirty(settingsWindowData);
         }
 
-
-        public static ViewWaypointsSettings LoadPathProblemsWaypointsSave()
+        internal ViewWaypointsSettings LoadPathProblemsWaypointsSave()
         {
             return LoadSettingsAsset().pathProblemsWaypointsSettings;
-        }
-
-
-        public static RoadColors LoadRoadColors()
-        {
-            return LoadSettingsAsset().roadColors;
-        }
-
-
-        public static void SaveRoadColors(RoadColors roadColors)
-        {
-            SettingsWindowData settingsWindowData = LoadSettingsAsset();
-            settingsWindowData.roadColors = roadColors;
-            EditorUtility.SetDirty(settingsWindowData);
-        }
-
-        public static void SaveSpeedRoutes(SpeedRoutesSave speedRoutesSave)
-        {
-            SettingsWindowData settingsWindowData = LoadSettingsAsset();
-            settingsWindowData.speedRoutesSave = speedRoutesSave;
-            EditorUtility.SetDirty(settingsWindowData);
-        }
-
-        public static SpeedRoutesSave LoadSpeedRoutes()
-        {
-            return LoadSettingsAsset().speedRoutesSave;
-        }
-
-        public static void SaveCarRoutes(CarRoutesSave carRoutesSave)
-        {
-            SettingsWindowData settingsWindowData = LoadSettingsAsset();
-            settingsWindowData.carRoutesSave = carRoutesSave;
-            EditorUtility.SetDirty(settingsWindowData);
-        }
-
-        public static CarRoutesSave LoadCarRoutes()
-        {
-            return LoadSettingsAsset().carRoutesSave;
-        }
-
-        public static void SaveIntersectionsSettings(IntersectionSave intersectionSave)
-        {
-            SettingsWindowData settingsWindowData = LoadSettingsAsset();
-            settingsWindowData.intersectionSave = intersectionSave;
-            EditorUtility.SetDirty(settingsWindowData);
-        }
-
-        public static IntersectionSave LoadIntersectionsSettings()
-        {
-            return LoadSettingsAsset().intersectionSave;
         }
     }
 }

@@ -4,29 +4,29 @@ using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     public class FileCreator
     {
-        public static void CreateVehicleTypesFile(List<string> carCategories)
+        public static void CreateVehicleTypesFile<T>(List<string> carCategories, string directive, string fileNamespace, string folderPath) where T : struct, IConvertible
         {
             if (carCategories == null)
             {
                 carCategories = new List<string>();
-                var allCarTypes = Enum.GetValues(typeof(VehicleTypes)).Cast<VehicleTypes>();
-                foreach (VehicleTypes car in allCarTypes)
+                var allCarTypes = Enum.GetValues(typeof(T)).Cast<T>();
+                foreach (T car in allCarTypes)
                 {
                     carCategories.Add(car.ToString());
                 }
             }
 
-            CreateFolder("Assets/GleyPlugins/TrafficSystem/Resources");
+            CreateFolder("Assets" + folderPath);
 
             string text =
-            "#if USE_GLEY_TRAFFIC\n" +
-            "namespace GleyTrafficSystem\n" +
+            "#if " + directive + "\n" +
+            "namespace " + fileNamespace + "\n" +
             "{\n" +
-            "\tpublic enum VehicleTypes\n" +
+            "\tpublic enum " + typeof(T).Name + "\n" +
             "\t{\n";
             for (int i = 0; i < carCategories.Count; i++)
             {
@@ -36,8 +36,8 @@ namespace GleyTrafficSystem
                 "}\n" +
                 "#endif";
 
-            File.WriteAllText(Application.dataPath + "/GleyPlugins/TrafficSystem/Resources/VehicleTypes.cs", text);
-            Gley.Common.PreprocessorDirective.AddToCurrent(Gley.Common.Constants.USE_GLEY_TRAFFIC, false);
+            File.WriteAllText(Application.dataPath + folderPath +"/"+ typeof(T).Name + ".cs", text);
+            Gley.Common.PreprocessorDirective.AddToCurrent(directive, false);
 
             AssetDatabase.Refresh();
         }
@@ -59,6 +59,11 @@ namespace GleyTrafficSystem
                     tempPath += "/";
                 }
             }
+        }
+
+        internal static void CreateVehicleTypesFile<T>(List<string> carCategories, string uSE_GLEY_PEDESTRIANS, string pedestrianNamespace, object agentTypesPath)
+        {
+            throw new NotImplementedException();
         }
     }
 }

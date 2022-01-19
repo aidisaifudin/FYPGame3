@@ -31,14 +31,6 @@ MonoBehaviour:
       viewWaypoints: 0
       viewLaneChanges: 0
     waypointDistance: 4
-  editRoadSave:
-    viewRoadsSettings:
-      viewLanes: 0
-      viewWaypoints: 1
-      viewLaneChanges: 1
-    moveTool: 1
-    maxSpeed: 50
-    globalCarList: 
   roadDefaults:
     nrOfLanes: 4
     laneWidth: 2
@@ -59,6 +51,10 @@ MonoBehaviour:
     prevWaypointColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
     speedColor: {r: 1, g: 1, b: 1, a: 1}
     carsColor: {r: 0, g: 1, b: 0, a: 1}
+  carRoutesSave:
+    routesColor:
+    - {r: 1, g: 1, b: 1, a: 1}
+    active: 01
   allWaypointsSettings:
     showConnections: 1
     showOtherLanes: 0
@@ -74,6 +70,19 @@ MonoBehaviour:
     showOtherLanes: 0
     showSpeed: 0
     showCars: 0
+  pathProblemsWaypointsSettings:
+    showConnections: 0
+    showOtherLanes: 0
+    showSpeed: 0
+    showCars: 0
+  editRoadSave:
+    viewRoadsSettings:
+      viewLanes: 0
+      viewWaypoints: 1
+      viewLaneChanges: 1
+    moveTool: 1
+    maxSpeed: 50
+    globalCarList: 
   speedEditedWaypointsSettings:
     showConnections: 0
     showOtherLanes: 0
@@ -89,20 +98,11 @@ MonoBehaviour:
     showOtherLanes: 0
     showSpeed: 0
     showCars: 0
-  pathProblemsWaypointsSettings:
-    showConnections: 0
-    showOtherLanes: 0
-    showSpeed: 0
-    showCars: 0
   speedRoutesSave:
     routesColor:
     - {r: 0.2271074, g: 1, b: 0, a: 1}
     - {r: 1, g: 1, b: 1, a: 1}
     active: 0101
-  carRoutesSave:
-    routesColor:
-    - {r: 1, g: 1, b: 1, a: 1}
-    active: 01
   intersectionSave:
     showAll: 1
     showExit: 1

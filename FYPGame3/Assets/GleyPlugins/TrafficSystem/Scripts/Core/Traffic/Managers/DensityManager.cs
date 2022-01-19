@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using GleyUrbanAssets;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Collections;
 #if USE_GLEY_TRAFFIC
 using Unity.Mathematics;
@@ -13,14 +15,15 @@ namespace GleyTrafficSystem
     /// </summary>
     public class DensityManager : MonoBehaviour
     {
+        private PositionValidator positionValidator;
+        private GridManager gridManager;
 #if USE_GLEY_TRAFFIC
         private TrafficVehicles trafficVehicles;
         private WaypointManager waypointManager;
-        private CurrentSceneData currentSceneData;
         private int maxNrOfVehicles;
         private int currentnrOfVehicles;
 
-        private NativeArray<float3> activeCameraPositions;
+
         private bool newVehicleRequested;
 
 
@@ -34,19 +37,20 @@ namespace GleyTrafficSystem
         /// <param name="activeCameras"></param>
         /// <param name="maxNrOfVehicles">Is the maximum allowed number of vehicles in the current scene. It cannot be increased later</param>
         /// <returns></returns>
-        public DensityManager Initialize(TrafficVehicles trafficVehicles, WaypointManager waypointManager, CurrentSceneData currentSceneData, NativeArray<float3> activeCameraPositions, int maxNrOfVehicles, Vector3 playerPosition, Vector3 playerDirection)
+        public DensityManager Initialize(TrafficVehicles trafficVehicles, WaypointManager waypointManager, GridManager gridManager, PositionValidator positionValidator, NativeArray<float3> activeCameraPositions, int maxNrOfVehicles, Vector3 playerPosition, Vector3 playerDirection)
         {
-
+            this.positionValidator = positionValidator;
             this.trafficVehicles = trafficVehicles;
             this.waypointManager = waypointManager;
-            this.activeCameraPositions = activeCameraPositions;
-            this.currentSceneData = currentSceneData;
+
+            this.gridManager = gridManager;
             this.maxNrOfVehicles = maxNrOfVehicles;
             List<GridCell> gridCells = new List<GridCell>();
             for (int i = 0; i < activeCameraPositions.Length; i++)
             {
-                gridCells.Add(currentSceneData.GetCell(activeCameraPositions[i].x, activeCameraPositions[i].z));
+                gridCells.Add(gridManager.GetCell(activeCameraPositions[i].x, activeCameraPositions[i].z));
             }
+
             LoadInitialVehicles(gridCells, playerPosition, playerDirection);
 
             return this;
@@ -63,13 +67,7 @@ namespace GleyTrafficSystem
         }
 
 
-        /// <summary>
-        /// Update active grid cells. Only active grid cells are allowed to perform additional operations like updating traffic lights  
-        /// </summary>
-        public void UpdateGrid(int level)
-        {
-            currentSceneData.UpdateActiveCells(activeCameraPositions, level);
-        }
+
 
 
         /// <summary>
@@ -79,7 +77,7 @@ namespace GleyTrafficSystem
         {
             if (currentnrOfVehicles < maxNrOfVehicles)
             {
-                GridCell gridCell = currentSceneData.GetCell(activeCameraPositions[activeCameraIndex].x, activeCameraPositions[activeCameraIndex].z);
+                GridCell gridCell = gridManager.GetCell(activeCameraIndex);
                 AddVehicle(false, gridCell.row, gridCell.column, playerPosition, playerDirection);
             }
         }
@@ -104,10 +102,10 @@ namespace GleyTrafficSystem
         /// <summary>
         /// Update the active camera used to determine if a vehicle is in view
         /// </summary>
-        /// <param name="activeCameras"></param>
-        public void UpdateCameraPositions(NativeArray<float3> activeCameras)
+        /// <param name="activeCamerasPosition"></param>
+        public void UpdateCameraPositions(Transform[] activeCameras)
         {
-            activeCameraPositions = activeCameras;
+            positionValidator.UpdateCamera(activeCameras);
         }
 
 
@@ -144,7 +142,7 @@ namespace GleyTrafficSystem
             //if an idle vehicle exists
             if (idleVehicleIndex != -1)
             {
-                int freeWaypointIndex = waypointManager.GetFreeWaypointToInstantiate(firstTime, currentGridRow, currentGridColumn, trafficVehicles.GetVehicleType(idleVehicleIndex), trafficVehicles.GetHalfVehicleLength(idleVehicleIndex), trafficVehicles.GetVehicleHeight(idleVehicleIndex), trafficVehicles.GetVehicleWidth(idleVehicleIndex), trafficVehicles.GetFrontWheelOffset(idleVehicleIndex), playerPosition, playerDirection);
+                int freeWaypointIndex = GetFreeWaypointToInstantiate(firstTime, currentGridRow, currentGridColumn, trafficVehicles.GetVehicleType(idleVehicleIndex), trafficVehicles.GetHalfVehicleLength(idleVehicleIndex), trafficVehicles.GetVehicleHeight(idleVehicleIndex), trafficVehicles.GetVehicleWidth(idleVehicleIndex), trafficVehicles.GetFrontWheelOffset(idleVehicleIndex), playerPosition, playerDirection);
 
                 //if a free waypoint exists
                 if (freeWaypointIndex != -1)
@@ -156,13 +154,60 @@ namespace GleyTrafficSystem
                         currentnrOfVehicles++;
                         int index = vehicle.GetIndex();
                         waypointManager.SetTargetWaypoint(index, freeWaypointIndex);
-                        trafficVehicles.ActivateVehicle(vehicle, waypointManager.GetTargetPosition(index), waypointManager.GetTargetRotation(index));
+                        trafficVehicles.ActivateVehicle(vehicle, waypointManager.GetTargetWaypointPosition(index), waypointManager.GetTargetWaypointRotation(index));
                         DensityEvents.TriggerVehicleAddedEvent(index);
                     }
                 }
             }
         }
 
+
+        /// <summary>
+        /// Get a random free waypoint from a grid cell
+        /// </summary>
+        /// <param name="firstTime"></param>
+        /// <param name="currentGridRow"></param>
+        /// <param name="currentGridColumn"></param>
+        /// <param name="carType"></param>
+        /// <param name="halfCarLength"></param>
+        /// <param name="halfCarHeight"></param>
+        /// <returns></returns>
+        int GetFreeWaypointToInstantiate(bool firstTime, int currentGridRow, int currentGridColumn, VehicleTypes carType, float halfCarLength, float halfCarHeight, float halfCarWidth, float frontWheelOffset, Vector3 playerPosition, Vector3 playerDirection)
+        {
+            int freeWaypointIndex;
+
+            //get a free waypoint with the specified characteristics
+            if (firstTime)
+            {
+                freeWaypointIndex = gridManager.GetNeighborCellWaypoint(currentGridRow, currentGridColumn, UnityEngine.Random.Range(0, 2), carType, playerPosition, playerDirection);
+            }
+            else
+            {
+                freeWaypointIndex = gridManager.GetNeighborCellWaypoint(currentGridRow, currentGridColumn, 1, carType, playerPosition, playerDirection);
+            }
+
+            if (freeWaypointIndex != -1)
+            {
+                //if a valid waypoint was found, check if it was not manually disabled
+                if (waypointManager.IsDisabled(freeWaypointIndex))
+                {
+                    return -1;
+                }
+
+                //check if the car type can be instantiated on selected waypoint
+                if (positionValidator.IsValid(waypointManager.GetWaypointPosition(freeWaypointIndex), halfCarLength, halfCarHeight, halfCarWidth, firstTime, frontWheelOffset, waypointManager.GetOrientation(freeWaypointIndex)))
+                {
+                    return freeWaypointIndex;
+                }
+            }
+
+            return -1;
+        }
+
+        internal bool IsWaypointFree(int waypointIndex, float halfCarLength, float halfCarHeight, float halfCarWidth, float frontWheelOffset)
+        {
+            return positionValidator.IsValid(waypointManager.GetWaypointPosition(waypointIndex), halfCarLength, halfCarHeight, halfCarWidth, true, frontWheelOffset, waypointManager.GetOrientation(waypointIndex));
+        }
         public void AddVehicleAtPosition(Vector3 position, VehicleTypes type)
         {
             if (newVehicleRequested == false)
@@ -170,6 +215,51 @@ namespace GleyTrafficSystem
                 newVehicleRequested = true;
                 StartCoroutine(WaitForAddVehicle(position, type));
             }
+        }
+
+        /// <summary>
+        /// Makes waypoints on a given radius unavailable
+        /// </summary>
+        /// <param name="center"></param>
+        /// <param name="radius"></param>
+        public void DisableAreaWaypoints(Vector3 center, float radius)
+        {
+            GridCell cell = gridManager.GetCell(center);
+            List<Vector2Int> neighbors = gridManager.GetCellNeighbors(cell.row, cell.column, 1, false);
+            for (int i = neighbors.Count - 1; i >= 0; i--)
+            {
+                cell = gridManager.GetCell(neighbors[i]);
+                for (int j = 0; j < cell.waypointsInCell.Count; j++)
+                {
+                    Waypoint waypoint = waypointManager.GetWaypoint<Waypoint>(cell.waypointsInCell[j]);
+                    if (Vector3.SqrMagnitude(center - waypoint.position) < radius)
+                    {
+                        waypointManager.AddDisabledWaypoints(waypoint);
+                    }
+                }
+            }
+        }
+
+
+        internal int GetClosestWayoint(Vector3 position, VehicleTypes type)
+        {
+            List<SpawnWaypoint> possibleWaypoints = gridManager.GetCell(position.x, position.z).spawnWaypoints.Where(cond1 => cond1.allowedVehicles.Contains((int)type)).ToList();
+
+            if (possibleWaypoints.Count == 0)
+                return -1;
+
+            float distance = float.MaxValue;
+            int waypointIndex = -1;
+            for (int i = 0; i < possibleWaypoints.Count; i++)
+            {
+                float newDistance = Vector3.SqrMagnitude(waypointManager.GetWaypointPosition(possibleWaypoints[i].waypointIndex) - position);
+                if (newDistance < distance)
+                {
+                    distance = newDistance;
+                    waypointIndex = possibleWaypoints[i].waypointIndex;
+                }
+            }
+            return waypointIndex;
         }
 
         IEnumerator WaitForAddVehicle(Vector3 position, VehicleTypes type)
@@ -182,10 +272,10 @@ namespace GleyTrafficSystem
                 idleVehicleIndex = trafficVehicles.GetIdleVehicleIndexOfType(type);
             }
 
-            
+
 
             //get closest waypoint
-            int waypointIndex = waypointManager.GetClosestWayoint(position, type);
+            int waypointIndex = GetClosestWayoint(position, type);
             if (waypointIndex == -1)
             {
                 Debug.Log("No waypoints found");
@@ -194,24 +284,24 @@ namespace GleyTrafficSystem
             {
                 VehicleComponent vehicle = trafficVehicles.GetIdleVehicle(idleVehicleIndex);
                 //Debug.Log("Check for free waypoint");
-                bool isWaypointFree = waypointManager.IsWaypointFree(waypointIndex, vehicle.length / 2, vehicle.coliderHeight, vehicle.colliderWidth / 2, vehicle.frontTrigger.localPosition.z);
+                bool isWaypointFree = IsWaypointFree(waypointIndex, vehicle.length / 2, vehicle.coliderHeight, vehicle.colliderWidth / 2, vehicle.frontTrigger.localPosition.z);
                 while (isWaypointFree == false)
                 {
 
                     //Debug.Log("Waypoint not free");
                     yield return null;
-                    isWaypointFree = waypointManager.IsWaypointFree(waypointIndex, vehicle.length/2, vehicle.coliderHeight, vehicle.colliderWidth/2, vehicle.frontTrigger.localPosition.z);
+                    isWaypointFree = IsWaypointFree(waypointIndex, vehicle.length / 2, vehicle.coliderHeight, vehicle.colliderWidth / 2, vehicle.frontTrigger.localPosition.z);
                 }
 
                 //Debug.Log("All done -> Add vehicle");
-                
+
                 //if a vehicle is suitable for that waypoint
                 if (vehicle)
                 {
                     currentnrOfVehicles++;
                     int index = vehicle.GetIndex();
                     waypointManager.SetTargetWaypoint(index, waypointIndex);
-                    trafficVehicles.ActivateVehicle(vehicle, waypointManager.GetTargetPosition(index), waypointManager.GetTargetRotation(index));
+                    trafficVehicles.ActivateVehicle(vehicle, waypointManager.GetTargetWaypointPosition(index), waypointManager.GetTargetWaypointRotation(index));
                     DensityEvents.TriggerVehicleAddedEvent(index);
                     //Debug.Log("Vehicle added at position -> DONE");
                 }

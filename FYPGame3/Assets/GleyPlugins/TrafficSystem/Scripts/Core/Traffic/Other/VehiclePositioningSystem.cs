@@ -36,7 +36,7 @@ namespace GleyTrafficSystem
             if (waypointManager.IsSameTarget(index1, index2))
             {
                 //check closest distance
-                if (Vector3.SqrMagnitude(allVehicles[index1].position - waypointManager.GetTargetPosition(index1)) < Vector3.SqrMagnitude(allVehicles[index2].position - waypointManager.GetTargetPosition(index2)))
+                if (Vector3.SqrMagnitude(allVehicles[index1].position - waypointManager.GetTargetWaypointPosition(index1)) < Vector3.SqrMagnitude(allVehicles[index2].position - waypointManager.GetTargetWaypointPosition(index2)))
                 {
                     return 1;
                 }

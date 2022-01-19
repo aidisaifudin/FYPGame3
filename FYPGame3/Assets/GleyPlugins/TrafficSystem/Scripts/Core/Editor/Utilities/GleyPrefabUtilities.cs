@@ -2,11 +2,13 @@
 using UnityEditor.Experimental.SceneManagement;
 using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     public class GleyPrefabUtilities : Editor
     {
-        static PrefabStage prefabStage;
+        static string prefabStage;
+
+
         public static bool EditingInsidePrefab()
         {
             return (UnityEditor.SceneManagement.StageUtility.GetCurrentStageHandle() != UnityEditor.SceneManagement.StageUtility.GetMainStageHandle());
@@ -15,10 +17,29 @@ namespace GleyTrafficSystem
 
         public static bool PrefabChanged()
         {
-            if (prefabStage != PrefabStageUtility.GetCurrentPrefabStage())
+            if (PrefabStageUtility.GetCurrentPrefabStage() != null)
             {
-                prefabStage = PrefabStageUtility.GetCurrentPrefabStage();
-                return true;
+#if UNITY_2020_OR_NEWER
+                if (prefabStage != PrefabStageUtility.GetCurrentPrefabStage().assetPath)
+                {
+                    prefabStage = PrefabStageUtility.GetCurrentPrefabStage().assetPath;
+                    return true;
+                }
+#else
+                if (prefabStage != PrefabStageUtility.GetCurrentPrefabStage().prefabAssetPath)
+                {
+                    prefabStage = PrefabStageUtility.GetCurrentPrefabStage().prefabAssetPath;
+                    return true;
+                }
+#endif
+            }
+            else
+            {
+                if(prefabStage!="")
+                {
+                    prefabStage = "";
+                    return true;
+                }
             }
             return false;
         }

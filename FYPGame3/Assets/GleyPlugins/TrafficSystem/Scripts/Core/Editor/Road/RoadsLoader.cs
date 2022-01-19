@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     public class RoadsLoader : Editor
     {
@@ -20,13 +20,13 @@ namespace GleyTrafficSystem
         }
 
 
-        public List<Road> LoadAllRoads()
+        internal List<T> LoadAllRoads<T>() where T : RoadBase
         {
-            List<Road> allRoads;
+            List<T> allRoads;
             if (GleyPrefabUtilities.EditingInsidePrefab())
             {
                 GameObject prefabRoot = GleyPrefabUtilities.GetScenePrefabRoot();
-                allRoads = prefabRoot.GetComponentsInChildren<Road>().ToList();
+                allRoads = prefabRoot.GetComponentsInChildren<T>().ToList();
                 for (int i = 0; i < allRoads.Count; i++)
                 {
                     allRoads[i].positionOffset = prefabRoot.transform.position;
@@ -35,7 +35,7 @@ namespace GleyTrafficSystem
             }
             else
             {
-                allRoads = FindObjectsOfType<Road>().ToList();
+                allRoads = FindObjectsOfType<T>().ToList();
                 for (int i = 0; i < allRoads.Count; i++)
                 {
                     allRoads[i].isInsidePrefab = GleyPrefabUtilities.IsInsidePrefab(allRoads[i].gameObject);

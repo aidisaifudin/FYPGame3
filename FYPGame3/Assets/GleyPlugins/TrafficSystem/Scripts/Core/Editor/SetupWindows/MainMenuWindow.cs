@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using GleyUrbanAssets;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,9 +10,9 @@ namespace GleyTrafficSystem
         private const int scrollAdjustment = 103;
 
 
-        public override ISetupWindow Initialize(WindowProperties windowProperties)
+        public override ISetupWindow Initialize(WindowProperties windowProperties, SettingsWindowBase window)
         {
-            return base.Initialize(windowProperties);
+            return base.Initialize(windowProperties, window);
         }
 
 
@@ -23,55 +24,55 @@ namespace GleyTrafficSystem
 
             if (GUILayout.Button("Import Required Packages"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.ImportPackages, true);
+                window.SetActiveWindow(typeof(ImportPackagesWindow), true);
             }
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Scene Setup"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.SceneSetup, true);
+                window.SetActiveWindow(typeof(SceneSetupWindow), true);
             }
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Road Setup"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.RoadSetup, true);
+                window.SetActiveWindow(typeof(RoadSetupWindow), true);
             }
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Intersection Setup"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.IntersectionSetup, true);
+                window.SetActiveWindow(typeof(IntersectionSetupWindow), true);
             }
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Waypoint Setup"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.WaypointSetup, true);
+                window.SetActiveWindow(typeof(WaypointSetupWindow), true);
             }
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Speed Routes Setup"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.SpeedRoutesSetupWindow, true);
+                window.SetActiveWindow(typeof(SpeedRoutesSetupWindow), true);
             }
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Vehicle Routes Setup"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.CarRoutesSetupWindow, true);
+                window.SetActiveWindow(typeof(VehicleRoutesSetupWindow), true);
             }
             EditorGUILayout.Space();
 
             if (GUILayout.Button("External Tools"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.ExternalTools, true);
+                window.SetActiveWindow(typeof(ExternalToolsWindow), true);
             }
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Debug"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.Debug, true);
+                window.SetActiveWindow(typeof(DebugWindow), true);
             }
             EditorGUILayout.Space();
 
@@ -84,19 +85,19 @@ namespace GleyTrafficSystem
         {
             if (GUILayout.Button("Apply Settings"))
             {
-                if (LayerOperations.LoadOrCreateLayers().edited == false)
+                if (LayerOperations.LoadOrCreateLayers<LayerSetup>(Constants.layerPath).edited == false)
                 {
                     Debug.LogWarning("Layers are not configured. Go to Window->Gley->Traffic System->Scene Setup->Layer Setup");
                 }
 
-                if (GridEditor.AssignWaypoints(CurrentSceneData.GetSceneInstance())==false)
+                if (GridEditor.ApplySettings(CurrentSceneData.GetSceneInstance()) == false)
                 {
                     return;
                 }
 
                 if (!File.Exists(Application.dataPath + "/GleyPlugins/TrafficSystem/Resources/VehicleTypes.cs"))
                 {
-                    FileCreator.CreateVehicleTypesFile(null);
+                    FileCreator.CreateVehicleTypesFile<VehicleTypes>(null, Gley.Common.Constants.USE_GLEY_TRAFFIC, Constants.trafficNamespace, Constants.agentTypesPath);
                 }
 
                 Gley.Common.PreprocessorDirective.AddToCurrent(Gley.Common.Constants.USE_GLEY_TRAFFIC, false);

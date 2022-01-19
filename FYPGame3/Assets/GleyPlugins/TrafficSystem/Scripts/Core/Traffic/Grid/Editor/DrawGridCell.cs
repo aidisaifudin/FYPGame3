@@ -1,17 +1,17 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     /// <summary>
     /// Draw a single grid cell in editor
     /// </summary>
     public class DrawGridCell
     {
-        public static void Draw(GridCell gridCell)
+        public static void Draw(GridCell gridCell,bool green)
         {
             Handles.color = Color.white;
-            if (gridCell.waypointsInCell.Count != 0)
+            if(green)
             {
                 Handles.color = Color.green;
             }

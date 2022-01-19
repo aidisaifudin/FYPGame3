@@ -34,6 +34,7 @@
         public const string GleyIAPGooglePlay = "GleyIAPGooglePlay";
         public const string GleyIAPAmazon = "GleyIAPAmazon";
         public const string GleyIAPMacOS = "GleyIAPMacOS";
+        public const string GleyIAPWindows = "GleyIAPWindows";
         public const string GleyUseValidation = "GleyUseValidation";
 
         //Notifications

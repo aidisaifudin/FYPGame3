@@ -1,20 +1,17 @@
-﻿using UnityEngine;
+﻿using GleyUrbanAssets;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace GleyTrafficSystem
 {
-    public class ShowVehiclePathProblems : ShowWaypointsBase
+    public class ShowVehiclePathProblems : ShowWaypointsTrafficBase
     {
-        public override ISetupWindow Initialize(WindowProperties windowProperties)
+        public override ISetupWindow Initialize(WindowProperties windowProperties, SettingsWindowBase window)
         {
-            save = SettingsLoader.LoadPathProblemsWaypointsSave();
-            return base.Initialize(windowProperties);
-        }
-
-
-        public override void DrawInScene()
-        {
-            waypointsOfInterest = WaypointDrawer.ShowVehicleProblems(roadColors.selectedWaypointColor, save.showConnections, roadColors.waypointColor, save.showSpeed, roadColors.speedColor, save.showCars, roadColors.carsColor, save.showOtherLanes, roadColors.waypointColor);
-            base.DrawInScene();
+            base.Initialize(windowProperties, window);
+            save = settingsLoader.LoadPathProblemsWaypointsSave();
+            return this;
         }
 
 
@@ -28,8 +25,14 @@ namespace GleyTrafficSystem
 
         public override void DestroyWindow()
         {
-            SettingsLoader.SavePathProblemsWaypointsSettings(save,roadColors);
+            settingsLoader.SavePathProblemsWaypointsSettings(save, roadColors);
             base.DestroyWindow();
+        }
+
+
+        protected override List<WaypointSettingsBase> GetWaypointsOfIntereset()
+        {
+            return waypointDrawer.ShowVehicleProblems(roadColors.selectedWaypointColor, save.showConnections, roadColors.waypointColor, save.showSpeed, roadColors.speedColor, save.showCars, roadColors.carsColor, save.showOtherLanes, roadColors.waypointColor).Cast<WaypointSettingsBase>().ToList();
         }
     }
 }

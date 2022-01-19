@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using GleyUrbanAssets;
 
 namespace GleyTrafficSystem
 {
@@ -31,7 +32,7 @@ namespace GleyTrafficSystem
         private static List<Transform> allConnectors;
         private static List<Waypoint> connectors;
 
-        internal static void ExtractWaypoints(IntersectionType intersectionType, float greenLightTime, float yellowLightTime, int maxSpeed, List<VehicleTypes> vehicleTypes, int waypointDistance)
+        internal static void ExtractWaypoints(IntersectionType intersectionType, float greenLightTime, float yellowLightTime, int maxSpeed, List<int> vehicleTypes, int waypointDistance)
         {
             DestroyImmediate(GameObject.Find(CidyWaypointsHolder));
 
@@ -194,7 +195,7 @@ namespace GleyTrafficSystem
                         PriorityIntersectionSettings currentIntersection = (PriorityIntersectionSettings)allGleyIntersections[connectors[i].listIndex];
                         if (connectors[i].enter == true)
                         {
-                            AssignEnterWaypoints(currentIntersection.enterWaypoints, allConnectors[i].GetComponent<WaypointSettings>().prev[0]);
+                            AssignEnterWaypoints(currentIntersection.enterWaypoints, (WaypointSettings)allConnectors[i].GetComponent<WaypointSettings>().prev[0]);
                         }
 
                         if (connectors[i].exit)
@@ -218,7 +219,7 @@ namespace GleyTrafficSystem
                             WaypointSettings waypoint = allConnectors[i].GetComponent<WaypointSettings>();
                             if (waypoint.prev.Count > 0)
                             {
-                                AssignEnterWaypoints(currentIntersection.stopWaypoints, allConnectors[i].GetComponent<WaypointSettings>().prev[0]);
+                                AssignEnterWaypoints(currentIntersection.stopWaypoints, (WaypointSettings)allConnectors[i].GetComponent<WaypointSettings>().prev[0]);
                             }
                             else
                             {
@@ -272,7 +273,7 @@ namespace GleyTrafficSystem
         {
             for (int i = 0; i < allConnectors.Count; i++)
             {
-                if (allConnectors[i].name.Contains(Constants.connectionEdgeName))
+                if (allConnectors[i].name.Contains(GleyUrbanAssets.Constants.connectionEdgeName))
                 {
                     bool found = false;
                     for (int j = 0; j < allWaypoints.Count; j++)
@@ -310,7 +311,7 @@ namespace GleyTrafficSystem
         }
 
 
-        private static void ExtractLaneConnectors(CiDyRoute routeData, Transform node, int laneIndex, int roadIndex, int speedLimit, int intersectionIndex, List<VehicleTypes> vehicleTypes)
+        private static void ExtractLaneConnectors(CiDyRoute routeData, Transform node, int laneIndex, int roadIndex, int speedLimit, int intersectionIndex, List<int> vehicleTypes)
         {
             Transform connectorsHolder = new GameObject("Connectors_" + laneIndex).transform;
             connectorsHolder.SetParent(node);
@@ -324,7 +325,7 @@ namespace GleyTrafficSystem
                 if (i == 0 || i == laneConnectors.Count - 1)
                 {
                     waypoint.listIndex = intersectionIndex;
-                    waypoint.name = "Road_" + roadIndex + "-" + Constants.laneNamePrefix + laneIndex + "-" + Constants.connectionEdgeName + i;
+                    waypoint.name = "Road_" + roadIndex + "-" + GleyUrbanAssets.Constants.laneNamePrefix + laneIndex + "-" + GleyUrbanAssets.Constants.connectionEdgeName + i;
                     if (i == 0)
                     {
                         waypoint.enter = true;
@@ -336,12 +337,12 @@ namespace GleyTrafficSystem
                 }
                 else
                 {
-                    waypoint.name = "Road_" + roadIndex + "-" + Constants.laneNamePrefix + laneIndex + "-" + Constants.connectionWaypointName + i;
+                    waypoint.name = "Road_" + roadIndex + "-" + GleyUrbanAssets.Constants.laneNamePrefix + laneIndex + "-" + GleyUrbanAssets.Constants.connectionWaypointName + i;
                 }
                 waypoint.position = laneConnectors[i];
                 waypoint.maxSpeed = speedLimit;
                 connectors.Add(waypoint);
-                allConnectors.Add(WaypointsGenerator.CreateWaypoint(connectorsHolder, waypoint.position, waypoint.name, vehicleTypes, waypoint.maxSpeed, null));
+                allConnectors.Add(CreateInstance<WaypointGeneratorTraffic>().CreateWaypoint(connectorsHolder, waypoint.position, waypoint.name, vehicleTypes, waypoint.maxSpeed, null));
             }
         }
 
@@ -415,7 +416,7 @@ namespace GleyTrafficSystem
         }
 
 
-        static void ExtractLaneWaypoints(List<CiDyRoute> lanes, GameObject lanesHolder, string side, int roadIndex, int maxSpeed, List<VehicleTypes> vehicleTypes)
+        static void ExtractLaneWaypoints(List<CiDyRoute> lanes, GameObject lanesHolder, string side, int roadIndex, int maxSpeed, List<int> vehicleTypes)
         {
             if (lanes.Count > 0)
             {
@@ -435,10 +436,10 @@ namespace GleyTrafficSystem
                         }
                         Waypoint waypoint = new Waypoint();
                         waypoint.maxSpeed = maxSpeed;
-                        waypoint.name = "Road_" + roadIndex + "-" + Constants.laneNamePrefix + i + "-" + Constants.waypointNamePrefix + k;
+                        waypoint.name = "Road_" + roadIndex + "-" + GleyUrbanAssets.Constants.laneNamePrefix + i + "-" + GleyUrbanAssets.Constants.waypointNamePrefix + k;
                         waypoint.position = positions[k];
 
-                        allWaypoints.Add(WaypointsGenerator.CreateWaypoint(lane.transform, waypoint.position, waypoint.name, vehicleTypes, waypoint.maxSpeed, null));
+                        allWaypoints.Add(CreateInstance<WaypointGeneratorTraffic>().CreateWaypoint(lane.transform, waypoint.position, waypoint.name, vehicleTypes, waypoint.maxSpeed, null));
                     }
                 }
             }

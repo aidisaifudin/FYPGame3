@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using GleyUrbanAssets;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace GleyTrafficSystem
         public static event IntersectionClicked onIntersectionClicked;
         static void TriggetIntersectionClickedEvent(GenericIntersectionSettings clickedIntersection)
         {
-            NavigationRuntimeData.SetSelectedIntersection(clickedIntersection);
+            SettingsWindow.SetSelectedIntersection(clickedIntersection);
             if (onIntersectionClicked != null)
             {
                 onIntersectionClicked(clickedIntersection);
@@ -77,7 +78,7 @@ namespace GleyTrafficSystem
         }
 
 
-        public static void DrawIntersectionWaypoint(WaypointSettings stopWaypoint, Color stopWaypointsColor, int road, Color textColor)
+        public static void DrawIntersectionWaypoint(WaypointSettingsBase stopWaypoint, Color stopWaypointsColor, int road, Color textColor)
         {
             Handles.color = stopWaypointsColor;
             GUIStyle centeredStyle = new GUIStyle();

@@ -1,87 +1,39 @@
-﻿using UnityEditor;
+﻿using GleyUrbanAssets;
+using UnityEditor;
 using UnityEngine;
 
 namespace GleyTrafficSystem
 {
-    public class VehicleRoutesSetupWindow : SetupWindowBase
+    public class VehicleRoutesSetupWindow : AgentRoutesSetupWindowBase<WaypointSettings>
     {
-        private int nrOfCars;
-        private CarRoutesSave save;
-        private float scrollAdjustment = 112;
-
-
-        public override ISetupWindow Initialize(WindowProperties windowProperties)
+        protected override int GetNrOfDifferentAgents()
         {
-            WaypointDrawer.Initialize();
-            nrOfCars = System.Enum.GetValues(typeof(VehicleTypes)).Length;
-            save = SettingsLoader.LoadCarRoutes();
-
-            if (save.routesColor.Count < nrOfCars)
-            {
-                for (int i = save.routesColor.Count; i < nrOfCars; i++)
-                {
-                    save.routesColor.Add(Color.white);
-                    save.active.Add(true);
-                }
-            }
-            WaypointDrawer.onWaypointClicked += WaypointClicked;
-            return base.Initialize(windowProperties);
+            return System.Enum.GetValues(typeof(VehicleTypes)).Length;
         }
 
 
-        public override void DrawInScene()
+        protected override WaypointDrawerBase<WaypointSettings> SetWaypointDrawer()
         {
-            for (int i = 0; i < nrOfCars; i++)
-            {
-                if (save.active[i])
-                {
-                    WaypointDrawer.DrawWaypointsForCar((VehicleTypes)i, save.routesColor[i]);
-                }
-            }
-
-            base.DrawInScene();
+            return CreateInstance<WaypointDrawer>();
         }
 
 
-        protected override void ScrollPart(float width, float height)
+        protected override SettingsLoader LoadSettingsLoader()
         {
-            scrollPosition = GUILayout.BeginScrollView(scrollPosition, false, false, GUILayout.Width(width - SCROLL_SPACE), GUILayout.Height(height - scrollAdjustment));
-            EditorGUILayout.LabelField("Car Routes: ");
-            for (int i = 0; i < nrOfCars; i++)
-            {
-                EditorGUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField(((VehicleTypes)i).ToString(), GUILayout.MaxWidth(150));
-                save.routesColor[i] = EditorGUILayout.ColorField(save.routesColor[i]);
-                Color oldColor = GUI.backgroundColor;
-                if (save.active[i])
-                {
-                    GUI.backgroundColor = Color.green;
-                }
-                if (GUILayout.Button("View", GUILayout.MaxWidth(BUTTON_DIMENSION)))
-                {
-                    save.active[i] = !save.active[i];
-                    SceneView.RepaintAll();
-                }
-                GUI.backgroundColor = oldColor;
-                EditorGUILayout.EndHorizontal();
-            }
-
-            base.ScrollPart(width, height);
-            EditorGUILayout.EndScrollView();
+            return new SettingsLoader(Constants.windowSettingsPath);
         }
 
 
-        public override void DestroyWindow()
+        protected override void WaypointClicked(WaypointSettingsBase clickedWaypoint, bool leftClick)
         {
-            WaypointDrawer.onWaypointClicked -= WaypointClicked;
-            SettingsLoader.SaveCarRoutes(save);
-            base.DestroyWindow();
+            window.SetActiveWindow(typeof(EditWaypointWindow), true);
         }
 
 
-        private void WaypointClicked(WaypointSettings clickedWaypoint, bool leftClick)
+        protected override string ConvertIndexToEnumName(int i)
         {
-            SettingsWindow.SetActiveWindow(WindowType.EditWaypoint, true);
+            return ((VehicleTypes)i).ToString();
         }
     }
+    
 }

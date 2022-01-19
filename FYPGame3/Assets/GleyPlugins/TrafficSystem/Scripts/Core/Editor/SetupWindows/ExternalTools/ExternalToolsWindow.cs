@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using GleyUrbanAssets;
+using UnityEditor;
 using UnityEngine;
 namespace GleyTrafficSystem
 {
@@ -10,13 +11,13 @@ namespace GleyTrafficSystem
             EditorGUILayout.Space();
             if (GUILayout.Button("Easy Roads"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.EasyRoadsSetup, true);
+                window.SetActiveWindow(typeof(EasyRoadsSetup), true);
             }
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Cidy 2"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.CidySetup, true);
+                window.SetActiveWindow(typeof(CidySetup), true);
             }
             EditorGUILayout.Space();
         }

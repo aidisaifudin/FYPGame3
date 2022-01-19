@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using GleyUrbanAssets;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -66,7 +67,7 @@ namespace GleyTrafficSystem
 
             if (GUILayout.Button("Extract Waypoints"))
             {
-                List<VehicleTypes> vehicleTypes = System.Enum.GetValues(typeof(VehicleTypes)).Cast<VehicleTypes>().ToList();
+                List<int> vehicleTypes = System.Enum.GetValues(typeof(VehicleTypes)).Cast<int>().ToList();
                 CidyMethods.ExtractWaypoints(selectedType, greenLightTime, yellowLightTime, waypointSpeed, vehicleTypes, linkDistance);
             }
             EditorGUILayout.Space();

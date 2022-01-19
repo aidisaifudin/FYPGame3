@@ -47,17 +47,20 @@ namespace GleyTrafficSystem
             return debugSettings.debug;
         }
 
+
         public static bool GetSpeedDebug()
         {
             DebugSettings debugSettings = LoadOrCreateDebugSettings();
             return debugSettings.debugSpeed;
         }
 
+
         public static bool GetIntersectionDebug()
         {
             DebugSettings debugSettings = LoadOrCreateDebugSettings();
             return debugSettings.debugIntersections;
         }
+
 
         public static bool GetWaypointsDebug()
         {

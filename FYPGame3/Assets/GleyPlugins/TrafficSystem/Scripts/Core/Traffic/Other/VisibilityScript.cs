@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     /// <summary>
     /// Checks if a vehicle is viewed by the camera

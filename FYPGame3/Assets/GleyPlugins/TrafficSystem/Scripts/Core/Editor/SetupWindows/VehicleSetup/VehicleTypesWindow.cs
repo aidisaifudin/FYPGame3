@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GleyUrbanAssets;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -14,11 +15,11 @@ namespace GleyTrafficSystem
         private List<string> carCategories = new List<string>();
 
 
-        public override ISetupWindow Initialize(WindowProperties windowProperties)
+        public override ISetupWindow Initialize(WindowProperties windowProperties, SettingsWindowBase window)
         {
             errorText = "";
             LoadCars();
-            return base.Initialize(windowProperties);
+            return base.Initialize(windowProperties, window);
         }
 
 
@@ -84,7 +85,7 @@ namespace GleyTrafficSystem
 
         private void Save()
         {
-            FileCreator.CreateVehicleTypesFile(carCategories);
+            FileCreator.CreateVehicleTypesFile<VehicleTypes>(carCategories, Gley.Common.Constants.USE_GLEY_TRAFFIC, Constants.trafficNamespace, Constants.agentTypesPath);
         }
 
 

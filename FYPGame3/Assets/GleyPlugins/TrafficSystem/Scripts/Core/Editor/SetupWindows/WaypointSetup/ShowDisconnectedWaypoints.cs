@@ -1,21 +1,16 @@
-﻿using UnityEngine;
+﻿using GleyUrbanAssets;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace GleyTrafficSystem
 {
-    public class ShowDisconnectedWaypoints : ShowWaypointsBase
+    public class ShowDisconnectedWaypoints : ShowWaypointsTrafficBase
     {
-        public override ISetupWindow Initialize(WindowProperties windowProperties)
-        {         
-            save = SettingsLoader.LoadDisconnectedWaypointsSave();
-             return base.Initialize(windowProperties);
-        }
-
-
-        public override void DrawInScene()
+        public override ISetupWindow Initialize(WindowProperties windowProperties, SettingsWindowBase window)
         {
-            waypointsOfInterest = WaypointDrawer.ShowDisconnectedWaypoints(roadColors.waypointColor, save.showConnections, roadColors.waypointColor, save.showSpeed, roadColors.speedColor, save.showCars, roadColors.carsColor);
-           
-            base.DrawInScene();
+            base.Initialize(windowProperties, window);
+            save = settingsLoader.LoadDisconnectedWaypointsSave();
+            return this;
         }
 
 
@@ -29,8 +24,14 @@ namespace GleyTrafficSystem
 
         public override void DestroyWindow()
         {
-            SettingsLoader.SaveDisconnectedWaypointsSettings(save, roadColors);
+            settingsLoader.SaveDisconnectedWaypointsSettings(save, roadColors);
             base.DestroyWindow();
+        }
+
+
+        protected override List<WaypointSettingsBase> GetWaypointsOfIntereset()
+        {
+            return waypointDrawer.ShowDisconnectedWaypoints(roadColors.waypointColor, save.showConnections, roadColors.waypointColor, save.showSpeed, roadColors.speedColor, save.showCars, roadColors.carsColor);
         }
     }
 }

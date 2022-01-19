@@ -2,29 +2,28 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
-    public class ShowWaypointsBase : SetupWindowBase
+    public abstract class ShowWaypointsBase : SetupWindowBase
     {
-        protected List<WaypointSettings> waypointsOfInterest;
+        protected List<WaypointSettingsBase> waypointsOfInterest;
         protected ViewWaypointsSettings save;
         protected RoadColors roadColors;
+        protected SettingsLoader settingsLoader;
         protected float scrollAdjustment = 220;
+
         private bool waypointsLoaded = false;
 
+        protected abstract SettingsLoader LoadSettingsLoader();
+        protected abstract void OpenEditWindow(int index);
+        protected abstract List<WaypointSettingsBase> GetWaypointsOfIntereset();
 
-        public override ISetupWindow Initialize(WindowProperties windowProperties)
+        public override ISetupWindow Initialize(WindowProperties windowProperties, SettingsWindowBase window)
         {
-            WaypointDrawer.Initialize();
-            WaypointDrawer.onWaypointClicked += WaipointClicked;
-            roadColors = SettingsLoader.LoadRoadColors();
-            return base.Initialize(windowProperties);
-        }
-
-
-        protected virtual void WaipointClicked(WaypointSettings clickedWaypoint, bool leftClick)
-        {
-            SettingsWindow.SetActiveWindow(WindowType.EditWaypoint, true);
+            base.Initialize(windowProperties, window);
+            settingsLoader = LoadSettingsLoader();
+            roadColors = settingsLoader.LoadRoadColors();
+            return this;
         }
 
 
@@ -80,9 +79,7 @@ namespace GleyTrafficSystem
                     }
                     if (GUILayout.Button("Edit", GUILayout.Width(BUTTON_DIMENSION)))
                     {
-                        NavigationRuntimeData.SetSelectedWaypoint(waypointsOfInterest[i]);
-                        GleyUtilities.TeleportSceneCamera(waypointsOfInterest[i].transform.position);
-                        SettingsWindow.SetActiveWindow(WindowType.EditWaypoint, true);
+                        OpenEditWindow(i);
                     }
                     EditorGUILayout.EndHorizontal();
                 }
@@ -97,19 +94,14 @@ namespace GleyTrafficSystem
 
         public override void DrawInScene()
         {
+            waypointsOfInterest = GetWaypointsOfIntereset(); 
+
             if (waypointsLoaded == false)
             {
-                SettingsWindow.Refresh();
+                SettingsWindowBase.TriggerRefreshWindowEvent();
                 waypointsLoaded = true;
             }
             base.DrawInScene();
-        }
-
-
-        public override void DestroyWindow()
-        {
-            WaypointDrawer.onWaypointClicked -= WaipointClicked;
-            base.DestroyWindow();
         }
     }
 }

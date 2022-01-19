@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     public static class Customizations 
     {

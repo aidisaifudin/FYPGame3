@@ -28,6 +28,7 @@ namespace GleyTrafficSystem
         bool reverse;
         bool blinkLeft;
         bool blinkRifgt;
+        float realtimeSinceStartup;
         Rigidbody rb;
 
         UIInput inputScript;
@@ -109,6 +110,7 @@ namespace GleyTrafficSystem
 
         private void Update()
         {
+            realtimeSinceStartup += Time.deltaTime;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 mainLights = !mainLights;
@@ -145,7 +147,7 @@ namespace GleyTrafficSystem
 
             lightsComponent.SetBrakeLights(brake);
             lightsComponent.SetReverseLights(reverse);
-            lightsComponent.UpdateLights();
+            lightsComponent.UpdateLights(realtimeSinceStartup);
         }
     }
 }

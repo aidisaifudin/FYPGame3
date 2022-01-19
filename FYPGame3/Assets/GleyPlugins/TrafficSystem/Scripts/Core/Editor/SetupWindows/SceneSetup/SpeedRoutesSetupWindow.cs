@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using GleyUrbanAssets;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,12 +10,17 @@ namespace GleyTrafficSystem
         private List<int> speeds;
         private SpeedRoutesSave save;
         private float scrollAdjustment = 112;
+        private WaypointDrawer waypointDrawer;
+        private SettingsLoader settingsLoader;
 
 
-        public override ISetupWindow Initialize(WindowProperties windowProperties)
+        public override ISetupWindow Initialize(WindowProperties windowProperties, SettingsWindowBase window)
         {
-            speeds = WaypointDrawer.GetDifferentSpeeds();
-            save = SettingsLoader.LoadSpeedRoutes();
+            base.Initialize(windowProperties, window);
+            waypointDrawer = CreateInstance<WaypointDrawer>();
+            speeds = waypointDrawer.GetDifferentSpeeds();
+            settingsLoader = new SettingsLoader(Constants.windowSettingsPath);
+            save = settingsLoader.LoadSpeedRoutes();
             if (save.routesColor.Count < speeds.Count)
             {
                 int nrOfColors = speeds.Count - save.routesColor.Count;
@@ -25,14 +31,14 @@ namespace GleyTrafficSystem
                 }
             }
 
-            WaypointDrawer.onWaypointClicked += WaypointClicked;
-            return base.Initialize(windowProperties);
+            waypointDrawer.onWaypointClicked += WaypointClicked;
+            return this;
         }
 
 
         private void WaypointClicked(WaypointSettings clickedWaypoint, bool leftClick)
         {
-            SettingsWindow.SetActiveWindow(WindowType.EditWaypoint, true);
+            window.SetActiveWindow(typeof(EditWaypointWindow), true);
         }
 
 
@@ -42,7 +48,7 @@ namespace GleyTrafficSystem
             {
                 if (save.active[i])
                 {
-                    WaypointDrawer.ShowSpeedLimits(speeds[i], save.routesColor[i]);
+                    waypointDrawer.ShowSpeedLimits(speeds[i], save.routesColor[i]);
                 }
             }
 
@@ -81,8 +87,8 @@ namespace GleyTrafficSystem
 
         public override void DestroyWindow()
         {
-            WaypointDrawer.onWaypointClicked -= WaypointClicked;
-            SettingsLoader.SaveSpeedRoutes(save);
+            waypointDrawer.onWaypointClicked -= WaypointClicked;
+            settingsLoader.SaveSpeedRoutes(save);
             base.DestroyWindow();
         }
     }

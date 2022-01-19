@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     public class RoadDrawer : Editor
     {
@@ -22,7 +22,7 @@ namespace GleyTrafficSystem
         }
 
 
-        public void DrawPath(Road road, MoveTools moveTool, Color roadColor, Color anchorColor, Color controlColor, Color textColor)
+        internal void DrawPath(RoadBase road, MoveTools moveTool, Color roadColor, Color anchorColor, Color controlColor, Color textColor)
         {
             if (road.isInsidePrefab && !GleyPrefabUtilities.EditingInsidePrefab())
             {
@@ -82,7 +82,7 @@ namespace GleyTrafficSystem
         }
 
 
-        public void SelectSegmentIndex(Road road, Vector3 mousePosition)
+        internal void SelectSegmentIndex(RoadBase road, Vector3 mousePosition)
         {
             float minDstToSegment = segmentSelectDistanceThreshold;
             int newSelectedSegmentIndex = -1;
@@ -106,7 +106,7 @@ namespace GleyTrafficSystem
         }
 
 
-        public void AddPathPoint(Vector3 mousePosition, Road road)
+        internal void AddPathPoint(Vector3 mousePosition, RoadBase road)
         {
             if (road.selectedSegmentIndex == -1)
             {
@@ -121,7 +121,7 @@ namespace GleyTrafficSystem
         }
 
 
-        public void Delete(Road road, Vector3 mousePosition)
+        internal void Delete(RoadBase road, Vector3 mousePosition)
         {
             float minDstToAnchor = 1 * .5f;
             int closestAnchorIndex = -1;

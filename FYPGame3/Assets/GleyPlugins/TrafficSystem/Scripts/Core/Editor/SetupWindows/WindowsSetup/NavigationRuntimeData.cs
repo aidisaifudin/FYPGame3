@@ -1,62 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
-    public static class NavigationRuntimeData
+    public class NavigationRuntimeData
     {
-        static List<WindowType> path;
-        static Road selectedRoad;
-        static WaypointSettings selectedWaypoint;
-        static GenericIntersectionSettings selectedIntersection;
-        static LayerMask roadLayers;
+        private List<string> path;
+        private AllSettingsWindows allSettingsWindows;
 
 
-        public static Road GetSelectedRoad()
+        public NavigationRuntimeData(AllSettingsWindows allSettingsWindows)
         {
-            return selectedRoad;
+            this.allSettingsWindows = allSettingsWindows;
+            path = new List<string>();
         }
 
 
-        public static void SetSelectedRoad(Road road)
-        {
-            selectedRoad = road;
-        }
-
-
-        public static WaypointSettings GetSelectedWaypoint()
-        {
-            return selectedWaypoint;
-        }
-
-
-        public static void SetSelectedWaypoint( WaypointSettings waypoint)
-        {
-            selectedWaypoint = waypoint;
-        }
-
-
-        public static GenericIntersectionSettings GetSelectedIntersection()
-        {
-            return selectedIntersection;
-        }
-
-
-        public static void SetSelectedIntersection(GenericIntersectionSettings intersection)
-        {
-            selectedIntersection = intersection;
-        }
-
-
-        public static void InitializeData()
-        {
-            path = new List<WindowType>();
-            UpdateLayers();
-            selectedRoad = null;
-        }
-
-
-        public static void AddWindow(WindowType newWindow)
+        internal void AddWindow(string newWindow)
         {
             if (!path.Contains(newWindow))
             {
@@ -69,16 +30,7 @@ namespace GleyTrafficSystem
         }
 
 
-        public static WindowType RemoveLastWindow()
-        {
-            WindowType lastWindow = path[path.Count - 1];
-
-            path.RemoveAt(path.Count - 1);
-            return lastWindow;
-        }
-
-
-        public static string GetBackPath()
+        internal string GetBackPath()
         {
             if (path.Count == 0)
                 return "";
@@ -86,21 +38,18 @@ namespace GleyTrafficSystem
             string result = "";
             for (int i = 0; i < path.Count; i++)
             {
-                result += AllSettingsWindows.GetWindowName(path[i]) + " > ";
+                result += allSettingsWindows.GetWindowName(path[i].Split('.')[1]) + " > ";
             }
             return result;
         }
 
 
-        public static void UpdateLayers()
+        internal string RemoveLastWindow()
         {
-            roadLayers = LayerOperations.LoadRoadLayers();
-        }
+            string lastWindow = path[path.Count - 1];
 
-
-        public static LayerMask GetRoadLayers()
-        {
-            return roadLayers;
+            path.RemoveAt(path.Count - 1);
+            return lastWindow;
         }
     }
 }

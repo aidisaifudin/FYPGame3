@@ -320,7 +320,7 @@ namespace GleyTrafficSystem
         /// <param name="index">current vehicle index</param>
         void ChangeWaypoint(int index)
         {
-            if (waypointDistance < minWaypointDistance || (dotProduct < 0 && waypointDistance < minWaypointDistance * 10))
+            if (waypointDistance < minWaypointDistance || (dotProduct < 0 && waypointDistance < minWaypointDistance * 5))
             {
                 needsWaypoint[index] = true;
             }

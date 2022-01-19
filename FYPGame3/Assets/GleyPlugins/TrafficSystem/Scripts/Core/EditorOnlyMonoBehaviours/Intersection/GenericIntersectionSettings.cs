@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GleyTrafficSystem
 {
-    public abstract class GenericIntersectionSettings : MonoBehaviour
+    public abstract partial class GenericIntersectionSettings : MonoBehaviour
     {
         public abstract int GetNumberOfRoads(int nrOfPeopleCrossings);
 

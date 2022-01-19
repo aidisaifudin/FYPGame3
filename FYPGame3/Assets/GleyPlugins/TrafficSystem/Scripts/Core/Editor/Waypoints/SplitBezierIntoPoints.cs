@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     public class SplitBezierIntoPoints
     {
         private const string helpingPointsHolderName = "HelpingPointsHolder";
 
 
-        public static List<Transform> CreatePoints(Road road)
+        public static List<Transform> CreatePoints(RoadBase road)
         {
             GameObject helpingPointsHolder = new GameObject(helpingPointsHolderName);
             List<Transform> helpingPoints = new List<Transform>();

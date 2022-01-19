@@ -1,15 +1,16 @@
 ﻿#if UNITY_EDITOR
+using GleyUrbanAssets;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     //Stores all road connections
     public class ConnectionPool : MonoBehaviour
     {
         public List<ConnectionCurve> connectionCurves;
 
-        public void AddConnection(WaypointSettings startPosition, WaypointSettings endPosition, Road fromRoad, int fromIndex, Road toRoad, int toIndex, Vector3 offset)
+        public void AddConnection(WaypointSettingsBase startPosition, WaypointSettingsBase endPosition, RoadBase fromRoad, int fromIndex, RoadBase toRoad, int toIndex, Vector3 offset)
         {
             if (connectionCurves == null)
             {
@@ -77,7 +78,7 @@ namespace GleyTrafficSystem
         }
 
 
-        public WaypointSettings GetInConnector(int lane)
+        public WaypointSettingsBase GetInConnector(int lane)
         {
             return connectionCurves[lane].toRoad.lanes[connectionCurves[lane].toIndex].laneEdges.inConnector;
 
@@ -90,20 +91,23 @@ namespace GleyTrafficSystem
         }
 
 
-        public WaypointSettings GetOutConnector(int index)
+        public T GetOutConnector<T>(int index) where T : WaypointSettingsBase
         {
-            return connectionCurves[index].fromRoad.lanes[connectionCurves[index].fromIndex].laneEdges.outConnector;
+            return (T)connectionCurves[index].fromRoad.lanes[connectionCurves[index].fromIndex].laneEdges.outConnector;
         }
 
 
-        public List<ConnectionCurve> ContainsRoad(Road road)
+        public List<ConnectionCurve> ContainsRoad(RoadBase road)
         {
             List<ConnectionCurve> curves = new List<ConnectionCurve>();
             for (int i = 0; i < connectionCurves.Count; i++)
             {
-                if (connectionCurves[i].toRoad == road || connectionCurves[i].fromRoad == road)
+                if (connectionCurves[i] != null)
                 {
-                    curves.Add(connectionCurves[i]);
+                    if (connectionCurves[i].toRoad == road || connectionCurves[i].fromRoad == road)
+                    {
+                        curves.Add(connectionCurves[i]);
+                    }
                 }
             }
             return curves;

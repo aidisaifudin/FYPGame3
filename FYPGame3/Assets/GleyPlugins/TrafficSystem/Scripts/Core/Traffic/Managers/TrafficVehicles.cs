@@ -13,6 +13,7 @@ namespace GleyTrafficSystem
         private List<VehicleComponent> idleVehicles = new List<VehicleComponent>();
         private Transform trafficHolder;
         private float masterVolume;
+        private float realtimeSinceStartup;
 
 
         /// <summary>
@@ -29,7 +30,7 @@ namespace GleyTrafficSystem
         {
             if (trafficHolder == null)
             {
-                trafficHolder = new GameObject(Constants.trafficHolderName).transform;
+                trafficHolder = new GameObject(GleyUrbanAssets.Constants.trafficHolderName).transform;
             }
 
             this.masterVolume = masterVolume;
@@ -433,8 +434,9 @@ namespace GleyTrafficSystem
         /// <param name="index"></param>
         public void UpdateVehicleScripts(int index)
         {
+            realtimeSinceStartup += Time.deltaTime;
             allVehicles[index].UpdateEngineSound(masterVolume);
-            allVehicles[index].UpdateLights();
+            allVehicles[index].UpdateLights(realtimeSinceStartup);
         }
 
 

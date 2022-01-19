@@ -33,7 +33,7 @@ namespace GleyTrafficSystem
         /// </summary>
         public void Initialize()
         {
-            currentTime = Time.realtimeSinceStartup;
+            currentTime = 0;
             LightsSetup();
         }
 
@@ -180,13 +180,13 @@ namespace GleyTrafficSystem
         /// <summary>
         /// Perform blinking
         /// </summary>
-        public void UpdateLights()
+        public void UpdateLights(float realtimeSinceStartup)
         {
             if (updateLights)
             {
-                if (Time.realtimeSinceStartup - currentTime > blinkTime)
+                if (realtimeSinceStartup - currentTime > blinkTime)
                 {
-                    currentTime = Time.realtimeSinceStartup;
+                    currentTime = realtimeSinceStartup;
                     if (leftBlink == false)
                     {
                         if (blinkerLeft.activeSelf != leftBlink)

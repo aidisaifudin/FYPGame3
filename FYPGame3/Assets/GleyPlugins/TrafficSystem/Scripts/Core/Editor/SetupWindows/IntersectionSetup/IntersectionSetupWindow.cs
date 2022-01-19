@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using GleyUrbanAssets;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -15,15 +16,18 @@ namespace GleyTrafficSystem
         private IntersectionSave save;
         private RoadColors roadColors;
         private float scrollAdjustment = 196;
+        private SettingsLoader settingsLoader;
 
 
-        public override ISetupWindow Initialize(WindowProperties windowProperties)
+        public override ISetupWindow Initialize(WindowProperties windowProperties, SettingsWindowBase window)
         {
+            base.Initialize(windowProperties, window);
             IntersectionDrawer.onIntersectionClicked += IntersectionClicked;
-            save = SettingsLoader.LoadIntersectionsSettings();
-            roadColors = SettingsLoader.LoadRoadColors();
+            settingsLoader = new SettingsLoader(Constants.windowSettingsPath);
+            save = settingsLoader.LoadIntersectionsSettings();
+            roadColors = settingsLoader.LoadRoadColors();
             LoadIntersections();
-            return base.Initialize(windowProperties);
+            return this;
         }
 
 
@@ -31,7 +35,7 @@ namespace GleyTrafficSystem
         {
             if (GleyUtilities.SceneCameraMoved())
             {
-                SettingsWindow.Refresh();
+                SettingsWindowBase.TriggerRefreshWindowEvent();
             }
             for (int i = 0; i < allPriorityIntersections.Count; i++)
             {
@@ -109,21 +113,21 @@ namespace GleyTrafficSystem
         public override void DestroyWindow()
         {
             IntersectionDrawer.onIntersectionClicked -= IntersectionClicked;
-            SettingsLoader.SaveIntersectionsSettings(save);
+            settingsLoader.SaveIntersectionsSettings(save);
             base.DestroyWindow();
         }
 
 
         private void IntersectionClicked(GenericIntersectionSettings clickedIntersection)
         {
-            NavigationRuntimeData.SetSelectedIntersection(clickedIntersection);
+            SettingsWindow.SetSelectedIntersection(clickedIntersection);
             if (clickedIntersection.GetType().Equals(typeof(TrafficLightsIntersectionSettings)))
             {
-                SettingsWindow.SetActiveWindow(WindowType.TrafficLightsIntersection, true);
+                window.SetActiveWindow(typeof(TrafficLightsIntersectionWindow), true);
             }
             if (clickedIntersection.GetType().Equals(typeof(PriorityIntersectionSettings)))
             {
-                SettingsWindow.SetActiveWindow(WindowType.PriorityIntersection, true);
+                window.SetActiveWindow(typeof(PriorityIntersectionWindow), true);
             }
         }
 
@@ -156,7 +160,7 @@ namespace GleyTrafficSystem
         {
             GameObject intersection = new GameObject(intersectionPrefix + GetFreeRoadNumber());
             intersection.transform.SetParent(GetIntersectionHolder());
-            intersection.gameObject.tag = Constants.editorTag;
+            intersection.gameObject.tag = GleyUrbanAssets.Constants.editorTag;
             Vector3 poz = SceneView.lastActiveSceneView.camera.transform.position;
             poz.y = 0;
             intersection.transform.position = poz;

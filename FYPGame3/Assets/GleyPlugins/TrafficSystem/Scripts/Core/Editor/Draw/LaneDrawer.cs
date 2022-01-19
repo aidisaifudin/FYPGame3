@@ -1,14 +1,14 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     public class LaneDrawer
     {
         static GUIStyle style = new GUIStyle();
 
 
-        public static void DrawAllLanes(Road road, bool drawWaypoints, bool drawLaneChange, Color laneColor, Color waypointColor, Color disconnectedColor, Color laneChangeColor, Color textColor)
+        public static void DrawAllLanes(RoadBase road, bool drawWaypoints, bool drawLaneChange, Color laneColor, Color waypointColor, Color disconnectedColor, Color laneChangeColor, Color textColor)
         {
             Transform lanesHolder = road.transform.Find(Constants.lanesHolderName);
             if (lanesHolder)
@@ -34,7 +34,7 @@ namespace GleyTrafficSystem
             {
                 for (int i = 0; i < holder.childCount; i++)
                 {
-                    WaypointSettings waypointScript = holder.GetChild(i).GetComponent<WaypointSettings>();
+                    WaypointSettingsBase waypointScript = holder.GetChild(i).GetComponent<WaypointSettingsBase>();
                     if (waypointScript != null)
                     {
                         if (waypointScript.neighbors.Count == 0 || waypointScript.prev.Count == 0)
@@ -89,13 +89,16 @@ namespace GleyTrafficSystem
 
         private static void DrawSimplifiedLane(Transform laneHolder, Color laneColor, Color textColor)
         {
-            WaypointSettings waypointScript;
+            WaypointSettingsBase waypointScript;
             for (int i = 0; i < laneHolder.childCount; i++)
             {
-                waypointScript = laneHolder.GetChild(i).GetComponent<WaypointSettings>();
+                waypointScript = laneHolder.GetChild(i).GetComponent<WaypointSettingsBase>();
                 for (int j = 0; j < waypointScript.neighbors.Count; j++)
                 {
-                    DrawWaypointLine(waypointScript.transform.position, waypointScript.neighbors[j].transform.position, laneColor);
+                    if (waypointScript.neighbors[j] != null)
+                    {
+                        DrawWaypointLine(waypointScript.transform.position, waypointScript.neighbors[j].transform.position, laneColor);
+                    }
                 }
                 if (i == 0 || i == laneHolder.childCount - 1)
                 {

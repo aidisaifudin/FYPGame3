@@ -1,36 +1,45 @@
-﻿using System.Collections.Generic;
+﻿using GleyUrbanAssets;
+using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
 namespace GleyTrafficSystem
 {
-    public class IntersectionWindowBase : SetupWindowBase
+    public partial class IntersectionWindowBase : SetupWindowBase
     {
         protected List<IntersectionStopWaypointsSettings> stopWaypoints = new List<IntersectionStopWaypointsSettings>();
         protected GenericIntersectionSettings selectedIntersection;
         protected IntersectionSave intersectionSave;
         protected RoadColors save;
+        protected WaypointDrawer waypointDrawer;
         protected int selectedRoad;
         protected bool addWaypoints;
 
+        private SettingsLoader settingsLoader;
         private bool hideWaypoints;
 
 
-        public override ISetupWindow Initialize(WindowProperties windowProperties)
+        public override ISetupWindow Initialize(WindowProperties windowProperties, SettingsWindowBase window)
         {
+            base.Initialize(windowProperties, window);
             selectedRoad = -1;
             name = selectedIntersection.name;
-            WaypointDrawer.Initialize();
-            WaypointDrawer.onWaypointClicked += WaypointClicked;
-            save = SettingsLoader.LoadRoadColors();
-            intersectionSave = SettingsLoader.LoadIntersectionsSettings();
+            waypointDrawer = CreateInstance<WaypointDrawer>();
+            waypointDrawer.Initialize();
+            waypointDrawer.onWaypointClicked += WaypointClicked;
+            settingsLoader = new SettingsLoader(Constants.windowSettingsPath);
+            save = settingsLoader.LoadRoadColors();
+            intersectionSave = settingsLoader.LoadIntersectionsSettings();
             if (stopWaypoints == null)
             {
                 stopWaypoints = new List<IntersectionStopWaypointsSettings>();
             }
-            return base.Initialize(windowProperties);
+            InitializePedestrianWaypoints();
+            return this;
         }
 
+        partial void InitializePedestrianWaypoints();
 
         public override void DrawInScene()
         {
@@ -56,12 +65,15 @@ namespace GleyTrafficSystem
             {
                 if (hideWaypoints == false)
                 {
-                    WaypointDrawer.DrawAllWaypoints(save.waypointColor, true, save.waypointColor, false, Color.white, false, Color.white, false, Color.white);
+                    waypointDrawer.DrawAllWaypoints(save.waypointColor, true, save.waypointColor, false, Color.white, false, Color.white, false, Color.white);
                 }
             }
+
+            DrawPedetsrianSceneWaypoints();
             base.DrawInScene();
         }
 
+        partial void DrawPedetsrianSceneWaypoints();
 
         protected override void TopPart()
         {
@@ -75,19 +87,29 @@ namespace GleyTrafficSystem
             EditorGUI.EndChangeCheck();
             if (GUI.changed)
             {
-                SettingsWindow.BlockClicks(!hideWaypoints);
+                window.BlockClicks(!hideWaypoints);
             }
             base.TopPart();
         }
 
 
+        protected override void ScrollPart(float width, float height)
+        {
+            DrawPedestrianWaypoints();
+            base.ScrollPart(width, height);
+        }
+
         public override void DestroyWindow()
         {
             EditorUtility.SetDirty(selectedIntersection);
-            WaypointDrawer.onWaypointClicked -= WaypointClicked;
+            waypointDrawer.onWaypointClicked -= WaypointClicked;
+            RemovePedestrianListeners();
             base.DestroyWindow();
         }
 
+        partial void RemovePedestrianListeners();
+
+        partial void DrawPedestrianWaypoints();
 
         protected void DrawStopWaypointButtons(bool showLights)
         {
@@ -231,7 +253,7 @@ namespace GleyTrafficSystem
             {
                 AddWaypointToList(clickedWaypoint);
             }
-            SettingsWindow.Refresh();
+            SettingsWindowBase.TriggerRefreshWindowEvent();
         }
 
 

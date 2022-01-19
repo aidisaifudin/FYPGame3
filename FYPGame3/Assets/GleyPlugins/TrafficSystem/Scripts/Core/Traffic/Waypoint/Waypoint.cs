@@ -1,28 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using GleyUrbanAssets;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace GleyTrafficSystem
 {
     [System.Serializable]
-    public class Waypoint
+    public class Waypoint: WaypointBase
     {
         public List<VehicleTypes> allowedCars;
-        public List<int> neighbors;
-        public List<int> prev;
-        public List<int> otherLanes;
-        public Vector3 position;
-        public string name;
-        public int listIndex;
         public int maxSpeed;
-        public bool stop;
         public bool giveWay;
         public bool enter;
         public bool exit;
-        public bool temporaryDisabled;
-
+        public bool stop;
         private IIntersection associatedIntersection;
-
-
         /// <summary>
         /// Constructor used to convert from editor waypoint to runtime waypoint 
         /// </summary>
@@ -46,27 +38,20 @@ namespace GleyTrafficSystem
             List<int> prev,
             List<int> otherLanes,
             int maxSpeed,
-            bool giveWay)
+            bool giveWay):base(name,listIndex,position,neighbors,prev,otherLanes, allowedCars.Cast<int>().ToList())
         {
-            this.name = name;
-            this.listIndex = listIndex;
-            this.position = position;
             this.allowedCars = allowedCars;
-            this.neighbors = neighbors;
-            this.prev = prev;
-            this.otherLanes = otherLanes;
             this.maxSpeed = maxSpeed;
-            this.stop = false;
             this.giveWay = giveWay;
-            this.enter = false;
-            this.exit = false;
+            enter = false;
+            exit = false;
+            stop = false;
             if (neighbors.Count == 0)
             {
 #if !DEBUG_TRAFFIC
                 this.giveWay = true;
 #endif
             }
-            temporaryDisabled = false;
         }
 
 
@@ -117,7 +102,7 @@ namespace GleyTrafficSystem
         /// <summary>
         /// Waypoint is no longer a target for the vehicle
         /// </summary>
-        public void Passed(int vehicleIndex)
+        internal override void Passed(int vehicleIndex)
         {
             if (exit)
             {

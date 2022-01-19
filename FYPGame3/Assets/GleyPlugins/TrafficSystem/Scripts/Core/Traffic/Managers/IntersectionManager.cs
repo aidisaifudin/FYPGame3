@@ -13,6 +13,7 @@ namespace GleyTrafficSystem
         private WaypointManager waypointManager;
         private bool debugIntersections;
         private bool stopIntersectionUpdate;
+        float realtimeSinceStartup;
 
 
         /// <summary>
@@ -82,9 +83,11 @@ namespace GleyTrafficSystem
             if (stopIntersectionUpdate)
                 return;
 #endif
+            realtimeSinceStartup += Time.deltaTime;
+
             for (int i = 0; i < activeIntersections.Count; i++)
             {
-                activeIntersections[i].UpdateIntersection();
+                activeIntersections[i].UpdateIntersection(realtimeSinceStartup);
             }
         }
 
@@ -121,10 +124,10 @@ namespace GleyTrafficSystem
 
                         for (int j = 0; j < stopWaypoints[i].roadWaypoints.Count; j++)
                         {
-                            if (waypointManager.GetWaypoint(stopWaypoints[i].roadWaypoints[j]).stop == true)
+                            if (waypointManager.GetWaypoint<Waypoint>(stopWaypoints[i].roadWaypoints[j]).stop == true)
                             {
                                 Gizmos.color = Color.red;
-                                Gizmos.DrawSphere(waypointManager.GetWaypoint(stopWaypoints[i].roadWaypoints[j]).position, 1);
+                                Gizmos.DrawSphere(waypointManager.GetWaypoint<Waypoint>(stopWaypoints[i].roadWaypoints[j]).position, 1);
                             }
                         }
                     }

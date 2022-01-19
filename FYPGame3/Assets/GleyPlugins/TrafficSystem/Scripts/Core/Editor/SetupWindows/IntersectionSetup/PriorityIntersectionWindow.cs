@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using GleyUrbanAssets;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,13 +13,13 @@ namespace GleyTrafficSystem
         private bool addExitWaypoints;
 
 
-        public override ISetupWindow Initialize(WindowProperties windowProperties)
+        public override ISetupWindow Initialize(WindowProperties windowProperties, SettingsWindowBase window)
         {
-            selectedIntersection = NavigationRuntimeData.GetSelectedIntersection();
+            selectedIntersection = SettingsWindow.GetSelectedIntersection();
             selectedPriorityIntersection = selectedIntersection as PriorityIntersectionSettings;
             stopWaypoints = selectedPriorityIntersection.enterWaypoints;
             exitWaypoints = selectedPriorityIntersection.exitWaypoints;
-            return base.Initialize(windowProperties);
+            return base.Initialize(windowProperties, window);
         }
 
 
@@ -34,7 +35,7 @@ namespace GleyTrafficSystem
             base.DrawInScene();
             if (addExitWaypoints)
             {
-                WaypointDrawer.DrawAllWaypoints(save.waypointColor, true, save.waypointColor, false, Color.white, false, Color.white, false, Color.white);
+                waypointDrawer.DrawAllWaypoints(save.waypointColor, true, save.waypointColor, false, Color.white, false, Color.white, false, Color.white);
             }
         }
 
@@ -49,7 +50,6 @@ namespace GleyTrafficSystem
             }
             if (!addWaypoints)
             {
-
                 EditorGUILayout.Space();
                 EditorGUILayout.Space();
                 EditorGUILayout.BeginVertical(EditorStyles.helpBox);
@@ -113,10 +113,13 @@ namespace GleyTrafficSystem
                 }
                 EditorGUILayout.EndVertical();
             }
+            base.ScrollPart(width, height);
             GUILayout.EndScrollView();
+
         }
 
-        void ViewWaypoint(WaypointSettings waypoint, int index)
+
+        private void ViewWaypoint(WaypointSettings waypoint, int index)
         {
             waypoint.draw = !waypoint.draw;
             if (waypoint.draw == false)
@@ -126,6 +129,7 @@ namespace GleyTrafficSystem
             }
             SceneView.RepaintAll();
         }
+
 
         protected override void WaypointClicked(WaypointSettings clickedWaypoint, bool leftClick)
         {

@@ -1,22 +1,25 @@
-﻿using UnityEditor;
+﻿using GleyUrbanAssets;
+using System;
+using UnityEditor;
 using UnityEngine;
 
 namespace GleyTrafficSystem
 {
-    public class TrafficLightsIntersectionWindow : IntersectionWindowBase
+    public partial class TrafficLightsIntersectionWindow : IntersectionWindowBase
     {
-        TrafficLightsIntersectionSettings selectedTrafficLightsIntersection;
+        private TrafficLightsIntersectionSettings selectedTrafficLightsIntersection;
         private float scrollAdjustment = 223;
 
 
-        public override ISetupWindow Initialize(WindowProperties windowProperties)
+        public override ISetupWindow Initialize(WindowProperties windowProperties, SettingsWindowBase window)
         {
-            selectedIntersection = NavigationRuntimeData.GetSelectedIntersection();
+            selectedIntersection = SettingsWindow.GetSelectedIntersection();
             selectedTrafficLightsIntersection = selectedIntersection as TrafficLightsIntersectionSettings;
             stopWaypoints = selectedTrafficLightsIntersection.stopWaypoints;
-            return base.Initialize(windowProperties);
+            return base.Initialize(windowProperties, window);
         }
 
+       
 
         protected override void TopPart()
         {
@@ -29,10 +32,13 @@ namespace GleyTrafficSystem
         protected override void ScrollPart(float width, float height)
         {
             scrollPosition = GUILayout.BeginScrollView(scrollPosition, false, false, GUILayout.Width(width - SCROLL_SPACE), GUILayout.Height(height - scrollAdjustment));
-
             DrawStopWaypointButtons(true);
+            
             base.ScrollPart(width, height);
             GUILayout.EndScrollView();
         }
+
+
+       
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using GleyUrbanAssets;
+using UnityEditor;
 using UnityEngine;
 
 namespace GleyTrafficSystem
@@ -12,44 +13,44 @@ namespace GleyTrafficSystem
 
             if (GUILayout.Button("Show All Waypoints"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.ShowAllWaypoints, true);
+                window.SetActiveWindow(typeof(ShowAllWaypoints), true);
                
             }
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Show Disconnected Waypoints"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.ShowDisconnectedWaypoints, true);
+                window.SetActiveWindow(typeof(ShowDisconnectedWaypoints), true);
             }
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Show Vehicle Edited Waypoints"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.ShowCarTypeEditedWaypoints, true);
+                window.SetActiveWindow(typeof(ShowVehicleTypeEditedWaypoints), true);
             }
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Show Speed Edited Waypoints"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.ShowSpeedEditedWaypoints, true);
+                window.SetActiveWindow(typeof(ShowSpeedEditedWaypoints), true);
             }
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Show Give Way Waypoints"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.ShowGiveWayWaypoints, true);
+                window.SetActiveWindow(typeof(ShowGiveWayWaypoints), true);
             }
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Show Stop Waypoints"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.ShowStopWaypoints, true);
+                window.SetActiveWindow(typeof(ShowStopWaypoints), true);
             }
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Show Vehicle Path Problems"))
             {
-                SettingsWindow.SetActiveWindow(WindowType.ShowVehiclePathProblems, true);
+                window.SetActiveWindow(typeof(ShowVehiclePathProblems), true);
             }
             EditorGUILayout.Space();
 

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using GleyUrbanAssets;
+using System.Collections.Generic;
 using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine;
 
 namespace GleyTrafficSystem
@@ -8,17 +8,18 @@ namespace GleyTrafficSystem
     public class LayerSetupWindow : SetupWindowBase
     {
         private LayerSetup layerSetup;
-        private LayerMask tempMask;
-        string[] allLayers;
+        private string[] allLayers;
 
-        public override ISetupWindow Initialize(WindowProperties windowProperties)
+
+        public override ISetupWindow Initialize(WindowProperties windowProperties, SettingsWindowBase window)
         {
-            layerSetup = LayerOperations.LoadOrCreateLayers();
+            layerSetup = LayerOperations.LoadOrCreateLayers<LayerSetup>(Constants.layerPath);
             allLayers = CreateDefaultLayers();
-            return base.Initialize(windowProperties);
+            return base.Initialize(windowProperties, window);
         }
 
-        string[] CreateDefaultLayers()
+
+        private string[] CreateDefaultLayers()
         {
             List<string> allLayers = new List<string>();
             for (int i = 0; i < 32; i++)
@@ -38,7 +39,6 @@ namespace GleyTrafficSystem
         }
 
 
-
         protected override void TopPart()
         {
             layerSetup.roadLayers = LayerMaskField(new GUIContent("Road Layers", "Vehicle wheels will collide only with these layers"), layerSetup.roadLayers);
@@ -55,7 +55,9 @@ namespace GleyTrafficSystem
 
             base.TopPart();
         }
-        LayerMask LayerMaskField(GUIContent label, LayerMask layerMask)
+
+
+        private LayerMask LayerMaskField(GUIContent label, LayerMask layerMask)
         {
             layerMask.value = EditorGUILayout.MaskField(label, layerMask.value, allLayers);
 
@@ -70,12 +72,13 @@ namespace GleyTrafficSystem
             return layerMask;
         }
 
+
         public override void DestroyWindow()
         {
             layerSetup.edited = true;
             EditorUtility.SetDirty(layerSetup);
             AssetDatabase.SaveAssets();
-            NavigationRuntimeData.UpdateLayers();
+            SettingsWindow.UpdateLayers();
             base.DestroyWindow();
         }
     }

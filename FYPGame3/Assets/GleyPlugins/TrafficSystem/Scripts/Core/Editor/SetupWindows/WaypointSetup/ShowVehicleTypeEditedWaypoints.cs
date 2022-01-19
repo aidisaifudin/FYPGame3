@@ -1,20 +1,17 @@
-﻿using UnityEngine;
+﻿using GleyUrbanAssets;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace GleyTrafficSystem
 {
-    public class ShowVehicleTypeEditedWaypoints : ShowWaypointsBase
+    public class ShowVehicleTypeEditedWaypoints : ShowWaypointsTrafficBase
     {
-        public override ISetupWindow Initialize(WindowProperties windowProperties)
+        public override ISetupWindow Initialize(WindowProperties windowProperties, SettingsWindowBase window)
         {
-            save = SettingsLoader.LoadCarEditedWaypointsSave();
-            return base.Initialize(windowProperties);
-        }
-
-
-        public override void DrawInScene()
-        {
-            waypointsOfInterest = WaypointDrawer.ShowCarTypeEditedWaypoints(roadColors.waypointColor, save.showConnections, roadColors.waypointColor, save.showSpeed, roadColors.speedColor, save.showCars, roadColors.carsColor, save.showOtherLanes, roadColors.laneChangeColor);
-            base.DrawInScene();
+            base.Initialize(windowProperties, window);
+            save = settingsLoader.LoadCarEditedWaypointsSave();
+            return this;
         }
 
 
@@ -28,8 +25,14 @@ namespace GleyTrafficSystem
 
         public override void DestroyWindow()
         {
-            SettingsLoader.SaveCarEditedWaypointsSettings(save, roadColors);
+            settingsLoader.SaveCarEditedWaypointsSettings(save, roadColors);
             base.DestroyWindow();
+        }
+
+
+        protected override List<WaypointSettingsBase> GetWaypointsOfIntereset()
+        {
+            return waypointDrawer.ShowCarTypeEditedWaypoints(roadColors.waypointColor, save.showConnections, roadColors.waypointColor, save.showSpeed, roadColors.speedColor, save.showCars, roadColors.carsColor, save.showOtherLanes, roadColors.laneChangeColor).Cast<WaypointSettingsBase>().ToList();
         }
     }
 }

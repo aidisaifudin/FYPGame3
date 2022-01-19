@@ -21,7 +21,7 @@ namespace GleyTrafficSystem
         private static ERCrossings[] allERIntersections;
 
 
-        public static void ExtractWaypoints(IntersectionType intersectionType, float greenLightTime, float yellowLightTime, bool linkLanes, int waypointDistance)
+        public static void ExtractWaypoints(IntersectionType intersectionType, float greenLightTime, float yellowLightTime, bool linkLanes, int waypointDistance, List<int> vehicleTypes)
         {
             //destroy existing roads
             DestroyImmediate(GameObject.Find(EasyRoadsWaypointsHolder));
@@ -73,7 +73,7 @@ namespace GleyTrafficSystem
             }
 
             //convert extracted information to waypoints
-            CreateTrafficWaypoints();
+            CreateTrafficWaypoints(vehicleTypes);
 
             LinkAllWaypoints(waypointsHolder);
 
@@ -82,7 +82,7 @@ namespace GleyTrafficSystem
                 LinkOvertakeLanes(waypointsHolder, waypointDistance);
             }
 
-            CreateConnectorWaypoints();
+            CreateConnectorWaypoints(vehicleTypes);
 
             LinkAllConnectors(waypointsHolder);
 
@@ -124,7 +124,7 @@ namespace GleyTrafficSystem
                             WaypointSettings waypointToAdd = allConnectors[i].GetComponent<WaypointSettings>();
                             if (waypointToAdd.prev.Count > 0)
                             {
-                                waypointToAdd = waypointToAdd.prev[0];
+                                waypointToAdd = (WaypointSettings)waypointToAdd.prev[0];
                                 AssignEnterWaypoints(currentIntersection.enterWaypoints, waypointToAdd);
                             }
                             else
@@ -142,7 +142,7 @@ namespace GleyTrafficSystem
                             WaypointSettings waypointToAdd = allConnectors[i].GetComponent<WaypointSettings>();
                             if (waypointToAdd.neighbors.Count > 0)
                             {
-                                waypointToAdd = waypointToAdd.neighbors[0];
+                                waypointToAdd = (WaypointSettings)waypointToAdd.neighbors[0];
                                 if (!currentIntersection.exitWaypoints.Contains(waypointToAdd))
                                 {
                                     currentIntersection.exitWaypoints.Add(waypointToAdd);
@@ -162,7 +162,7 @@ namespace GleyTrafficSystem
                             WaypointSettings waypoint = allConnectors[i].GetComponent<WaypointSettings>();
                             if (waypoint.prev.Count > 0)
                             {
-                                AssignEnterWaypoints(currentIntersection.stopWaypoints, allConnectors[i].GetComponent<WaypointSettings>().prev[0]);
+                                AssignEnterWaypoints(currentIntersection.stopWaypoints, (WaypointSettings)allConnectors[i].GetComponent<WaypointSettings>().prev[0]);
                             }
                             else
                             {
@@ -212,7 +212,7 @@ namespace GleyTrafficSystem
         {
             for (int i = 0; i < allConnectors.Count; i++)
             {
-                if (allConnectors[i].name.Contains(Constants.connectionEdgeName))
+                if (allConnectors[i].name.Contains(GleyUrbanAssets.Constants.connectionEdgeName))
                 {
                     for (int j = 0; j < allWaypoints.Count; j++)
                     {
@@ -249,20 +249,20 @@ namespace GleyTrafficSystem
         }
 
 
-        private static void CreateConnectorWaypoints()
+        private static void CreateConnectorWaypoints(List<int> vehicleTypes)
         {
             for (int i = 0; i < connectors.Count; i++)
             {
-                allConnectors.Add(WaypointsGenerator.CreateWaypoint(connectionParents[i], connectors[i].position, connectors[i].name, new List<VehicleTypes> { VehicleTypes.Car }, connectors[i].maxSpeed, null));
+                allConnectors.Add(CreateInstance<WaypointGeneratorTraffic>().CreateWaypoint(connectionParents[i], connectors[i].position, connectors[i].name, vehicleTypes, connectors[i].maxSpeed, null));
             }
         }
 
 
-        private static void CreateTrafficWaypoints()
+        private static void CreateTrafficWaypoints(List<int> vehicleTypes)
         {
             for (int i = 0; i < points.Count; i++)
             {
-                allWaypoints.Add(WaypointsGenerator.CreateWaypoint(waypointParents[i], points[i].position, points[i].name, new List<VehicleTypes> { VehicleTypes.Car }, points[i].maxSpeed, null));
+                allWaypoints.Add(CreateInstance<WaypointGeneratorTraffic>().CreateWaypoint(waypointParents[i], points[i].position, points[i].name, vehicleTypes, points[i].maxSpeed, null));
             }
         }
 
@@ -409,7 +409,7 @@ namespace GleyTrafficSystem
                         for (int j = 0; j < positions.Length; j++)
                         {
                             Waypoint waypoint = new Waypoint();
-                            waypoint.name = "Road_" + r + "-" + Constants.laneNamePrefix + i + "-" + Constants.waypointNamePrefix + j;
+                            waypoint.name = "Road_" + r + "-" + GleyUrbanAssets.Constants.laneNamePrefix + i + "-" + GleyUrbanAssets.Constants.waypointNamePrefix + j;
                             waypoint.position = positions[j];
                             waypoint.maxSpeed = (int)road.GetSpeedLimit();
                             points.Add(waypoint);
@@ -499,7 +499,7 @@ namespace GleyTrafficSystem
                         waypoint.listIndex = -1;
                         if (k == 0 || k == laneConnectors[j].points.Length - 1)
                         {
-                            waypoint.name = "Road_" + roadIndex + "-" + Constants.laneNamePrefix + laneIndex + "-" + Constants.connectionEdgeName + k;
+                            waypoint.name = "Road_" + roadIndex + "-" + GleyUrbanAssets.Constants.laneNamePrefix + laneIndex + "-" + GleyUrbanAssets.Constants.connectionEdgeName + k;
                             waypoint.listIndex = Array.FindIndex(allERIntersections, cond => cond.gameObject == conn.gameObject);
                             if (k == 0)
                             {
@@ -512,7 +512,7 @@ namespace GleyTrafficSystem
                         }
                         else
                         {
-                            waypoint.name = "Road_" + roadIndex + "-" + Constants.laneNamePrefix + laneIndex + "-" + Constants.connectionWaypointName + k;
+                            waypoint.name = "Road_" + roadIndex + "-" + GleyUrbanAssets.Constants.laneNamePrefix + laneIndex + "-" + GleyUrbanAssets.Constants.connectionWaypointName + k;
                         }
 
                         waypoint.position = laneConnectors[j].points[k];

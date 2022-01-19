@@ -1,4 +1,4 @@
-﻿namespace GleyTrafficSystem
+﻿namespace GleyUrbanAssets
 {
     /// <summary>
     /// Stores lane properties
@@ -48,10 +48,10 @@
     [System.Serializable]
     public struct LaneConnectors
     {
-        public WaypointSettings inConnector;
-        public WaypointSettings outConnector;
+        public WaypointSettingsBase inConnector;
+        public WaypointSettingsBase outConnector;
 
-        public LaneConnectors(WaypointSettings inConnector, WaypointSettings outConnector)
+        public LaneConnectors(WaypointSettingsBase  inConnector, WaypointSettingsBase outConnector)
         {
             this.inConnector = inConnector;
             this.outConnector = outConnector;

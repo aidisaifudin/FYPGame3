@@ -1,9 +1,10 @@
-﻿namespace GleyTrafficSystem
+﻿namespace GleyUrbanAssets
 {
     public struct WindowProperties
     {
-        public readonly WindowType type;
-        public readonly string name;
+        public readonly string nameSpace;
+        public readonly string className;
+        public readonly string title;
         public readonly string tutorialLink;
         public readonly bool showBack;
         public readonly bool showTitle;
@@ -13,10 +14,11 @@
         public readonly bool blockClicks;
 
 
-        public WindowProperties(WindowType type, string name, bool showBack, bool showTitle, bool showTop, bool showScroll, bool showBottom, bool blockClicks, string tutorialLink)
+        public WindowProperties(string nameSpace, string className, string title, bool showBack, bool showTitle, bool showTop, bool showScroll, bool showBottom, bool blockClicks, string tutorialLink)
         {
-            this.type = type;
-            this.name = name;
+            this.nameSpace = nameSpace;
+            this.className = className;
+            this.title = title;
             this.showBack = showBack;
             this.showTitle = showTitle;
             this.showTop = showTop;

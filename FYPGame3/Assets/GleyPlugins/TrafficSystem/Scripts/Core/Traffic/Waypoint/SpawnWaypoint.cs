@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     /// <summary>
     /// This type of waypoint can spawn a vehicle, 
@@ -10,8 +10,8 @@ namespace GleyTrafficSystem
     public struct SpawnWaypoint
     {
         public int waypointIndex;
-        public List<VehicleTypes> allowedVehicles;
-        public SpawnWaypoint(int waypointIndex, List<VehicleTypes> allowedVehicles)
+        public List<int> allowedVehicles;
+        public SpawnWaypoint(int waypointIndex, List<int> allowedVehicles)
         {
             this.waypointIndex = waypointIndex;
             this.allowedVehicles = allowedVehicles;

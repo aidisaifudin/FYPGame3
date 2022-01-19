@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     /// <summary>
     /// Store connection curve parameters
@@ -11,14 +11,14 @@ namespace GleyTrafficSystem
         public string name;
         public Transform holder;
         public Path curve;
-        public Road fromRoad;
+        public RoadBase fromRoad;
         public int fromIndex;
-        public Road toRoad;
+        public RoadBase toRoad;
         public int toIndex;
         public bool draw;
         public bool drawWaypoints;
 
-        public ConnectionCurve(Path curve, Road fromRoad, int fromIndex, Road toRoad, int toIndex, bool draw, Transform holder)
+        public ConnectionCurve(Path curve, RoadBase fromRoad, int fromIndex, RoadBase toRoad, int toIndex, bool draw, Transform holder)
         {
             name = holder.name;
             this.curve = curve;

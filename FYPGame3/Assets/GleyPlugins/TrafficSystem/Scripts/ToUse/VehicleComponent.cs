@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using GleyUrbanAssets;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GleyTrafficSystem
@@ -751,11 +752,11 @@ namespace GleyTrafficSystem
             }
         }
 
-        public void UpdateLights()
+        public void UpdateLights(float realtimeSinceStartup)
         {
             if (vehicleLights)
             {
-                vehicleLights.UpdateLights();
+                vehicleLights.UpdateLights(realtimeSinceStartup);
             }
         }
         #endregion

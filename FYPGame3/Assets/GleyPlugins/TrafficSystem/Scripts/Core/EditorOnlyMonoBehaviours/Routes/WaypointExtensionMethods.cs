@@ -1,4 +1,5 @@
 ﻿#if UNITY_EDITOR
+using GleyUrbanAssets;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -24,10 +25,27 @@ namespace GleyTrafficSystem
             return result;
         }
 
+
+        public static List<int> ToListIndex(this List<WaypointSettingsBase> editorWaypoints, List<WaypointSettings> allWaypoints)
+        {
+            List<int> result = new List<int>();
+            for (int i = 0; i < editorWaypoints.Count; i++)
+            {
+                int index = allWaypoints.IndexOf((WaypointSettings)editorWaypoints[i]);
+                if (index != -1)
+                {
+                    result.Add(index);
+                }
+            }
+            return result;
+        }
+
+
         public static int ToListIndex(this WaypointSettings editorWaypoint, List<WaypointSettings> allWaypoints)
         {
             return allWaypoints.IndexOf(editorWaypoint);
         }
+
 
         public static List<Waypoint> ToPlayWaypoints(this List<WaypointSettings> editorWaypoints, List<WaypointSettings> allWaypoints)
         {
@@ -52,6 +70,9 @@ namespace GleyTrafficSystem
                 editorWaypoint.giveWay);
         }
 
+
+
+
         public static WaypointSettings ToEditorWaypoint(this Waypoint playWaypoint)
         {
             GameObject[] objects = Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == playWaypoint.name && obj.transform.position == playWaypoint.position).ToArray();
@@ -65,6 +86,7 @@ namespace GleyTrafficSystem
             return objects[0].GetComponent<WaypointSettings>();
         }
 
+
         public static List<WaypointSettings> ToEditorWaypoints(this List<Waypoint> playWaypoints)
         {
             List<WaypointSettings> result = new List<WaypointSettings>();
@@ -75,6 +97,7 @@ namespace GleyTrafficSystem
             return result;
         }
 
+
         public static List<IntersectionStopWaypoints> ToPlayWaypoints(this List<IntersectionStopWaypointsSettings> giveWayWaypoints, List<WaypointSettings> allWaypoints)
         {
             List<IntersectionStopWaypoints> result = new List<IntersectionStopWaypoints>();
@@ -84,6 +107,7 @@ namespace GleyTrafficSystem
             }
             return result;
         }
+
 
         public static List<IntersectionStopWaypointsIndex> ToPlayIndex(this List<IntersectionStopWaypointsSettings> giveWayWaypoints, List<WaypointSettings> allWaypoints)
         {

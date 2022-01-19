@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GleyUrbanAssets;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace GleyTrafficSystem
         public string name;
 
 
-        public virtual void Initialize(WaypointManager waypointManager, float greenLightTime, float yellowLightTime)
+        public virtual void Initialize(WaypointManagerBase waypointManager, float greenLightTime, float yellowLightTime)
         {
 
         }
@@ -24,7 +25,7 @@ namespace GleyTrafficSystem
         }
 
 
-        public virtual void UpdateIntersection()
+        public virtual void UpdateIntersection(float realtimeSinceStartup)
         {
 
         }

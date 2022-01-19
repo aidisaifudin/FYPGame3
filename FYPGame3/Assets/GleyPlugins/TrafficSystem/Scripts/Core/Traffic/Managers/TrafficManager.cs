@@ -5,13 +5,15 @@ using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.Jobs;
 using Unity.Mathematics;
+using GleyUrbanAssets;
+using System;
 
 namespace GleyTrafficSystem
 {
     /// <summary>
     /// This is the core class of the system, it controls everything else
     /// </summary>
-    public class TrafficManager : MonoBehaviour
+    public class TrafficManager : UrbanManager
     {
         #region Variables
         //additional components
@@ -21,6 +23,9 @@ namespace GleyTrafficSystem
         private WaypointManager waypointManager;
         private DrivingAI drivingAI;
         private VehiclePositioningSystem vehiclePositioningSystem;
+
+
+
 
         //transforms to update
         private TransformAccessArray vehicleTrigger;
@@ -129,10 +134,13 @@ namespace GleyTrafficSystem
                 if (instance == null)
                 {
                     instance = new GameObject(Constants.trafficManager).AddComponent<TrafficManager>();
+                    urbanManagerInstance = instance;
                 }
                 return instance;
             }
         }
+
+       
 
 
         #region TrafficInitialization
@@ -261,7 +269,7 @@ namespace GleyTrafficSystem
 
             //initialize other managers
             PositionValidator positionValidator = gameObject.AddComponent<PositionValidator>().Initialize(this.activeCameras, layerSetup.trafficLayers, layerSetup.buildingsLayers, this.minDistanceToAdd, debugDensity);
-            waypointManager = gameObject.AddComponent<WaypointManager>().Initialize(positionValidator, currentSceneData, nrOfVehicles, debugWaypoints, debugDisabledWaypoints);
+            waypointManager = gameObject.AddComponent<WaypointManager>().Initialize(currentSceneData.allWaypoints, nrOfVehicles, debugWaypoints, debugDisabledWaypoints);
             vehiclePositioningSystem = gameObject.AddComponent<VehiclePositioningSystem>().Initialize(nrOfVehicles, waypointManager);
             drivingAI = gameObject.AddComponent<DrivingAI>().Initialize(nrOfVehicles, waypointManager, trafficVehicles, vehiclePositioningSystem, debug, debugSpeed, debugAI);
 
@@ -325,9 +333,10 @@ namespace GleyTrafficSystem
             {
                 activeCameraPositions[i] = activeCameras[i].position;
             }
-            currentSceneData.Initialize(activeCameraPositions);
-            densityManager = gameObject.AddComponent<DensityManager>().Initialize(trafficVehicles, waypointManager, currentSceneData, activeCameraPositions, nrOfVehicles, activeCameras[0].position, activeCameras[0].forward);
-            intersectionManager = gameObject.AddComponent<IntersectionManager>().Initialize(currentSceneData.GetAllIntersections(), currentSceneData.GetActiveIntersections(), waypointManager, greenLightTime, yellowLightTime, debugIntersections, stopIntersectionUpdate);
+            AddGridManager(currentSceneData, activeCameraPositions);
+            densityManager = gameObject.AddComponent<DensityManager>().Initialize(trafficVehicles, waypointManager, gridManager, positionValidator, activeCameraPositions, nrOfVehicles, activeCameras[0].position, activeCameras[0].forward);
+
+            intersectionManager = gameObject.AddComponent<IntersectionManager>().Initialize(gridManager.GetAllIntersections(), gridManager.GetActiveIntersections(), waypointManager, greenLightTime, yellowLightTime, debugIntersections, stopIntersectionUpdate);
             initialized = true;
         }
 
@@ -357,10 +366,10 @@ namespace GleyTrafficSystem
         }
 
 
-#endregion
+        #endregion
 
 
-#region API Methods
+        #region API Methods
         /// <summary>
         /// Removes the vehicles on a given circular area
         /// </summary>
@@ -431,7 +440,7 @@ namespace GleyTrafficSystem
                 return;
 
             float sqrRadius = radius * radius;
-            waypointManager.DisableAreaWaypoints(center, sqrRadius);
+            densityManager.DisableAreaWaypoints(center, sqrRadius);
         }
 
 
@@ -501,7 +510,7 @@ namespace GleyTrafficSystem
             }
 
             this.activeCameras = activeCameras;
-            waypointManager.UpdateCamera(activeCameras);
+            densityManager.UpdateCameraPositions(activeCameras);
 
         }
 
@@ -520,7 +529,7 @@ namespace GleyTrafficSystem
             if (!initialized)
                 return;
 
-            CurrentSceneData.GetSceneInstance().SetSpawnWaypointSelector(spawnWaypointSelector);
+            gridManager.SetSpawnWaypointSelector(spawnWaypointSelector);
         }
 
         public void SetPlayerInteractionDelegate(EnvironmentInteraction playerInteraction)
@@ -574,10 +583,10 @@ namespace GleyTrafficSystem
             return -1;
         }
 
-#endregion
+        #endregion
 
 
-#region EventHandlers
+        #region EventHandlers
         /// <summary>
         /// Called every time a new vehicle is enabled
         /// </summary>
@@ -589,7 +598,7 @@ namespace GleyTrafficSystem
         private void NewVehicleAdded(int vehicleIndex)
         {
             //set new vehicle parameters
-            vehicleTargetWaypointPosition[vehicleIndex] = waypointManager.GetTargetPosition(vehicleIndex);
+            vehicleTargetWaypointPosition[vehicleIndex] = waypointManager.GetTargetWaypointPosition(vehicleIndex);
 
             vehiclePowerStep[vehicleIndex] = trafficVehicles.GetPowerStep(vehicleIndex);
             vehicleBrakeStep[vehicleIndex] = trafficVehicles.GetBrakeStep(vehicleIndex);
@@ -636,11 +645,11 @@ namespace GleyTrafficSystem
         private void DestinationChanged(int vehicleIndex)
         {
             vehicleNeedWaypoint[vehicleIndex] = false;
-            vehicleTargetWaypointPosition[vehicleIndex] = waypointManager.GetTargetPosition(vehicleIndex);
+            vehicleTargetWaypointPosition[vehicleIndex] = waypointManager.GetTargetWaypointPosition(vehicleIndex);
             vehicleMaxSpeed[vehicleIndex] = drivingAI.GetMaxSpeedMS(vehicleIndex);
             trafficVehicles.SetBlinkLights(vehicleIndex, drivingAI.GetBlinkType(vehicleIndex));
         }
-#endregion
+        #endregion
 
 
         private void FixedUpdate()
@@ -648,7 +657,7 @@ namespace GleyTrafficSystem
             if (!initialized)
                 return;
 
-#region Suspensions
+            #region Suspensions
 
             //for each wheel check where the ground is by performing a RayCast downwards using job system
             for (int i = 0; i < totalWheels; i++)
@@ -680,9 +689,9 @@ namespace GleyTrafficSystem
                 wheelRaycatsDistance[i] = wheelRaycatsResult[i].distance;
                 wheelNormalDirection[i] = wheelRaycatsResult[i].normal;
             }
-#endregion
+            #endregion
 
-#region Driving
+            #region Driving
 
             //execute job for wheel turn and driving
             wheelJob = new WheelJob()
@@ -791,6 +800,10 @@ namespace GleyTrafficSystem
                     if (vehicleSpecialDriveAction[i] == SpecialDriveActionTypes.Overtake || vehicleSpecialDriveAction[i] == SpecialDriveActionTypes.Follow)
                     {
                         vehicleMaxSpeed[i] = drivingAI.GetMaxSpeedMS(i);
+                        if (vehicleMaxSpeed[i] < 2)
+                        {
+                            drivingAI.NewDriveActionArrived(i, SpecialDriveActionTypes.StopInDistance, true);
+                        }
                         distanceBetweenVehicles[i] = drivingAI.GetStopDistance(i);
                     }
 
@@ -833,7 +846,7 @@ namespace GleyTrafficSystem
                     trafficVehicles.UpdateVehicleScripts(i);
                 }
             }
-#endregion
+            #endregion
         }
 
 
@@ -848,7 +861,7 @@ namespace GleyTrafficSystem
                 trafficVehicles.SetBrakeLights(i, vehicleIsBraking[i]);
             }
 
-#region WheelUpdate
+            #region WheelUpdate
             //update wheel graphics
             for (int i = 0; i < totalWheels; i++)
             {
@@ -870,9 +883,9 @@ namespace GleyTrafficSystem
             };
             updateWheelJobHandle = updateWheelJob.Schedule(wheelsGraphics);
             updateWheelJobHandle.Complete();
-#endregion
+            #endregion
 
-#region TriggerUpdate
+            #region TriggerUpdate
             //update trigger orientation
             updateTriggerJob = new UpdateTriggerJob()
             {
@@ -881,9 +894,9 @@ namespace GleyTrafficSystem
             };
             updateTriggerJobHandle = updateTriggerJob.Schedule(vehicleTrigger);
             updateTriggerJobHandle.Complete();
-#endregion
+            #endregion
 
-#region RemoveVehicles
+            #region RemoveVehicles
             //remove vehicles that are too far away and not in view
             indexToRemove++;
             if (indexToRemove == nrOfVehicles)
@@ -904,7 +917,7 @@ namespace GleyTrafficSystem
                     }
                 }
             }
-#endregion
+            #endregion
 
             //update additional managers
             for (int i = 0; i < activeCameras.Length; i++)
@@ -912,10 +925,9 @@ namespace GleyTrafficSystem
                 activeCameraPositions[i] = activeCameras[i].transform.position;
             }
             intersectionManager.UpdateIntersections();
-            densityManager.UpdateGrid(activeSquaresLevel);
-            densityManager.UpdateCameraPositions(activeCameraPositions);
+            gridManager.UpdateGrid(activeSquaresLevel, activeCameraPositions);
 
-#region Debug
+            #region Debug
 #if UNITY_EDITOR
             //draw debug forces if requested
             if (drawBodyForces)
@@ -941,11 +953,11 @@ namespace GleyTrafficSystem
                 }
             }
 #endif
-#endregion
+            #endregion
         }
 
 
-#region Cleanup
+        #region Cleanup
         /// <summary>
         /// Cleanup
         /// </summary>
@@ -1005,7 +1017,7 @@ namespace GleyTrafficSystem
             AIEvents.onChangeDestination -= DestinationChanged;
             DensityEvents.onVehicleAdded -= NewVehicleAdded;
         }
-#endregion
+        #endregion
     }
 }
 #endif

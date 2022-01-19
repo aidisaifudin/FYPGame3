@@ -1,7 +1,8 @@
-﻿using UnityEditor;
+﻿using GleyUrbanAssets;
+using UnityEditor;
 using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     public class ImportPackagesWindow : SetupWindowBase
     {
@@ -17,14 +18,14 @@ namespace GleyTrafficSystem
             EditorGUILayout.LabelField("Burst");
             if(GUILayout.Button("Install"))
             {
-                ImportRequiredPackages.ImportPackages(UpdateMethod);
+                Gley.Common.ImportRequiredPackages.ImportPackage("com.unity.burst",UpdateMethod);
             }
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space();
 
             if (GUILayout.Button("Install All"))
             {
-                ImportRequiredPackages.ImportPackages(UpdateMethod);
+                Gley.Common.ImportRequiredPackages.ImportPackage("com.unity.burst", UpdateMethod);
             }
             EditorGUILayout.Space();
 

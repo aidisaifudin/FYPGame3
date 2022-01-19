@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using GleyUrbanAssets;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GleyTrafficSystem
@@ -7,7 +8,7 @@ namespace GleyTrafficSystem
     {
         public static void Link(Road road)
         {
-            int nrOfLanes = road.transform.Find(Constants.lanesHolderName).childCount;
+            int nrOfLanes = road.transform.Find(GleyUrbanAssets.Constants.lanesHolderName).childCount;
             float maxLength = road.waypointDistance * road.waypointDistance * 9;
 
             for (int i = 0; i < nrOfLanes; i++)
@@ -23,7 +24,7 @@ namespace GleyTrafficSystem
 
         public static void Unlinck(Road road)
         {
-            int nrOfLanes = road.transform.Find(Constants.lanesHolderName).childCount;
+            int nrOfLanes = road.transform.Find(GleyUrbanAssets.Constants.lanesHolderName).childCount;
 
             for (int i = 0; i < nrOfLanes; i++)
             {
@@ -34,17 +35,17 @@ namespace GleyTrafficSystem
 
         private static void ClearLinks(Road road, int laneIndex)
         {
-            Transform laneToLink = road.transform.Find(Constants.lanesHolderName).Find(Constants.laneNamePrefix + laneIndex);
+            Transform laneToLink = road.transform.Find(GleyUrbanAssets.Constants.lanesHolderName).Find(GleyUrbanAssets.Constants.laneNamePrefix + laneIndex);
             for (int i = 0; i < laneToLink.transform.childCount; i++)
             {
-                laneToLink.transform.GetChild(i).GetComponent<WaypointSettings>().otherLanes = new List<WaypointSettings>();
+                laneToLink.transform.GetChild(i).GetComponent<WaypointSettings>().otherLanes = new List<GleyUrbanAssets.WaypointSettingsBase>();
             }
         }
 
 
         private static void LinkSameDirectionLanes(Road road, int laneIndex, int nrOfLanes, float maxLength)
         {
-            Transform currentLane = road.transform.Find(Constants.lanesHolderName).Find(Constants.laneNamePrefix + laneIndex);
+            Transform currentLane = road.transform.Find(GleyUrbanAssets.Constants.lanesHolderName).Find(GleyUrbanAssets.Constants.laneNamePrefix + laneIndex);
             int[] neighbors = GetNeighbors(laneIndex, nrOfLanes);
             for (int i = 0; i < neighbors.Length; i++)
             {
@@ -52,10 +53,10 @@ namespace GleyTrafficSystem
                 {
                     if (road.lanes[neighbors[i]].laneDirection == road.lanes[laneIndex].laneDirection)
                     {
-                        Transform otherLane = road.transform.Find(Constants.lanesHolderName).Find(Constants.laneNamePrefix + neighbors[i]);
+                        Transform otherLane = road.transform.Find(GleyUrbanAssets.Constants.lanesHolderName).Find(GleyUrbanAssets.Constants.laneNamePrefix + neighbors[i]);
                         int currentLaneCount = 0;
                         int otherLaneCount = 0;
-                        if (currentLane.GetChild(0).name.Contains(Constants.outWaypointEnding))
+                        if (currentLane.GetChild(0).name.Contains(GleyUrbanAssets.Constants.outWaypointEnding))
                         {
                             currentLaneCount = currentLane.childCount - 1;
                             otherLaneCount = otherLane.childCount - 1;

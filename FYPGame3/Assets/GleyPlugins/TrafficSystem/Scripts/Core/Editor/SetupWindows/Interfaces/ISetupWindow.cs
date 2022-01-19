@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using GleyUrbanAssets;
+using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     public interface ISetupWindow
     {
         string GetWindowTitle();
-        ISetupWindow Initialize(WindowProperties windowProperties);
+        ISetupWindow Initialize(WindowProperties windowProperties, SettingsWindowBase window);
         /// <summary>
         /// Draw the window buttons
         /// </summary>
@@ -18,7 +19,8 @@ namespace GleyTrafficSystem
         void LeftClick(Vector3 mousePosition);   
         void RightClick(Vector3 mousePosition);
         void UndoAction();
-        WindowType GetWindowType();
         void DestroyWindow();
+        string GetFullClassName();
+        bool GetBlockClicksState();
     }
 }

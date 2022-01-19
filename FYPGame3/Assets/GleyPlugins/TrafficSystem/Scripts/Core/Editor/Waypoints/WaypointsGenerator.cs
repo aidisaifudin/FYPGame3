@@ -2,27 +2,22 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     public class WaypointsGenerator : Editor
     {
-        public static Transform CreateWaypoint(Transform parent, Vector3 waypointPosition, string name, List<VehicleTypes> allowedCars, int maxSpeed, ConnectionCurve connection)
+        internal virtual Transform CreateWaypoint(Transform parent, Vector3 waypointPosition, string name, List<int> allowedCars, int maxSpeed, ConnectionCurve connection)
         {
             GameObject go = new GameObject();
             go.transform.SetParent(parent);
             go.transform.position = waypointPosition;
             go.name = name;
             go.tag = Constants.editorTag;
-            WaypointSettings waypointScript = go.AddComponent<WaypointSettings>();
-            waypointScript.allowedCars = allowedCars;
-            waypointScript.maxSpeed = maxSpeed;
-            waypointScript.EditorSetup();
-            waypointScript.connection = connection;
             return go.transform;
         }
 
 
-        public static void GenerateWaypoints(Road road)
+        internal void GenerateWaypoints(RoadBase road, int groundLayerMask)
         {
             ClearOldWaypointConnections(road.transform);
 
@@ -30,7 +25,7 @@ namespace GleyTrafficSystem
 
             List<Transform> helpingPoints = SplitBezierIntoPoints.CreatePoints(road);
 
-            AddFinalWaypoints(road, helpingPoints);
+            AddFinalWaypoints(road, helpingPoints, groundLayerMask);
 
             LinkNeighbors(road);
 
@@ -47,7 +42,7 @@ namespace GleyTrafficSystem
         }
 
 
-        public static void SwitchLaneDirection(Road road, int laneNumber)
+        public static void SwitchLaneDirection(RoadBase road, int laneNumber)
         {
             RemoveConnection(road.lanes[laneNumber].laneEdges.inConnector);
             RemoveConnection(road.lanes[laneNumber].laneEdges.outConnector);
@@ -58,10 +53,10 @@ namespace GleyTrafficSystem
 
         private static void ClearOldWaypointConnections(Transform holder)
         {
-            WaypointSettings[] allWaypoints = holder.GetComponentsInChildren<WaypointSettings>();
+            WaypointSettingsBase[] allWaypoints = holder.GetComponentsInChildren<WaypointSettingsBase>();
             for (int i = 0; i < allWaypoints.Length; i++)
             {
-                WaypointSettings waypoint = allWaypoints[i];
+                WaypointSettingsBase waypoint = allWaypoints[i];
                 for (int j = 0; j < waypoint.neighbors.Count; j++)
                 {
                     if (waypoint.neighbors[j] != null)
@@ -88,7 +83,7 @@ namespace GleyTrafficSystem
         }
 
 
-        private static void AddFinalWaypoints(Road road, List<Transform> helpingPoints)
+        private void AddFinalWaypoints(RoadBase road, List<Transform> helpingPoints, int roadLayerMask)
         {
             float startPosition;
             if (road.nrOfLanes % 2 == 0)
@@ -126,7 +121,7 @@ namespace GleyTrafficSystem
                     waypointPosition = helpingPoints[j].position + (startPosition + laneModifier * road.laneWidth) * helpingPoints[j].right;
                     if (PositionIsValid(helpingPoints, waypointPosition, Mathf.Abs(startPosition + laneModifier * road.laneWidth) - 0.1f))
                     {
-                        waypointPosition = PutWaypointOnRoad(waypointPosition, helpingPoints[j].up);
+                        waypointPosition = PutWaypointOnRoad(waypointPosition, helpingPoints[j].up, roadLayerMask);
                         if (PositionIsValid(finalPoints, waypointPosition, road.waypointDistance))
                         {
                             waypointName = road.name + "-" + Constants.laneNamePrefix + i + "-" + Constants.waypointNamePrefix + j;
@@ -137,27 +132,27 @@ namespace GleyTrafficSystem
 
                 //add last point from the list
                 waypointPosition = helpingPoints[helpingPoints.Count - 1].position + (startPosition + laneModifier * road.laneWidth) * helpingPoints[helpingPoints.Count - 1].right;
-                waypointPosition = PutWaypointOnRoad(waypointPosition, helpingPoints[helpingPoints.Count - 1].up);
+                waypointPosition = PutWaypointOnRoad(waypointPosition, helpingPoints[helpingPoints.Count - 1].up, roadLayerMask);
                 waypointName = road.name + "-" + Constants.laneNamePrefix + i + "-" + Constants.waypointNamePrefix + helpingPoints.Count;
                 finalPoints.Add(CreateWaypoint(laneHolder, waypointPosition, waypointName, road.GetAllowedCars(i), road.lanes[i].laneSpeed, null));
 
                 finalPoints[0].name = road.name + "-" + Constants.laneNamePrefix + i + "-WConnect-" + 0;
                 finalPoints[finalPoints.Count - 1].name = road.name + "-" + Constants.laneNamePrefix + i + "-WConnect-" + (helpingPoints.Count - 1);
-                road.AddLaneConnector(finalPoints[0].GetComponent<WaypointSettings>(), finalPoints[finalPoints.Count - 1].GetComponent<WaypointSettings>(), i);
+                road.AddLaneConnector(finalPoints[0].GetComponent<WaypointSettingsBase>(), finalPoints[finalPoints.Count - 1].GetComponent<WaypointSettingsBase>(), i);
             }
         }
 
 
-        private static void LinkNeighbors(Road road)
+        private static void LinkNeighbors(RoadBase road)
         {
             for (int i = 0; i < road.nrOfLanes; i++)
             {
                 Transform laneHolder = road.transform.Find(Constants.lanesHolderName).Find(Constants.laneNamePrefix + i);
-                WaypointSettings previousWaypoint = laneHolder.GetChild(0).GetComponent<WaypointSettings>();
+                WaypointSettingsBase previousWaypoint = laneHolder.GetChild(0).GetComponent<WaypointSettingsBase>();
                 for (int j = 1; j < laneHolder.childCount; j++)
                 {
                     string waypointName = laneHolder.GetChild(j).name;
-                    WaypointSettings waypointScript = laneHolder.GetChild(j).GetComponent<WaypointSettings>();
+                    WaypointSettingsBase waypointScript = laneHolder.GetChild(j).GetComponent<WaypointSettingsBase>();
                     if (previousWaypoint != null)
                     {
                         previousWaypoint.neighbors.Add(waypointScript);
@@ -183,13 +178,16 @@ namespace GleyTrafficSystem
         }
 
 
-        private static void RemoveConnection(WaypointSettings waypoint)
+        private static void RemoveConnection(WaypointSettingsBase waypoint)
         {
+            if (waypoint == null)
+                return;
+
             for (int i = 0; i < waypoint.neighbors.Count; i++)
             {
                 if (waypoint.neighbors[i].connection != null)
                 {
-                    RoadConnections.Initialize().DeleteConnection(waypoint.neighbors[i].connection);
+                    CreateInstance<RoadConnectionsBase>().Initialize().DeleteConnection(waypoint.neighbors[i].connection);
                 }
             }
 
@@ -198,15 +196,15 @@ namespace GleyTrafficSystem
             {
                 if (waypoint.prev[i].connection != null)
                 {
-                    RoadConnections.Initialize().DeleteConnection(waypoint.prev[i].connection);
+                    CreateInstance<RoadConnectionsBase>().Initialize().DeleteConnection(waypoint.prev[i].connection);
                 }
             }
         }
 
 
-        private static void SwitchWaypointDirection(WaypointSettings startWaypoint, WaypointSettings endWaypoint)
+        private static void SwitchWaypointDirection(WaypointSettingsBase startWaypoint, WaypointSettingsBase endWaypoint)
         {
-            WaypointSettings currentWaypoint = startWaypoint;
+            WaypointSettingsBase currentWaypoint = startWaypoint;
             bool continueSwitching = true;
             while (continueSwitching)
             {
@@ -236,9 +234,9 @@ namespace GleyTrafficSystem
                     currentWaypoint.prev.RemoveAt(i);
                 }
 
-                List<WaypointSettings> aux = currentWaypoint.neighbors;
+                List<WaypointSettingsBase> aux = currentWaypoint.neighbors;
                 currentWaypoint.neighbors = currentWaypoint.prev;
-                currentWaypoint.prev = aux;              
+                currentWaypoint.prev = aux;
                 if (currentWaypoint.prev.Count > 0)
                 {
                     currentWaypoint = currentWaypoint.prev[0];
@@ -247,18 +245,18 @@ namespace GleyTrafficSystem
         }
 
 
-        private static Vector3 PutWaypointOnRoad(Vector3 waypointPosition, Vector3 perpendicular)
+        private static Vector3 PutWaypointOnRoad(Vector3 waypointPosition, Vector3 perpendicular, int groundLayermask)
         {
             if (GleyPrefabUtilities.EditingInsidePrefab())
             {
-                if (GleyPrefabUtilities.GetScenePrefabRoot().scene.GetPhysicsScene().Raycast(waypointPosition + 5 * perpendicular, -perpendicular, out RaycastHit hitInfo, Mathf.Infinity, NavigationRuntimeData.GetRoadLayers()))
+                if (GleyPrefabUtilities.GetScenePrefabRoot().scene.GetPhysicsScene().Raycast(waypointPosition + 5 * perpendicular, -perpendicular, out RaycastHit hitInfo, Mathf.Infinity, groundLayermask))
                 {
                     return hitInfo.point;
                 }
             }
             else
             {
-                if (Physics.Raycast(waypointPosition + 5 * perpendicular, -perpendicular, out RaycastHit hitInfo, Mathf.Infinity, NavigationRuntimeData.GetRoadLayers()))
+                if (Physics.Raycast(waypointPosition + 5 * perpendicular, -perpendicular, out RaycastHit hitInfo, Mathf.Infinity, groundLayermask))
                 {
                     return hitInfo.point;
                 }

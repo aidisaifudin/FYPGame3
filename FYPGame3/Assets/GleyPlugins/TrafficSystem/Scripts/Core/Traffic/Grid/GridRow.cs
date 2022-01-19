@@ -1,4 +1,4 @@
-﻿namespace GleyTrafficSystem
+﻿namespace GleyUrbanAssets
 {
     /// <summary>
     /// A row of cells

@@ -1,9 +1,10 @@
-﻿using UnityEditor;
+﻿using System;
+using UnityEditor;
 using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
-    public class SetupWindowBase : Editor, ISetupWindow
+    public abstract class SetupWindowBase : Editor, ISetupWindow
     {
         protected const int BOTTOM_SPACE = 70;
         protected const int TOGGLE_DIMENSION = 15;
@@ -12,8 +13,10 @@ namespace GleyTrafficSystem
         protected const int TOGGLE_WIDTH = 168;
 
         protected Vector2 scrollPosition = Vector2.zero;
+        protected SettingsWindowBase window;
 
-        private WindowType windowType;
+
+        private string fullClassName;
         private string windowTitle;
         private string tutorialLink;
         private bool enabled;
@@ -22,12 +25,14 @@ namespace GleyTrafficSystem
         private bool showTop;
         private bool showScroll;
         private bool showBottom;
-        
+        private bool blockClicks;
 
-        public virtual ISetupWindow Initialize(WindowProperties windowProperties)
+
+        public virtual ISetupWindow Initialize(WindowProperties windowProperties, SettingsWindowBase window)
         {
-            windowType = windowProperties.type;
-            windowTitle = windowProperties.name;
+            this.window = window;
+            fullClassName = windowProperties.nameSpace + "." + windowProperties.className;
+            windowTitle = windowProperties.title;
             showBack = windowProperties.showBack;
             showTitle = windowProperties.showTitle;
             showTop = windowProperties.showTop;
@@ -35,10 +40,16 @@ namespace GleyTrafficSystem
             showBottom = windowProperties.showBottom;
             tutorialLink = windowProperties.tutorialLink;
             enabled = true;
-            SettingsWindow.BlockClicks(windowProperties.blockClicks);
+            blockClicks = windowProperties.blockClicks;
+
             return this;
         }
 
+
+        public bool GetBlockClicksState()
+        {
+            return blockClicks;
+        }
 
         public string GetWindowTitle()
         {
@@ -125,9 +136,9 @@ namespace GleyTrafficSystem
         }
 
 
-        public WindowType GetWindowType()
+        public string GetFullClassName()
         {
-            return windowType;
+            return fullClassName;
         }
 
 
@@ -138,7 +149,7 @@ namespace GleyTrafficSystem
             {
                 CloseWindow();
             }
-            EditorGUILayout.LabelField(NavigationRuntimeData.GetBackPath() + GetWindowTitle());
+            EditorGUILayout.LabelField(window.GetBackPath() + GetWindowTitle());
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space();
         }
@@ -169,7 +180,7 @@ namespace GleyTrafficSystem
 
         protected virtual void BottomPart()
         {
-            if(GUILayout.Button("View Tutorial"))
+            if (GUILayout.Button("View Tutorial"))
             {
                 Application.OpenURL(tutorialLink);
             }

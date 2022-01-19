@@ -1,15 +1,26 @@
-﻿namespace GleyTrafficSystem
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Reflection;
-    using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+using UnityEngine;
 
+namespace GleyUrbanAssets
+{
     public static class EditorExtensionsMethods
     {
         public static T AddComponent<T>(this GameObject go, T toAdd) where T : Component
         {
             return go.AddComponent<T>().GetCopyOf(toAdd) as T;
+        }
+
+
+        public static int EnumToInt<TValue>(this TValue value) where TValue : struct, IConvertible
+        {
+            if (!typeof(TValue).IsEnum)
+            {
+                throw new ArgumentException(nameof(value));
+            }
+
+            return (int)(object)value;
         }
 
 

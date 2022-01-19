@@ -1,56 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using GleyTrafficSystem;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace GleyTrafficSystem
+namespace GleyUrbanAssets
 {
     /// <summary>
     /// Converts editor waypoints to production waypoints
     /// </summary>
-    public class GridEditor : Editor
+    public partial class GridEditor : Editor
     {
         static List<WaypointSettings> allEditorWaypoints;
         static GenericIntersectionSettings[] allEditorIntersections;
 
-
-        public static void GenerateGrid(CurrentSceneData currentSceneData)
-        {
-            System.DateTime startTime = System.DateTime.Now;
-            int nrOfColumns;
-            int nrOfRows;
-            Bounds b = new Bounds();
-            foreach (Renderer r in FindObjectsOfType<Renderer>())
-            {
-                b.Encapsulate(r.bounds);
-            }
-            nrOfColumns = Mathf.CeilToInt(b.size.x / currentSceneData.gridCellSize);
-            nrOfRows = Mathf.CeilToInt(b.size.z / currentSceneData.gridCellSize);
-            if (nrOfRows == 0 || nrOfColumns == 0)
-            {
-                Debug.LogError("Your scene seems empty. Please add some geometry inside your scene before setting up traffic");
-                return;
-            }
-            Debug.Log("Center: " + b.center + " size: " + b.size + " nrOfColumns " + nrOfColumns + " nrOfRows " + nrOfRows);
-            Vector3 corner = new Vector3(b.center.x - b.size.x / 2 + currentSceneData.gridCellSize / 2, 0, b.center.z - b.size.z / 2 + currentSceneData.gridCellSize / 2);
-            int nr = 0;
-            currentSceneData.grid = new GridRow[nrOfRows];
-            for (int row = 0; row < nrOfRows; row++)
-            {
-                currentSceneData.grid[row] = new GridRow(nrOfColumns);
-                for (int column = 0; column < nrOfColumns; column++)
-                {
-                    nr++;
-                    currentSceneData.grid[row].row[column] = new GridCell(column, row, new Vector3(corner.x + column * currentSceneData.gridCellSize, 0, corner.z + row * currentSceneData.gridCellSize), currentSceneData.gridCellSize);
-                }
-            }
-            currentSceneData.gridCorner = currentSceneData.grid[0].row[0].center - currentSceneData.grid[0].row[0].size / 2;
-            EditorUtility.SetDirty(currentSceneData);
-            Debug.Log("Done generate grid in " + (System.DateTime.Now - startTime));
-        }
-
-
-        public static bool AssignWaypoints(CurrentSceneData currentSceneData)
+        static bool AssignTrafficWaypoints(CurrentSceneData currentSceneData)
         {
             if (currentSceneData == null || currentSceneData.grid == null || currentSceneData.grid.Length == 0)
             {
@@ -69,7 +33,7 @@ namespace GleyTrafficSystem
             }
 
             //reset intersection waypoints
-            for(int i=0;i<allWaypoints.Count;i++)
+            for (int i = 0; i < allWaypoints.Count; i++)
             {
                 allWaypoints[i].enter = allWaypoints[i].exit = false;
             }
@@ -79,31 +43,37 @@ namespace GleyTrafficSystem
             for (int i = 0; i < allEditorIntersections.Length; i++)
             {
                 List<IntersectionStopWaypointsSettings> intersectionWaypoints = allEditorIntersections[i].GetAssignedWaypoints();
-                for (int j = 0; j < intersectionWaypoints.Count; j++)
+                if (intersectionWaypoints != null)
                 {
-                    for (int k = 0; k < intersectionWaypoints[j].roadWaypoints.Count; k++)
+                    for (int j = 0; j < intersectionWaypoints.Count; j++)
                     {
-                        if (intersectionWaypoints[j].roadWaypoints[k] == null)
+                        for (int k = 0; k < intersectionWaypoints[j].roadWaypoints.Count; k++)
                         {
-                            Debug.LogError(allEditorIntersections[i].name + " has null waypoints assigned, please check it.");
-                            continue;
-                        }
-                        else
-                        {
-                            intersectionWaypoints[j].roadWaypoints[k].enter = true;
+                            if (intersectionWaypoints[j].roadWaypoints[k] == null)
+                            {
+                                Debug.LogError(allEditorIntersections[i].name + " has null waypoints assigned, please check it.");
+                                continue;
+                            }
+                            else
+                            {
+                                intersectionWaypoints[j].roadWaypoints[k].enter = true;
+                            }
                         }
                     }
                 }
                 List<WaypointSettings> exitWaypoints = allEditorIntersections[i].GetExitWaypoints();
-                for (int j = 0; j < exitWaypoints.Count; j++)
+                if (exitWaypoints != null)
                 {
-                    if (exitWaypoints[j] == null)
+                    for (int j = 0; j < exitWaypoints.Count; j++)
                     {
-                        Debug.LogError(allEditorIntersections[i].name + " has null waypoints assigned, please check it.");
-                    }
-                    else
-                    {
-                        exitWaypoints[j].exit = true;
+                        if (exitWaypoints[j] == null)
+                        {
+                            Debug.LogError(allEditorIntersections[i].name + " has null waypoints assigned, please check it.");
+                        }
+                        else
+                        {
+                            exitWaypoints[j].exit = true;
+                        }
                     }
                 }
             }
@@ -114,31 +84,21 @@ namespace GleyTrafficSystem
                 {
                     allEditorWaypoints.Add(allWaypoints[i]);
                     GridCell cell = currentSceneData.GetCell(allWaypoints[i].transform.position);
-                    cell.AddWaypoint(allEditorWaypoints.Count - 1, allWaypoints[i].name, allWaypoints[i].allowedCars, allWaypoints[i].enter|| allWaypoints[i].exit);
+                    cell.AddWaypoint(allEditorWaypoints.Count - 1, allWaypoints[i].name, allWaypoints[i].allowedCars.Cast<int>().ToList(), allWaypoints[i].enter || allWaypoints[i].exit);
 
                 }
             }
             currentSceneData.allWaypoints = allEditorWaypoints.ToPlayWaypoints(allEditorWaypoints).ToArray();
             AssignIntersections(currentSceneData);
             EditorUtility.SetDirty(currentSceneData);
-            Debug.Log("Done assign waypoints in " + (System.DateTime.Now - startTime));
+            Debug.Log("Done assign vehicle waypoints in " + (System.DateTime.Now - startTime));
             return true;
         }
 
 
-        private static void SetTags()
-        {
-            ConnectionPool[] allWaypointHolders = FindObjectsOfType<ConnectionPool>();
-            for (int i = 0; i < allWaypointHolders.Length; i++)
-            {
-                allWaypointHolders[i].gameObject.SetTag(Constants.editorTag);
-            }
-        }
-
 
         private static void AssignIntersections(CurrentSceneData currentSceneData)
         {
-
             List<PriorityIntersection> priorityIntersections = new List<PriorityIntersection>();
             List<TrafficLightsIntersection> lightsIntersections = new List<TrafficLightsIntersection>();
             currentSceneData.allIntersections = new IntersectionData[allEditorIntersections.Length];
@@ -146,13 +106,18 @@ namespace GleyTrafficSystem
             {
                 if (allEditorIntersections[i].GetType().Equals(typeof(TrafficLightsIntersectionSettings)))
                 {
-                    lightsIntersections.Add(((TrafficLightsIntersectionSettings)allEditorIntersections[i]).ToPlayModeIntersection(allEditorWaypoints));
+                    TrafficLightsIntersection intersection = ((TrafficLightsIntersectionSettings)allEditorIntersections[i]).ToPlayModeIntersection(allEditorWaypoints);
+                    GetPedestrianWaypoints(intersection, (TrafficLightsIntersectionSettings)allEditorIntersections[i]);
+                    lightsIntersections.Add(intersection);
+
                     currentSceneData.allIntersections[i] = new IntersectionData(IntersectionType.TrafficLights, lightsIntersections.Count - 1);
                 }
 
                 if (allEditorIntersections[i].GetType().Equals(typeof(PriorityIntersectionSettings)))
                 {
-                    priorityIntersections.Add(((PriorityIntersectionSettings)allEditorIntersections[i]).ToPlayModeIntersection(allEditorWaypoints));
+                    PriorityIntersection intersection = ((PriorityIntersectionSettings)allEditorIntersections[i]).ToPlayModeIntersection(allEditorWaypoints);
+                    GetPedestrianWaypoints(intersection, (PriorityIntersectionSettings)allEditorIntersections[i]);
+                    priorityIntersections.Add(intersection);
                     currentSceneData.allIntersections[i] = new IntersectionData(IntersectionType.Priority, priorityIntersections.Count - 1);
                 }
 
@@ -176,6 +141,9 @@ namespace GleyTrafficSystem
             currentSceneData.allPriorityIntersections = priorityIntersections.ToArray();
             currentSceneData.allLightsIntersections = lightsIntersections.ToArray();
         }
+
+        static partial void GetPedestrianWaypoints(TrafficLightsIntersection intersection, TrafficLightsIntersectionSettings currentIntersection);
+        static partial void GetPedestrianWaypoints(PriorityIntersection intersection, PriorityIntersectionSettings currentIntersection);
 
 
         private static void ClearAllWaypoints(CurrentSceneData currentSceneData)

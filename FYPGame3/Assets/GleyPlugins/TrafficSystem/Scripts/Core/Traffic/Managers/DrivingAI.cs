@@ -91,15 +91,12 @@ namespace GleyTrafficSystem
 #endif
 
             currentActiveAction = new SpecialDriveActionTypes[nrOfVehicles];
-            for (int i = 0; i < driveActions.Length; i++)
-            {
-                VehicleActivated(i);
-            }
 
 
             VehicleEvents.onNewObjectInTrigger += NewObjectInTriggerHandler;
             VehicleEvents.onVehicleCrash += VehicleCrashHandler;
-            WaypointEvents.onWaypointStateChanged += WaypointStateChangedHandler;
+            GleyUrbanAssets.WaypointEvents.onStopStateChanged += StopStateChanged;
+            GleyUrbanAssets.WaypointEvents.onGiveWayStateChanged += GiveWayStateChanged;
 
 
             return this;
@@ -379,7 +376,7 @@ namespace GleyTrafficSystem
         /// <param name="index"></param>
         /// <param name="newAction"></param>
         /// <param name="active">true -. add action to queue, false-> remove action</param>
-        void NewDriveActionArrived(int index, SpecialDriveActionTypes newAction, bool active)
+        internal void NewDriveActionArrived(int index, SpecialDriveActionTypes newAction, bool active)
         {
             if (active == true)
             {
@@ -570,16 +567,14 @@ namespace GleyTrafficSystem
         /// <param name="index"></param>
         /// <param name="stopState"></param>
         /// <param name="giveWayState"></param>
-        private void WaypointStateChangedHandler(int index, bool stopState, bool giveWayState)
+        private void StopStateChanged(int index, bool stopState)
         {
-            if (giveWayState)
-            {
-                NewDriveActionArrived(index, SpecialDriveActionTypes.GiveWay, giveWayState);
-            }
-            else
-            {
                 NewDriveActionArrived(index, SpecialDriveActionTypes.StopInPoint, stopState);
-            }
+        }
+
+        private void GiveWayStateChanged(int index, bool giveWayState)
+        {
+                NewDriveActionArrived(index, SpecialDriveActionTypes.GiveWay, giveWayState);
         }
 
 
@@ -604,7 +599,7 @@ namespace GleyTrafficSystem
                     //ContinueStraight(index, carType);
                     //return;
                     //if the current vehicle can overtake
-                    freeWaypointIndex = waypointManager.GetOtherLaneWaypointIndex(index, carType);
+                    freeWaypointIndex = waypointManager.GetOtherLaneWaypointIndex(index, (int)carType);
                     if (freeWaypointIndex == -1)
                     {
                         //if cannot change lane
@@ -632,7 +627,7 @@ namespace GleyTrafficSystem
                     {
                         if (waypointManager.CanEnterIntersection(index))
                         {
-                            freeWaypointIndex = waypointManager.GetCurrentLaneWaypointIndex(index, carType);
+                            freeWaypointIndex = waypointManager.GetCurrentLaneWaypointIndex(index, (int)carType);
                             if (freeWaypointIndex != -1)
                             {
                                 NewDriveActionArrived(index, SpecialDriveActionTypes.GiveWay, false);
@@ -642,14 +637,14 @@ namespace GleyTrafficSystem
                     }
                     else
                     {
-                        freeWaypointIndex = waypointManager.GetOtherLaneWaypointIndex(index, carType);
+                        freeWaypointIndex = waypointManager.GetOtherLaneWaypointIndex(index, (int)carType);
                         if (freeWaypointIndex != -1)
                         {
                             CheckFreePath(index, freeWaypointIndex, BlinkReasons.ChangeLane);
                         }
                         else
                         {
-                            freeWaypointIndex = waypointManager.GetCurrentLaneWaypointIndex(index, carType);
+                            freeWaypointIndex = waypointManager.GetCurrentLaneWaypointIndex(index, (int)carType);
                             if (freeWaypointIndex != -1)
                             {
                                 CheckFreePath(index, freeWaypointIndex, BlinkReasons.ChangeLane);
@@ -667,7 +662,7 @@ namespace GleyTrafficSystem
 
             //if current vehicle is in no special state -> set next waypoint without any special requirements
 
-            freeWaypointIndex = waypointManager.GetCurrentLaneWaypointIndex(index, carType);
+            freeWaypointIndex = waypointManager.GetCurrentLaneWaypointIndex(index, (int)carType);
             if (freeWaypointIndex != -1)
             {
                 SetNextWaypoint(index, freeWaypointIndex, BlinkReasons.Stop);
@@ -701,7 +696,7 @@ namespace GleyTrafficSystem
         void ContinueStraight(int index, VehicleTypes carType)
         {
             //get new waypoint on the same lane
-            int freeWaypointIndex = waypointManager.GetCurrentLaneWaypointIndex(index, carType);
+            int freeWaypointIndex = waypointManager.GetCurrentLaneWaypointIndex(index, (int)carType);
             if (freeWaypointIndex != -1)
             {
                 SetNextWaypoint(index, freeWaypointIndex, BlinkReasons.Stop);
@@ -719,7 +714,7 @@ namespace GleyTrafficSystem
 
         void SetNextWaypoint(int index, int freeWaypointIndex, BlinkReasons blinkReason)
         {
-            Blink(blinkReason, index, waypointManager.GetCurrentCarWaypointIndex(index), freeWaypointIndex);
+            Blink(blinkReason, index, waypointManager.GetTargetWaypointIndex(index), freeWaypointIndex);
             waypointManager.SetNextWaypoint(index, freeWaypointIndex);
             waypointSpeed[index] = waypointManager.GetMaxSpeed(index);
             AIEvents.TriggerChangeDestinationEvent(index);
@@ -738,8 +733,8 @@ namespace GleyTrafficSystem
         public void Blink(BlinkReasons blinkReason, int index, int oldWaypointIndex, int newWaypointindex)
         {
             Vector3 forward = trafficVehicles.GetForwardVector(index);
-            Waypoint oldWaypoint = waypointManager.GetWaypoint(oldWaypointIndex);
-            Waypoint newWaypoint = waypointManager.GetWaypoint(newWaypointindex);
+            Waypoint oldWaypoint = waypointManager.GetWaypoint<Waypoint>(oldWaypointIndex);
+            Waypoint newWaypoint = waypointManager.GetWaypoint<Waypoint>(newWaypointindex);
             Waypoint targetWaypoint = newWaypoint;
             if (blinkReason == BlinkReasons.Stop)
             {
@@ -760,17 +755,17 @@ namespace GleyTrafficSystem
                     {
                         if (targetWaypoint.neighbors.Count > 0)
                         {
-                            targetWaypoint = waypointManager.GetWaypoint(targetWaypoint.neighbors[0]);
+                            targetWaypoint = waypointManager.GetWaypoint<Waypoint>(targetWaypoint.neighbors[0]);
                         }
                     }
-                    angle = Vector3.SignedAngle(oldWaypoint.position - waypointManager.GetWaypoint(oldWaypoint.prev[0]).position, targetWaypoint.position - oldWaypoint.position, Vector3.up);
+                    angle = Vector3.SignedAngle(oldWaypoint.position - waypointManager.GetWaypoint<Waypoint>(oldWaypoint.prev[0]).position, targetWaypoint.position - oldWaypoint.position, Vector3.up);
                     SetBlinkType(angle, index);
                     break;
 
                 case BlinkReasons.Stop:
                     if (newWaypoint.neighbors.Count > 0)
                     {
-                        targetWaypoint = waypointManager.GetWaypoint(targetWaypoint.neighbors[0]);
+                        targetWaypoint = waypointManager.GetWaypoint<Waypoint>(targetWaypoint.neighbors[0]);
                         angle = Vector3.SignedAngle(oldWaypoint.position - newWaypoint.position, oldWaypoint.position - targetWaypoint.position, Vector3.up);
                         if (Mathf.Abs(angle) < 1)
                         {
@@ -891,7 +886,8 @@ namespace GleyTrafficSystem
         {
             VehicleEvents.onNewObjectInTrigger -= NewObjectInTriggerHandler;
             VehicleEvents.onVehicleCrash -= VehicleCrashHandler;
-            WaypointEvents.onWaypointStateChanged -= WaypointStateChangedHandler;
+            GleyUrbanAssets.WaypointEvents.onStopStateChanged -= StopStateChanged;
+            GleyUrbanAssets.WaypointEvents.onGiveWayStateChanged -= GiveWayStateChanged;
         }
 
 #if UNITY_EDITOR

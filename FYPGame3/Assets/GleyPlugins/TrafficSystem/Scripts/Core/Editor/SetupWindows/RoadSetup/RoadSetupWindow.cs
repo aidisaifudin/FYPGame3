@@ -1,39 +1,32 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using GleyUrbanAssets;
 
 namespace GleyTrafficSystem
 {
-    public class RoadSetupWindow : SetupWindowBase
+    public class RoadSetupWindow : RoadSetupWindowBase
     {
-        public override ISetupWindow Initialize(WindowProperties windowProperties)
+        protected override void ViewRoads()
         {
-            base.Initialize(windowProperties);
-            return this;
+            window.SetActiveWindow(typeof(ViewRoadsWindow), true);
         }
 
 
-        protected override void TopPart()
+        protected override void ConnectRoads()
         {
-            base.TopPart();
-            EditorGUILayout.LabelField("Select action:");
-            EditorGUILayout.Space();
+            window.SetActiveWindow(typeof(ConnectRoadsWindow), true);
+        }
 
-            if (GUILayout.Button("Create Road"))
-            {
-                SettingsWindow.SetActiveWindow(WindowType.CreateRoad, true);
-            }
-            EditorGUILayout.Space();
 
-            if (GUILayout.Button("Connect Roads"))
-            {
-                SettingsWindow.SetActiveWindow(WindowType.ConnectRoads, true);
-            }
-            EditorGUILayout.Space();
+        protected override void CreateRoad()
+        {
+            window.SetActiveWindow(typeof(NewRoadWindow), true);
+        }
 
-            if (GUILayout.Button("View Roads"))
-            {
-                SettingsWindow.SetActiveWindow(WindowType.ViewRoads, true);
-            }
+
+        protected override void SetTexts()
+        {
+            createRoad = "Create Road";
+            connectRoads = "Connect Roads";
+            viewRoads = "View Roads";
         }
     }
 }

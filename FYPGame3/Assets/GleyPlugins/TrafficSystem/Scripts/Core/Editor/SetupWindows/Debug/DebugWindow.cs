@@ -1,6 +1,5 @@
-﻿using Gley.Common;
+﻿using GleyUrbanAssets;
 using UnityEditor;
-using UnityEngine;
 
 namespace GleyTrafficSystem
 {
@@ -9,10 +8,10 @@ namespace GleyTrafficSystem
         DebugSettings save;
 
 
-        public override ISetupWindow Initialize(WindowProperties windowProperties)
+        public override ISetupWindow Initialize(WindowProperties windowProperties, SettingsWindowBase window)
         {
             save = DebugOptions.LoadOrCreateDebugSettings();
-            return base.Initialize(windowProperties);
+            return base.Initialize(windowProperties,window);
         }
 
 

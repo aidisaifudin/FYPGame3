@@ -7,7 +7,7 @@ namespace GleyTrafficSystem
     /// <summary>
     /// Stores traffic lights intersection properties
     /// </summary>
-    public class TrafficLightsIntersectionSettings : GenericIntersectionSettings
+    public partial class TrafficLightsIntersectionSettings : GenericIntersectionSettings
     {
         public float greenLightTime=10;
         public float yellowLightTime=2;
@@ -85,6 +85,7 @@ namespace GleyTrafficSystem
         {
             return stopWaypoints;
         }
+
 
         public override List<WaypointSettings> GetExitWaypoints()
         {
