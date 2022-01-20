@@ -9,6 +9,8 @@ public class DialogDisplay : MonoBehaviour {
 	SpeakerUI speakerUICenter;
 	SpeakerUI speakerUIRight;
 
+    public GameObject[] passengerLines;
+
 	int activeLineIndex = 0;
 
 	void Start() {
