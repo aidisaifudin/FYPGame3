@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class DialogDisplay : MonoBehaviour {
-	public Conversation conversation;
+	public Conversation[] conversation;
 	public GameObject speakerLeft;
 	public GameObject speakerRight;
 
@@ -17,8 +17,8 @@ public class DialogDisplay : MonoBehaviour {
 		speakerUILeft = speakerLeft.GetComponent<SpeakerUI>();
 		speakerUIRight = speakerRight.GetComponent<SpeakerUI>();
 
-		speakerUILeft.Speaker = conversation.speakerLeft;
-		speakerUIRight.Speaker = conversation.speakerRight;
+		speakerUILeft.Speaker = conversation[0].speakerLeft;
+		speakerUIRight.Speaker = conversation[0].speakerRight;
 	}
 
 	void Update() {
@@ -46,7 +46,7 @@ public class DialogDisplay : MonoBehaviour {
     }
 
     public void AdvanceConversation() {
-		if(activeLineIndex < conversation.lines.Length) {
+		if(activeLineIndex < conversation[0].lines.Length) {
 			DisplayLine();
 			activeLineIndex += 1;
 		} else {
@@ -57,7 +57,7 @@ public class DialogDisplay : MonoBehaviour {
 	}
 
 	void DisplayLine() {
-		Line line = conversation.lines[activeLineIndex];
+		Line line = conversation[0].lines[activeLineIndex];
 		//Sprite portrait = conversation.portrait[0];
 		Character Character = line.character;
 

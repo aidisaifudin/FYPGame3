@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1614,6 +1614,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Passenger2
       objectReference: {fileID: 0}
+    - target: {fileID: 7381418494779182702, guid: 8f42d86a61b94a045aef9780609140c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7871097734034330836, guid: 8f42d86a61b94a045aef9780609140c9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1920,7 +1924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12641247ed6b99448b94025dc583b1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conversation: {fileID: 11400000, guid: 83a684d54c925404fa6667388af88a31, type: 2}
+  conversation: []
   speakerLeft: {fileID: 1350541932}
   speakerRight: {fileID: 1657509208}
   passengerLines: []
@@ -3216,7 +3220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3640,7 +3644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5091,7 +5095,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2026014931}
         m_TargetAssemblyTypeName: DialogDisplay, Assembly-CSharp
         m_MethodName: AdvanceConversation
         m_Mode: 1
@@ -5504,7 +5508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5693,7 +5697,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2026014931}
         m_TargetAssemblyTypeName: DialogDisplay, Assembly-CSharp
         m_MethodName: AdvanceConversation
         m_Mode: 1
@@ -6936,7 +6940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7405,13 +7409,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2026014929}
   - component: {fileID: 2026014930}
+  - component: {fileID: 2026014931}
   m_Layer: 0
   m_Name: Passenger2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2026014929
 Transform:
   m_ObjectHideFlags: 0
@@ -7439,6 +7444,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.300067, y: 1, z: 1.8261242}
   m_Center: {x: -0.016911864, y: 0, z: 0.03233242}
+--- !u!114 &2026014931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026014928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12641247ed6b99448b94025dc583b1c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversation:
+  - {fileID: 11400000, guid: 83a684d54c925404fa6667388af88a31, type: 2}
+  - {fileID: 11400000, guid: 2ce405789068bf145bff5033d59be128, type: 2}
+  - {fileID: 11400000, guid: 591cbb556210dd74b981e36117853fc9, type: 2}
+  speakerLeft: {fileID: 1297772520}
+  speakerRight: {fileID: 1967685339}
+  passengerLines: []
 --- !u!1 &2053436077
 GameObject:
   m_ObjectHideFlags: 0
