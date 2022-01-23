@@ -1,18 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class FadeEffects : MonoBehaviour
 {
-    public Text text;
+    public TextMeshProUGUI textCredits;
 
     public float fadeSpeed = 5.0f;
     public bool entrance;
     public GameObject canvas;
 
-    void Awake()
+    public void Start()
     {
-        
+        textCredits = FindObjectOfType<TextMeshProUGUI>();
     }
 
     void Update()
@@ -34,13 +35,13 @@ public class FadeEffects : MonoBehaviour
     {
         if (entrance)
         {
-            text.color = Color.Lerp(text.color, Color.white, fadeSpeed * Time.deltaTime);
+            textCredits.color = Color.Lerp(textCredits.color, Color.white, fadeSpeed * Time.deltaTime);
  
         }
 
         if (!entrance)
         {
-            text.color = Color.Lerp(text.color, Color.clear, fadeSpeed * Time.deltaTime);
+            textCredits.color = Color.Lerp(textCredits.color, Color.clear, fadeSpeed * Time.deltaTime);
             
         }
     }

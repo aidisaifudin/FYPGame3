@@ -384,7 +384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1071133500}
   prev:
@@ -403,14 +402,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &27175013
 Transform:
   m_ObjectHideFlags: 0
@@ -594,6 +594,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1172756008282293768, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+--- !u!4 &53963129 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+  m_PrefabInstance: {fileID: 1729403311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &55217968
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,11 +825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198f629690460a24fb1b5d4e8da32a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &107936144 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8454167825322518485, guid: 432c30d743b59eb4483d819d1783b6db, type: 3}
-  m_PrefabInstance: {fileID: 432938467}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &115355451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,7 +1142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192893466}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.02}
+  m_LocalPosition: {x: 1.48, y: 0, z: -2.02}
   m_LocalScale: {x: 0, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 1017649071}
@@ -1160,7 +1160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfa80d9fc3c90f4f90fc1529f67a634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 834964516}
+  textCredits: {fileID: 286186571}
   fadeSpeed: 5
   entrance: 0
   canvas: {fileID: 1187503128}
@@ -1373,6 +1373,40 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5411981777362187302, guid: ab1299badf5cfcf40890232fc4a386bf, type: 3}
+--- !u!1 &241008844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 241008845}
+  m_Layer: 0
+  m_Name: Barricade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &241008845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241008844}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -29.9, y: 4.2, z: -50.1}
+  m_LocalScale: {x: 100, y: 10, z: 0}
+  m_Children:
+  - {fileID: 1644996912}
+  - {fileID: 402690151}
+  - {fileID: 1762310141}
+  - {fileID: 1593794476}
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &249036609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1476,7 +1510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfa80d9fc3c90f4f90fc1529f67a634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 2135613102}
+  textCredits: {fileID: 0}
   fadeSpeed: 5
   entrance: 0
   canvas: {fileID: 1187503128}
@@ -1571,7 +1605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 27175012}
   prev:
@@ -1590,14 +1623,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &259195241
 Transform:
   m_ObjectHideFlags: 0
@@ -1612,6 +1646,140 @@ Transform:
   m_Father: {fileID: 895351835}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &286186569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286186570}
+  - component: {fileID: 286186572}
+  - component: {fileID: 286186571}
+  m_Layer: 5
+  m_Name: CreditsTMP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &286186570
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286186569}
+  m_LocalRotation: {x: -0.009933891, y: 0.67689025, z: -0.009136571, w: 0.73596025}
+  m_LocalPosition: {x: 0, y: 0, z: -56.3}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 1187503132}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: -0.129, y: 85.214, z: -1.541}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1020.7, y: -534.8}
+  m_SizeDelta: {x: 188.7231, y: 43.233}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &286186571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286186569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Credits
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
+  m_sharedMaterial: {fileID: -6797017507386184617, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 20
+  m_fontSizeBase: 20
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: -8.438187, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &286186572
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286186569}
+  m_CullTransparentMesh: 1
 --- !u!1 &289719293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,7 +2040,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &333317125
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2063,7 +2231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 676992145}
   prev:
@@ -2082,14 +2249,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &353193797
 Transform:
   m_ObjectHideFlags: 0
@@ -2232,7 +2400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1366728627}
   prev:
@@ -2251,14 +2418,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!1001 &373533005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2328,6 +2496,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96dd480e2b9e1ea498ec003f346a2b5c, type: 3}
+--- !u!4 &401970648 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
+  m_PrefabInstance: {fileID: 815364378}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &402690147
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,12 +2589,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402690147}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.9, y: 4.2, z: -60.1}
-  m_LocalScale: {x: 100, y: 10, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_Father: {fileID: 241008845}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &413876108 stripped
 GameObject:
@@ -2447,6 +2620,140 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6176796307873683081, guid: 1979414b7e5c720458983eea57e95412, type: 3}
+--- !u!1 &419225976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 419225977}
+  - component: {fileID: 419225979}
+  - component: {fileID: 419225978}
+  m_Layer: 5
+  m_Name: Safe & Sound Tmp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &419225977
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419225976}
+  m_LocalRotation: {x: -0.009933891, y: 0.67689025, z: -0.009136571, w: 0.73596025}
+  m_LocalPosition: {x: 0, y: 0, z: -55.7}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 1187503132}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: -0.129, y: 85.214, z: -1.541}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -967.7, y: -533.4}
+  m_SizeDelta: {x: 250.2991, y: 74.6488}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &419225978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419225976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Safe & Sound
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
+  m_sharedMaterial: {fileID: -6797017507386184617, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 25
+  m_fontSizeBase: 25
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: -8.438187, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &419225979
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419225976}
+  m_CullTransparentMesh: 1
 --- !u!1 &420437229
 GameObject:
   m_ObjectHideFlags: 0
@@ -2481,6 +2788,7 @@ MonoBehaviour:
   grid:
   - row:
     - waypointsInCell: 090000000a0000000b0000000c0000000d0000000e0000000f000000100000001a0000001b0000001c0000001d0000001e0000001f0000002000000021000000
+      pedestriansWaypointsInCell: 
       spawnWaypoints:
       - waypointIndex: 9
         allowedVehicles: 00000000
@@ -2514,12 +2822,14 @@ MonoBehaviour:
         allowedVehicles: 00000000
       - waypointIndex: 33
         allowedVehicles: 00000000
+      pedestrianSpawnWaypoints: []
       intersectionsInCell: 
       center: {x: -55, y: 0, z: -35}
       size: {x: 50, y: 0, z: 50}
       row: 0
       column: 0
     - waypointsInCell: 000000000100000002000000030000000400000005000000060000000700000008000000110000001200000013000000140000001500000016000000170000001800000019000000
+      pedestriansWaypointsInCell: 
       spawnWaypoints:
       - waypointIndex: 0
         allowedVehicles: 00000000
@@ -2557,6 +2867,7 @@ MonoBehaviour:
         allowedVehicles: 00000000
       - waypointIndex: 25
         allowedVehicles: 00000000
+      pedestrianSpawnWaypoints: []
       intersectionsInCell: 
       center: {x: -5, y: 0, z: -35}
       size: {x: 50, y: 0, z: 50}
@@ -2564,462 +2875,500 @@ MonoBehaviour:
       column: 1
   - row:
     - waypointsInCell: 
+      pedestriansWaypointsInCell: 
       spawnWaypoints: []
+      pedestrianSpawnWaypoints: []
       intersectionsInCell: 
       center: {x: -55, y: 0, z: 15}
       size: {x: 50, y: 0, z: 50}
       row: 1
       column: 0
     - waypointsInCell: 
+      pedestriansWaypointsInCell: 
       spawnWaypoints: []
+      pedestrianSpawnWaypoints: []
       intersectionsInCell: 
       center: {x: -5, y: 0, z: 15}
       size: {x: 50, y: 0, z: 50}
       row: 1
       column: 1
   allWaypoints:
-  - allowedCars: 00000000
-    neighbors: 
+  - neighbors: 
     prev: 01000000
     otherLanes: 
     position: {x: 17.753122, y: 0.086102426, z: -56.904858}
     name: Road_0-Lane_0-Out
     listIndex: 0
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 1
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 00000000
+    stop: 0
+  - neighbors: 00000000
     prev: 02000000
     otherLanes: 
     position: {x: 10.121239, y: 0.086102426, z: -57.067223}
     name: Road_0-Lane_0-Waypoint_2
     listIndex: 1
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 01000000
+    stop: 0
+  - neighbors: 01000000
     prev: 03000000
     otherLanes: 
     position: {x: 3.4425545, y: 0.08610245, z: -57.172523}
     name: Road_0-Lane_0-Waypoint_4
     listIndex: 2
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 02000000
+    stop: 0
+  - neighbors: 02000000
     prev: 04000000
     otherLanes: 
     position: {x: -2.4125538, y: 0.08610245, z: -57.228508}
     name: Road_0-Lane_0-Waypoint_6
     listIndex: 3
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 03000000
+    stop: 0
+  - neighbors: 03000000
     prev: 05000000
     otherLanes: 
     position: {x: -7.573307, y: 0.08610245, z: -57.24288}
     name: Road_0-Lane_0-Waypoint_8
     listIndex: 4
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 04000000
+    stop: 0
+  - neighbors: 04000000
     prev: 06000000
     otherLanes: 
     position: {x: -12.168518, y: 0.086102426, z: -57.223408}
     name: Road_0-Lane_0-Waypoint_10
     listIndex: 5
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 05000000
+    stop: 0
+  - neighbors: 05000000
     prev: 07000000
     otherLanes: 
     position: {x: -16.326456, y: 0.08610242, z: -57.177856}
     name: Road_0-Lane_0-Waypoint_12
     listIndex: 6
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 06000000
+    stop: 0
+  - neighbors: 06000000
     prev: 08000000
     otherLanes: 
     position: {x: -22.023626, y: 0.08806883, z: -57.077732}
     name: Road_0-Lane_0-Waypoint_15
     listIndex: 7
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 07000000
+    stop: 0
+  - neighbors: 07000000
     prev: 09000000
     otherLanes: 
     position: {x: -27.458761, y: 0.08806882, z: -56.962906}
     name: Road_0-Lane_0-Waypoint_18
     listIndex: 8
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 08000000
+    stop: 0
+  - neighbors: 08000000
     prev: 0a000000
     otherLanes: 
     position: {x: -33.070442, y: 0.086102426, z: -56.859512}
     name: Road_0-Lane_0-Waypoint_21
     listIndex: 9
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 09000000
+    stop: 0
+  - neighbors: 09000000
     prev: 0b000000
     otherLanes: 
     position: {x: -37.128273, y: 0.086102426, z: -56.80973}
     name: Road_0-Lane_0-Waypoint_23
     listIndex: 10
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 0a000000
+    stop: 0
+  - neighbors: 0a000000
     prev: 0c000000
     otherLanes: 
     position: {x: -41.59285, y: 0.08610245, z: -56.784252}
     name: Road_0-Lane_0-Waypoint_25
     listIndex: 11
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 0b000000
+    stop: 0
+  - neighbors: 0b000000
     prev: 0d000000
     otherLanes: 
     position: {x: -46.59533, y: 0.08610243, z: -56.790787}
     name: Road_0-Lane_0-Waypoint_27
     listIndex: 12
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 0c000000
+    stop: 0
+  - neighbors: 0c000000
     prev: 0e000000
     otherLanes: 
     position: {x: -52.26631, y: 0.086102456, z: -56.837116}
     name: Road_0-Lane_0-Waypoint_29
     listIndex: 13
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 0d000000
+    stop: 0
+  - neighbors: 0d000000
     prev: 0f000000
     otherLanes: 
     position: {x: -58.73603, y: 0.08610245, z: -56.93101}
     name: Road_0-Lane_0-Waypoint_31
     listIndex: 14
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 0e000000
+    stop: 0
+  - neighbors: 0e000000
     prev: 10000000
     otherLanes: 
     position: {x: -66.13577, y: 0.086102426, z: -57.080265}
     name: Road_0-Lane_0-Waypoint_33
     listIndex: 15
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 0f000000
+    stop: 0
+  - neighbors: 0f000000
     prev: 
     otherLanes: 
     position: {x: -67.83325, y: 0.09003311, z: -57.119686}
     name: Road_0-Lane_0-In
     listIndex: 16
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 12000000
+    stop: 0
+  - neighbors: 12000000
     prev: 
     otherLanes: 
     position: {x: 17.663061, y: 0.086102426, z: -52.905876}
     name: Road_0-Lane_1-In
     listIndex: 17
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 13000000
+    stop: 0
+  - neighbors: 13000000
     prev: 11000000
     otherLanes: 
     position: {x: 10.052496, y: 0.086102426, z: -53.06781}
     name: Road_0-Lane_1-Waypoint_2
     listIndex: 18
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 14000000
+    stop: 0
+  - neighbors: 14000000
     prev: 12000000
     otherLanes: 
     position: {x: 3.3979778, y: 0.08610245, z: -53.17277}
     name: Road_0-Lane_1-Waypoint_4
     listIndex: 19
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 15000000
+    stop: 0
+  - neighbors: 15000000
     prev: 13000000
     otherLanes: 
     position: {x: -2.4304733, y: 0.08610245, z: -53.228546}
     name: Road_0-Lane_1-Waypoint_6
     listIndex: 20
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 16000000
+    stop: 0
+  - neighbors: 16000000
     prev: 14000000
     otherLanes: 
     position: {x: -7.5631733, y: 0.08610245, z: -53.242897}
     name: Road_0-Lane_1-Waypoint_8
     listIndex: 21
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 17000000
+    stop: 0
+  - neighbors: 17000000
     prev: 15000000
     otherLanes: 
     position: {x: -12.130894, y: 0.086102426, z: -53.223583}
     name: Road_0-Lane_1-Waypoint_10
     listIndex: 22
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 18000000
+    stop: 0
+  - neighbors: 18000000
     prev: 16000000
     otherLanes: 
     position: {x: -16.264864, y: 0.086102426, z: -53.178326}
     name: Road_0-Lane_1-Waypoint_12
     listIndex: 23
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 19000000
+    stop: 0
+  - neighbors: 19000000
     prev: 17000000
     otherLanes: 
     position: {x: -21.940222, y: 0.08806882, z: -53.0786}
     name: Road_0-Lane_1-Waypoint_15
     listIndex: 24
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 1a000000
+    stop: 0
+  - neighbors: 1a000000
     prev: 18000000
     otherLanes: 
     position: {x: -27.377844, y: 0.08806883, z: -52.963722}
     name: Road_0-Lane_1-Waypoint_18
     listIndex: 25
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 1b000000
+    stop: 0
+  - neighbors: 1b000000
     prev: 19000000
     otherLanes: 
     position: {x: -33.015205, y: 0.086102426, z: -52.859894}
     name: Road_0-Lane_1-Waypoint_21
     listIndex: 26
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 1c000000
+    stop: 0
+  - neighbors: 1c000000
     prev: 1a000000
     otherLanes: 
     position: {x: -37.098366, y: 0.086102426, z: -52.809845}
     name: Road_0-Lane_1-Waypoint_23
     listIndex: 27
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 1d000000
+    stop: 0
+  - neighbors: 1d000000
     prev: 1b000000
     otherLanes: 
     position: {x: -41.59086, y: 0.08610245, z: -52.784252}
     name: Road_0-Lane_1-Waypoint_25
     listIndex: 28
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 1e000000
+    stop: 0
+  - neighbors: 1e000000
     prev: 1c000000
     otherLanes: 
     position: {x: -46.621162, y: 0.08610245, z: -52.79087}
     name: Road_0-Lane_1-Waypoint_27
     listIndex: 29
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 1f000000
+    stop: 0
+  - neighbors: 1f000000
     prev: 1d000000
     otherLanes: 
     position: {x: -52.318146, y: 0.08610245, z: -52.83745}
     name: Road_0-Lane_1-Waypoint_29
     listIndex: 30
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 20000000
+    stop: 0
+  - neighbors: 20000000
     prev: 1e000000
     otherLanes: 
     position: {x: -58.811234, y: 0.08610245, z: -52.931717}
     name: Road_0-Lane_1-Waypoint_31
     listIndex: 31
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 21000000
+    stop: 0
+  - neighbors: 21000000
     prev: 1f000000
     otherLanes: 
     position: {x: -66.22864, y: 0.086102426, z: -53.08134}
     name: Road_0-Lane_1-Waypoint_33
     listIndex: 32
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 
+    stop: 0
+  - neighbors: 
     prev: 20000000
     otherLanes: 
     position: {x: -67.92612, y: 0.086102426, z: -53.12076}
     name: Road_0-Lane_1-Out
     listIndex: 33
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 50
-    stop: 0
     giveWay: 1
     enter: 0
     exit: 0
-    temporaryDisabled: 0
+    stop: 0
   allIntersections: []
   allPriorityIntersections: []
   allLightsIntersections: []
@@ -3035,7 +3384,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &421301511
 GameObject:
@@ -3066,7 +3415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 644102800}
   prev:
@@ -3085,14 +3433,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &421301513
 Transform:
   m_ObjectHideFlags: 0
@@ -3152,7 +3501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8454167825322518485, guid: 432c30d743b59eb4483d819d1783b6db, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8454167825322518485, guid: 432c30d743b59eb4483d819d1783b6db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3229,7 +3578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1409871817}
   prev:
@@ -3248,14 +3596,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &463436501
 Transform:
   m_ObjectHideFlags: 0
@@ -3299,7 +3648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1279511355}
   prev:
@@ -3318,14 +3666,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &473534579
 Transform:
   m_ObjectHideFlags: 0
@@ -3671,7 +4020,7 @@ RectTransform:
   - {fileID: 19504613}
   - {fileID: 1736819188}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3843,6 +4192,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1172756008282293768, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+--- !u!4 &630037444 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+  m_PrefabInstance: {fileID: 2123065636}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &636042621
 GameObject:
   m_ObjectHideFlags: 0
@@ -3872,7 +4226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1809138537}
   prev:
@@ -3891,14 +4244,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &636042623
 Transform:
   m_ObjectHideFlags: 0
@@ -3942,7 +4296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 636042622}
   prev:
@@ -3961,14 +4314,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &644102801
 Transform:
   m_ObjectHideFlags: 0
@@ -4214,7 +4568,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 259195240}
   prev:
@@ -4233,14 +4586,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &676992146
 Transform:
   m_ObjectHideFlags: 0
@@ -4336,6 +4690,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5319580153031533349, guid: ba6d2fe31246815459c074e8ee2219bf, type: 3}
+--- !u!4 &717042463 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1949264598188308623, guid: 432c30d743b59eb4483d819d1783b6db, type: 3}
+  m_PrefabInstance: {fileID: 432938467}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &728039963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 76e432dd81ab64748b602c372d4d246e, type: 3}
@@ -4684,35 +5043,43 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1295934220}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -64.44
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.029956907
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -49.81
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
-      propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.009999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.009999999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.1900015
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -16.029957
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.559998
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
       propertyPath: m_LocalRotation.z
@@ -4754,7 +5121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &834964515
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4864,7 +5231,7 @@ Transform:
   - {fileID: 780259925}
   - {fileID: 1585439671}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &863285118
 GameObject:
@@ -4898,7 +5265,7 @@ Transform:
   - {fileID: 315012452}
   - {fileID: 1356666224}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &870686046
 PrefabInstance:
@@ -4909,7 +5276,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_RootOrder
-      value: 34
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4962,11 +5329,11 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1295934220}
     m_Modifications:
     - target: {fileID: 2817737516165408672, guid: 52f4a84df32ba354888d179c8b0680ad, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2817737516165408672, guid: 52f4a84df32ba354888d179c8b0680ad, type: 3}
       propertyPath: m_LocalScale.x
@@ -4982,27 +5349,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2817737516165408672, guid: 52f4a84df32ba354888d179c8b0680ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -47.6
+      value: 7.8
       objectReference: {fileID: 0}
     - target: {fileID: 2817737516165408672, guid: 52f4a84df32ba354888d179c8b0680ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: -16.1
       objectReference: {fileID: 0}
     - target: {fileID: 2817737516165408672, guid: 52f4a84df32ba354888d179c8b0680ad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -66.8
+      value: 33.400005
       objectReference: {fileID: 0}
     - target: {fileID: 2817737516165408672, guid: 52f4a84df32ba354888d179c8b0680ad, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2817737516165408672, guid: 52f4a84df32ba354888d179c8b0680ad, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2817737516165408672, guid: 52f4a84df32ba354888d179c8b0680ad, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2817737516165408672, guid: 52f4a84df32ba354888d179c8b0680ad, type: 3}
       propertyPath: m_LocalRotation.z
@@ -5103,7 +5470,7 @@ Transform:
   - {fileID: 289719294}
   - {fileID: 1801046680}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &895351834
 GameObject:
@@ -5216,7 +5583,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &929969227
 GameObject:
@@ -5247,7 +5614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1366747660}
   prev:
@@ -5266,14 +5632,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &929969229
 Transform:
   m_ObjectHideFlags: 0
@@ -5288,6 +5655,140 @@ Transform:
   m_Father: {fileID: 518691099}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &940200377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940200378}
+  - component: {fileID: 940200380}
+  - component: {fileID: 940200379}
+  m_Layer: 5
+  m_Name: ProgTMP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &940200378
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940200377}
+  m_LocalRotation: {x: -0.009933891, y: 0.67689025, z: -0.009136571, w: 0.73596025}
+  m_LocalPosition: {x: 0, y: 0, z: -54.58}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 1187503132}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: -0.129, y: 85.214, z: -1.541}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -990.42, y: -535.96}
+  m_SizeDelta: {x: 250.2991, y: 74.6488}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &940200379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940200377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "Programmer\nMohamad Afiq \nAidi Saifudin\nWan Wei Jie "
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
+  m_sharedMaterial: {fileID: -6797017507386184617, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 15
+  m_fontSizeBase: 15
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: -8.438187, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &940200380
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940200377}
+  m_CullTransparentMesh: 1
 --- !u!1001 &946826245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5488,7 +5989,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_RootOrder
-      value: 35
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5554,7 +6055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &983654432
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5725,11 +6226,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 991225375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adf731ead7e0afe46b72fa8265ef60f7, type: 3}
+  m_Script: {fileID: 11500000, guid: a6c5a6e5b5443614cb0737c3fe157887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shouldRotate: 1
-  target: {fileID: 107936144}
+  target: {fileID: 717042463}
   distance: 10
   height: 5
   heightDamping: 2
@@ -5960,7 +6461,7 @@ Transform:
   - {fileID: 250093671}
   - {fileID: 2028363976}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1025605103
 GameObject:
@@ -5991,7 +6492,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1620715771}
   prev:
@@ -6010,14 +6510,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1025605105
 Transform:
   m_ObjectHideFlags: 0
@@ -6118,7 +6619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1689808970}
   prev:
@@ -6137,14 +6637,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1046424586
 Transform:
   m_ObjectHideFlags: 0
@@ -6314,27 +6815,35 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1295934220}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.009999997
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.009999997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.019272
+      value: -7.8800097
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.055101015
+      value: -15.944899
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -51.12
+      value: 65.98073
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.x
@@ -6342,7 +6851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.z
@@ -6395,7 +6904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1958499881}
   prev:
@@ -6414,14 +6922,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1071133501
 Transform:
   m_ObjectHideFlags: 0
@@ -6436,6 +6945,140 @@ Transform:
   m_Father: {fileID: 895351835}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1081243573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1081243574}
+  - component: {fileID: 1081243576}
+  - component: {fileID: 1081243575}
+  m_Layer: 5
+  m_Name: ArtistTMP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1081243574
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081243573}
+  m_LocalRotation: {x: -0.009933891, y: 0.67689025, z: -0.009136571, w: 0.73596025}
+  m_LocalPosition: {x: 0, y: 0, z: -55.69}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 1187503132}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: -0.129, y: 85.214, z: -1.541}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1003.61, y: -535.79}
+  m_SizeDelta: {x: 250.2991, y: 74.6488}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1081243575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081243573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "Artist\nAren Soo Peng\nTeo Zhong Yi \nShawn Hew  "
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
+  m_sharedMaterial: {fileID: -6797017507386184617, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 15
+  m_fontSizeBase: 15
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: -8.438187, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1081243576
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081243573}
+  m_CullTransparentMesh: 1
 --- !u!1 &1113881307
 GameObject:
   m_ObjectHideFlags: 0
@@ -6468,7 +7111,7 @@ Transform:
   - {fileID: 2094761191}
   - {fileID: 77899519}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &1117317892
 PrefabInstance:
@@ -6479,7 +7122,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_RootOrder
-      value: 31
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6803,7 +7446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1414256752}
   prev:
@@ -6822,14 +7464,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1170751471
 Transform:
   m_ObjectHideFlags: 0
@@ -6872,7 +7515,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
       propertyPath: m_RootOrder
-      value: 36
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7015,8 +7658,12 @@ RectTransform:
   - {fileID: 983654432}
   - {fileID: 2135613100}
   - {fileID: 333317125}
+  - {fileID: 286186570}
+  - {fileID: 419225977}
+  - {fileID: 940200378}
+  - {fileID: 1081243574}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7300,7 +7947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1302914431}
   prev:
@@ -7319,14 +7965,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1249264985
 Transform:
   m_ObjectHideFlags: 0
@@ -7503,7 +8150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1604321525}
   prev:
@@ -7522,14 +8168,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1279511356
 Transform:
   m_ObjectHideFlags: 0
@@ -7543,6 +8190,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 518691099}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1295934219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1295934220}
+  m_Layer: 0
+  m_Name: Props
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1295934220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295934219}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -81, y: 16, z: -59}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 401970648}
+  - {fileID: 1749267860}
+  - {fileID: 2088501634}
+  - {fileID: 1398792483}
+  - {fileID: 53963129}
+  - {fileID: 630037444}
+  - {fileID: 1943042934}
+  - {fileID: 1629566427}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1302914429
 GameObject:
@@ -7587,7 +8272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1689151322}
   prev:
@@ -7610,14 +8294,15 @@ MonoBehaviour:
     toIndex: 1
     draw: 1
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!1001 &1337475352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7627,7 +8312,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_RootOrder
-      value: 32
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7708,7 +8393,7 @@ Transform:
   - {fileID: 2126620104}
   - {fileID: 2066002036}
   m_Father: {fileID: 0}
-  m_RootOrder: 40
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1344816746 stripped
 GameObject:
@@ -7844,7 +8529,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1433277619}
   prev:
@@ -7867,14 +8551,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 1
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1366728628
 Transform:
   m_ObjectHideFlags: 0
@@ -7918,7 +8603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1249264984}
   prev:
@@ -7937,14 +8621,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1366747661
 Transform:
   m_ObjectHideFlags: 0
@@ -8177,6 +8862,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1172756008282293768, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+--- !u!4 &1398792483 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+  m_PrefabInstance: {fileID: 1443864929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1409871816
 GameObject:
   m_ObjectHideFlags: 0
@@ -8206,7 +8896,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1900720055}
   prev:
@@ -8225,14 +8914,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1409871818
 Transform:
   m_ObjectHideFlags: 0
@@ -8276,7 +8966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 361451820}
   prev:
@@ -8295,14 +8984,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1414256753
 Transform:
   m_ObjectHideFlags: 0
@@ -8350,7 +9040,7 @@ Transform:
   - {fileID: 1062550534}
   - {fileID: 1955082901}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &1432706034
 PrefabInstance:
@@ -8492,7 +9182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 463436500}
   prev:
@@ -8511,40 +9200,49 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!1001 &1443864929
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1295934220}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.009999997
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.009999997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.273812
+      value: -0.073226936
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.055098154
+      value: -15.944901
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -58.92678
+      value: 65.7262
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.x
@@ -8552,7 +9250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.z
@@ -8889,7 +9587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1615797014}
   prev:
@@ -8908,14 +9605,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1480207886
 Transform:
   m_ObjectHideFlags: 0
@@ -9095,7 +9793,7 @@ Transform:
   - {fileID: 2013261983}
   - {fileID: 186617811}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1530998598
 GameObject:
@@ -9129,7 +9827,7 @@ Transform:
   - {fileID: 741744523}
   - {fileID: 1344816747}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1542817218 stripped
 GameObject:
@@ -9270,7 +9968,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1585439670
 PrefabInstance:
@@ -9472,12 +10170,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593794472}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -80.3, y: 4.2, z: -54.9}
-  m_LocalScale: {x: 10, y: 10, z: 0}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.504, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 1, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_Father: {fileID: 241008845}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1598957769 stripped
 GameObject:
@@ -9532,7 +10230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1025605104}
   prev:
@@ -9551,14 +10248,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1604321526
 Transform:
   m_ObjectHideFlags: 0
@@ -9602,7 +10300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 2050142082}
   prev:
@@ -9621,14 +10318,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1615797015
 Transform:
   m_ObjectHideFlags: 0
@@ -9696,7 +10394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 929969228}
   prev:
@@ -9715,14 +10412,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1620715772
 Transform:
   m_ObjectHideFlags: 0
@@ -9756,6 +10454,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1172756008282293768, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+--- !u!4 &1629566427 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+  m_PrefabInstance: {fileID: 1065207837}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1633626180 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 910472214d9e9d746a7dfb0aac639ba3, type: 3}
@@ -9809,7 +10512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1938428562}
   prev:
@@ -9828,14 +10530,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1634148384
 Transform:
   m_ObjectHideFlags: 0
@@ -9938,12 +10641,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644996908}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.9, y: 4.2, z: -50.1}
-  m_LocalScale: {x: 100, y: 10, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_Father: {fileID: 241008845}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1649854936
 PrefabInstance:
@@ -10088,7 +10791,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 353193796}
   prev:
@@ -10107,14 +10809,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1689151323
 Transform:
   m_ObjectHideFlags: 0
@@ -10158,7 +10861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1634148383}
   prev:
@@ -10177,14 +10879,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1689808971
 Transform:
   m_ObjectHideFlags: 0
@@ -10228,27 +10931,35 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1295934220}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.009999997
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.009999997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.211314
+      value: -2.0114825
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.055098154
+      value: -15.944901
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -56.988525
+      value: 65.7887
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.x
@@ -10256,7 +10967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.z
@@ -10508,6 +11219,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d9b0c7db98b86441aa67471e28ea455, type: 3}
+--- !u!4 &1749267860 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2817737516165408672, guid: 52f4a84df32ba354888d179c8b0680ad, type: 3}
+  m_PrefabInstance: {fileID: 878569274}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1758021300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10517,7 +11233,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_RootOrder
-      value: 33
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10730,12 +11446,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762310137}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -16.5, y: 4.2, z: -54.9}
-  m_LocalScale: {x: 10, y: 10, z: 0}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.13399999, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 1, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_Father: {fileID: 241008845}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1762310142
 MonoBehaviour:
@@ -10918,7 +11634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1480207885}
   prev:
@@ -10937,14 +11652,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1809138538
 Transform:
   m_ObjectHideFlags: 0
@@ -10988,7 +11704,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 473534578}
   prev:
@@ -11007,14 +11722,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1821701566
 Transform:
   m_ObjectHideFlags: 0
@@ -11381,7 +12097,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1046424585}
   prev:
@@ -11400,14 +12115,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1900720056
 Transform:
   m_ObjectHideFlags: 0
@@ -11454,7 +12170,7 @@ Transform:
   - {fileID: 1005292079}
   - {fileID: 1503177864}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1 &1909598457
 GameObject:
@@ -11486,7 +12202,7 @@ Transform:
   - {fileID: 351174015}
   - {fileID: 1488715151}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1925833992
 GameObject:
@@ -11534,7 +12250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfa80d9fc3c90f4f90fc1529f67a634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 983654434}
+  textCredits: {fileID: 0}
   fadeSpeed: 5
   entrance: 0
   canvas: {fileID: 1187503128}
@@ -11629,7 +12345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1821701565}
   prev:
@@ -11648,14 +12363,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1938428563
 Transform:
   m_ObjectHideFlags: 0
@@ -11689,6 +12405,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1172756008282293768, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+--- !u!4 &1943042934 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+  m_PrefabInstance: {fileID: 2046987420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1955082900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11811,7 +12532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 421301512}
   prev:
@@ -11830,14 +12550,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1958499882
 Transform:
   m_ObjectHideFlags: 0
@@ -12158,7 +12879,7 @@ Transform:
   - {fileID: 413876109}
   - {fileID: 1774267895}
   m_Father: {fileID: 0}
-  m_RootOrder: 38
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &2028363975
 GameObject:
@@ -12206,7 +12927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfa80d9fc3c90f4f90fc1529f67a634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 333317126}
+  textCredits: {fileID: 419225978}
   fadeSpeed: 5
   entrance: 0
   canvas: {fileID: 1187503128}
@@ -12277,27 +12998,35 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1295934220}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0e9e275c8a9df274fbb61b9a3bff9bc2, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e9e275c8a9df274fbb61b9a3bff9bc2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.009999997
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e9e275c8a9df274fbb61b9a3bff9bc2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.009999997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0e9e275c8a9df274fbb61b9a3bff9bc2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.007845
+      value: -2.8714907
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0e9e275c8a9df274fbb61b9a3bff9bc2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.09644841
+      value: -15.903552
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0e9e275c8a9df274fbb61b9a3bff9bc2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -56.128517
+      value: 60.992165
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0e9e275c8a9df274fbb61b9a3bff9bc2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0e9e275c8a9df274fbb61b9a3bff9bc2, type: 3}
       propertyPath: m_LocalRotation.x
@@ -12305,7 +13034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0e9e275c8a9df274fbb61b9a3bff9bc2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0e9e275c8a9df274fbb61b9a3bff9bc2, type: 3}
       propertyPath: m_LocalRotation.z
@@ -12334,27 +13063,35 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1295934220}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.009999997
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.009999997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.0332575
+      value: -5.948117
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.055097677
+      value: -15.944902
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -53.05189
+      value: 65.96674
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.x
@@ -12362,7 +13099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.z
@@ -12415,7 +13152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1170751470}
   prev:
@@ -12434,14 +13170,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 50
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 50
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &2050142083
 Transform:
   m_ObjectHideFlags: 0
@@ -12489,7 +13226,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
       propertyPath: m_RootOrder
-      value: 37
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 340f1b0f454f4154b9a4c6f25cdd0ee7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12572,6 +13309,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6099800089077584851, guid: 0e9e275c8a9df274fbb61b9a3bff9bc2, type: 3}
+--- !u!4 &2088501634 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0e9e275c8a9df274fbb61b9a3bff9bc2, type: 3}
+  m_PrefabInstance: {fileID: 2029517213}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2094761190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12685,7 +13427,7 @@ Transform:
   - {fileID: 1616524286}
   - {fileID: 1633626181}
   m_Father: {fileID: 0}
-  m_RootOrder: 39
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &2120243306 stripped
 GameObject:
@@ -12716,27 +13458,35 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1295934220}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.009999997
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.009999997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.216035
+      value: -3.952721
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0590292
+      value: -15.94097
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -55.047287
+      value: 65.78397
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.x
@@ -12744,7 +13494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65c6809d2ffdf984cb46aa40898ce988, type: 3}
       propertyPath: m_LocalRotation.z
@@ -12810,7 +13560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2135613100
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12920,5 +13670,5 @@ Transform:
   - {fileID: 353948649}
   - {fileID: 122521905}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
