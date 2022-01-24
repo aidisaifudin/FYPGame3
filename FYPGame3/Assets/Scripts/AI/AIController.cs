@@ -11,30 +11,30 @@ public class AIController : MonoBehaviour
 	//private RocketLauncher rocketLauncher;
 
 	// Get player
-	public Transform player;
+	//public Transform player;
 
 	// Animation parameters
-	public Animation _animation;
+	public Animator _animation;
 	public AnimationClip idleAnimation;
 	public AnimationClip walkAnimation;
-	public AnimationClip runAnimation;
-	public AnimationClip shotAnimation;
+	//public AnimationClip runAnimation;
+	//public AnimationClip shotAnimation;
 	public float walkAnimationSpeed = 1.5f;
 	public float idleAnimationSpeed = 1.0f;
-	public float runAnimationSpeed = 2.0f;
-	public float shotAnimationSpeed = 0.5f;
+	//public float runAnimationSpeed = 2.0f;
+	//public float shotAnimationSpeed = 0.5f;
 
 	// Character movement speed
-	public int runSpeed = 6;
+	//public int runSpeed = 6;
 	public int walkSpeed = 2;
-	public float jumpSpeed = 12.0f;
+	//public float jumpSpeed = 12.0f;
 	public float gravity = 20.0f;
 
 	// Shoot range
-	public float shootRange = 15.0f;
+	//public float shootRange = 15.0f;
 
 	// Detected the player - increase from the shot range
-	public float getPlayerRange = 10.0f;
+	//public float getPlayerRange = 10.0f;
 
 	// Maximum distance from waypoint
 	public float waypointDistance = 10.0f;
@@ -46,13 +46,13 @@ public class AIController : MonoBehaviour
 	public float thinkingTime = 2.0f;
 
 	// AI current HP
-	public float aiHP = 100;
+	//public float aiHP = 100;
 
 	// AI max HP
-	private float aiMaxHP;
+	//private float aiMaxHP;
 
 	// Character controller
-	private CharacterController controller;
+	//private CharacterController controller;
 
 	// Collision flag return from moving the character
 	private CollisionFlags c_collisionFlags;
@@ -63,14 +63,14 @@ public class AIController : MonoBehaviour
 	private Vector3 v3_moveDirection = Vector3.zero;
 
 	// Boolean parameters
-	private bool b_isRun;
-	private bool b_isAiming;
-	private bool b_isJumping;
+	//private bool b_isRun;
+	//private bool b_isAiming;
+	//private bool b_isJumping;
 	private bool b_isStop;
 
 	// Shoot parameters
-	private bool b_isPrepare = false;
-	private bool b_isShot = false;
+	//private bool b_isPrepare = false;
+	//private bool b_isShot = false;
 
 	// Rotate parameters
 	private Quaternion q_currentRotation; //current rotation of the character
@@ -86,17 +86,17 @@ public class AIController : MonoBehaviour
 
 	// Using Awake to set up parameters before Initialization
 	public void Awake() {
-		controller = GetComponent<CharacterController>();
-		b_isRun = false;
-		b_isAiming = false;
-		b_isJumping = false;
+		//controller = GetComponent<CharacterController>();
+		//b_isRun = false;
+		//b_isAiming = false;
+		//b_isJumping = false;
 		f_moveSpeed = walkSpeed;
 		c_collisionFlags = CollisionFlags.CollidedBelow;
 		f_moveSpeed = walkSpeed;
 		// To make the character stop moving at the certain time
 		f_lastTime = Time.time; // Tracking the time between each movement of the character
 		b_isStop = false;
-		aiMaxHP = aiHP;
+		//aiMaxHP = aiHP;
 	
 		// Set up animation speed and wrapmode
 		_animation[walkAnimation.name].speed = walkAnimationSpeed;
@@ -132,53 +132,53 @@ public class AIController : MonoBehaviour
 	//}
 
 	// Get percentage of maximum HP with the current HP
-	public float GetHpPercent() {
-		return aiHP/aiMaxHP;
-	}
+	//public float GetHpPercent() {
+	//	return aiHP/aiMaxHP;
+	//}
 
 	// Give the enemy characteristic
 	// Checking if character is shooting
-	public bool Shoot(Vector3 _direction) {
-		RaycastHit hit;
-		// Checking if player falls within shooting range
-		if(Vector3.Distance(transform.position, player.position) <= shootRange) {
-			// Cast ray shootRange meters in shot direction, to see if nothing block the rocket
-			if(Physics.Raycast(transform.position, _direction, out hit, shootRange)) {
-	    		if(hit.transform.tag != "Obstacle") {
-	    			b_isAiming = true;
-	    			return b_isAiming;
-				}
-			}
-		}
-		b_isAiming = false;
-		return b_isAiming;
-	}
+	//public bool Shoot(Vector3 _direction) {
+	//	RaycastHit hit;
+	//	// Checking if player falls within shooting range
+	//	if(Vector3.Distance(transform.position, player.position) <= shootRange) {
+	//		// Cast ray shootRange meters in shot direction, to see if nothing block the rocket
+	//		if(Physics.Raycast(transform.position, _direction, out hit, shootRange)) {
+	//    		if(hit.transform.tag != "Obstacle") {
+	//    			b_isAiming = true;
+	//    			return b_isAiming;
+	//			}
+	//		}
+	//	}
+	//	b_isAiming = false;
+	//	return b_isAiming;
+	//}
 
 	// Make character jump
-	public bool Jump(Vector3 _direction) {
-		//Checking for jumping if next y position is different from current y position
-		RaycastHit hit;
-		Vector3 p1 = transform.position + controller.center + Vector3.up * (-controller.height * 0.5f);
-		Vector3 p2 = p1 + Vector3.up * controller.height;
-		// Cast ray to check if it hits anything
-		if((Physics.CapsuleCast(p1, p2, 0.1f, _direction, out hit)) && (c_collisionFlags & CollisionFlags.Sides) != 0) {
-    		if(hit.transform.tag == "Obstacle") {
-        		return true;
-			}
-		}
-		return false;
-	}
+	//public bool Jump(Vector3 _direction) {
+	//	//Checking for jumping if next y position is different from current y position
+	//	RaycastHit hit;
+	//	Vector3 p1 = transform.position + controller.center + Vector3.up * (-controller.height * 0.5f);
+	//	Vector3 p2 = p1 + Vector3.up * controller.height;
+	//	// Cast ray to check if it hits anything
+	//	if((Physics.CapsuleCast(p1, p2, 0.1f, _direction, out hit)) && (c_collisionFlags & CollisionFlags.Sides) != 0) {
+ //   		if(hit.transform.tag == "Obstacle") {
+ //       		return true;
+	//		}
+	//	}
+	//	return false;
+	//}
 
 	// Make enemy run when the player falls within certain radius which is between shootRange and getPlayerRange
-	public bool Run() {
-		// Checking for running
-		if((Vector3.Distance(transform.position, player.position) <= (getPlayerRange + shootRange)) && ((Vector3.Distance(transform.position, player.position) > shootRange))) {
-			b_isRun = true;
-		} else {
-			b_isRun = false;
-		}
-		return b_isRun;
-	}
+	//public bool Run() {
+	//	// Checking for running
+	//	if((Vector3.Distance(transform.position, player.position) <= (getPlayerRange + shootRange)) && ((Vector3.Distance(transform.position, player.position) > shootRange))) {
+	//		b_isRun = true;
+	//	} else {
+	//		b_isRun = false;
+	//	}
+	//	return b_isRun;
+	//}
 
 	// Calculate time to let enemy walk and think for certain time
 	public bool IsThinking() {
@@ -203,17 +203,17 @@ public class AIController : MonoBehaviour
 
 public void Update() {
 	if(StaticVars.b_isGameOver == false) {
-		Vector3 v3_rocketDirection = (player.position - transform.position).normalized;
+		//Vector3 v3_rocketDirection = (player.position - transform.position).normalized;
 		// Check if enemy position is away from waypoint in certain range
 		// Make enemy stop running, shooting and walk back to the target waypoint
 		if(wayPoint.AwayFromWaypoint(transform, waypointDistance)) {
-			b_isAiming = false;
-			b_isRun = false;
+			//b_isAiming = false;
+			//b_isRun = false;
 		} else {
 			// Check if enemy is not aiming and check for running
-			if(!Shoot(v3_rocketDirection)) {
-				Run();
-			}
+			//if(!Shoot(v3_rocketDirection)) {
+			//	Run();
+			//}
 		}
 		if(!b_isAiming) {
 			// If AI is running, make it stop thinking
@@ -260,7 +260,7 @@ public void Update() {
 			// Apply gravity
 			if(IsGrounded()) {
 				f_verticalSpeed = 0.0f; // If character is grounded
-				b_isJumping = false; // Checking if character is in the air
+				//b_isJumping = false; // Checking if character is in the air
 				f_inAirTime = 0.0f;
 				f_inAirStartTime = Time.time;
 			} else {
@@ -273,7 +273,7 @@ public void Update() {
 			v3_movement *= Time.deltaTime;
 			
 			// Set prepared animation to false
-			b_isPrepare = false;
+			//b_isPrepare = false;
 			
 			// Check if character is moving or not
 			if(v3_moveDirection != Vector3.zero) {
@@ -300,7 +300,7 @@ public void Update() {
 	   		// Apply gravity
 			if(IsGrounded()) {
 				f_verticalSpeed = 0.0f; // If character is grounded
-				b_isJumping = false; //Checking if character is in the air or not
+				//b_isJumping = false; //Checking if character is in the air or not
 				f_inAirTime = 0.0f;
 				f_inAirStartTime = Time.time;
 			} else {
@@ -361,16 +361,16 @@ public void Update() {
 	}
 
 	// Draw gizmos and directional line between enemy and player position
-	public void OnDrawGizmos() {
-		if(player != null) {
-			Gizmos.color = Color.blue;
-			Gizmos.DrawLine(transform.position, player.position);
-		}
-	}
+	//public void OnDrawGizmos() {
+	//	if(player != null) {
+	//		Gizmos.color = Color.blue;
+	//		Gizmos.DrawLine(transform.position, player.position);
+	//	}
+	//}
 
 	// Calculate distance between player and enemy
-	public float DistanceTracking() {
-		float distance = Vector3.Distance(transform.position, player.position);
-		return distance;
-	}
+	//public float DistanceTracking() {
+	//	float distance = Vector3.Distance(transform.position, player.position);
+	//	return distance;
+	//}
 }
