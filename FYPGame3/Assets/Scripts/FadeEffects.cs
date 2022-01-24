@@ -5,7 +5,7 @@ using TMPro;
 
 public class FadeEffects : MonoBehaviour
 {
-    public TextMeshProUGUI textCredits;
+    public TMP_Text textCredits;
 
     public float fadeSpeed = 5.0f;
     public bool entrance;
@@ -13,7 +13,7 @@ public class FadeEffects : MonoBehaviour
 
     public void Start()
     {
-        textCredits = FindObjectOfType<TextMeshProUGUI>();
+        textCredits = FindObjectOfType<TMP_Text>();
     }
 
     void Update()
@@ -35,14 +35,14 @@ public class FadeEffects : MonoBehaviour
     {
         if (entrance)
         {
-            textCredits.color = Color.Lerp(textCredits.color, Color.white, fadeSpeed * Time.deltaTime);
+            textCredits.color = Color.Lerp(new Color(1f, 1f, 1f, 0f), new Color(1f, 1f, 1f, 1f), fadeSpeed * Time.deltaTime);
  
         }
 
-        if (!entrance)
-        {
-            textCredits.color = Color.Lerp(textCredits.color, Color.clear, fadeSpeed * Time.deltaTime);
+        //if (!entrance)
+        //{
+        //    textCredits.color = Color.Lerp(textCredits.color, Color.clear, fadeSpeed * Time.deltaTime);
             
-        }
+        //}
     }
 }
