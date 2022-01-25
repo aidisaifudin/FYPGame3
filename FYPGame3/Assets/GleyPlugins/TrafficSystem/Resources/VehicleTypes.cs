@@ -4,7 +4,6 @@ namespace GleyTrafficSystem
 	public enum VehicleTypes
 	{
 		Car,
-		Human,
 	}
 }
 #endif
