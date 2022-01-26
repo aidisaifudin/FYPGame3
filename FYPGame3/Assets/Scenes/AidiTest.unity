@@ -8118,6 +8118,12 @@ MonoBehaviour:
   iconName: wayIcon.psd
   radius: 1
   orderDirection: 1
+  waypoints: []
+  wayIndex: 0
+  nextIndex: 0
+  wayLength: 0
+  direction: {x: 0, y: 0, z: 0}
+  isHitRadius: 0
 --- !u!4 &1967657063
 Transform:
   m_ObjectHideFlags: 0
@@ -9196,7 +9202,6 @@ GameObject:
   - component: {fileID: 8409486276357971791}
   - component: {fileID: 1841900338180569068}
   - component: {fileID: 9223283638364702199}
-  - component: {fileID: 9223283638364702198}
   m_Layer: 0
   m_Name: Passenger2
   m_TagString: Passenger
@@ -9204,23 +9209,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &9223283638364702198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9223283638364702197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0ccc8b83b5e18940a68c3a2feb6bbc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1521054116}
-  - {fileID: 839356713}
-  - {fileID: 2088372555}
-  - {fileID: 2083307864}
 --- !u!195 &9223283638364702199
 NavMeshAgent:
   m_ObjectHideFlags: 0
