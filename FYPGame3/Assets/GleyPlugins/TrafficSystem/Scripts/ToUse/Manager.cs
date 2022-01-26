@@ -48,6 +48,7 @@ namespace GleyTrafficSystem
         /// <param name="distanceToRemove">distance at which traffic vehicles can be removed</param>
         /// <param name="greenLightTime">roads green light duration in seconds</param>
         /// <param name="yelloLightTime">roads yellow light duration in seconds</param>
+        
         public static void Initialize(Transform activeCamera, int nrOfVehicles, VehiclePool carPool, float minDistanceToAdd, float distanceToRemove, float greenLightTime, float yelloLightTime)
         {
 #if USE_GLEY_TRAFFIC

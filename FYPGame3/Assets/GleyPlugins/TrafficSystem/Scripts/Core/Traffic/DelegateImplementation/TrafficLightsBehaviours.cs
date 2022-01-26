@@ -2,8 +2,14 @@
 using UnityEngine;
 namespace GleyTrafficSystem
 {
+    
     public class TrafficLightsBehaviours
     {
+      
+        public void Start()
+        {
+           
+        }
         public static void DefaultBehaviour(TrafficLightsColor currentRoadColor, List<GameObject> redLightObjects, List<GameObject> yellowLightObjects, List<GameObject> greenLightObjects, string name)
         {
             switch (currentRoadColor)
@@ -12,6 +18,9 @@ namespace GleyTrafficSystem
                     SetLight(true, redLightObjects, name);
                     SetLight(false, yellowLightObjects, name);
                     SetLight(false, greenLightObjects, name);
+                    Debug.Log("Red Light");
+
+                
                     break;
                 case TrafficLightsColor.Yellow:
                     SetLight(false, redLightObjects, name);

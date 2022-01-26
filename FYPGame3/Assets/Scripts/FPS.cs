@@ -26,7 +26,7 @@ public class FPS : MonoBehaviour
             yield return new WaitForSeconds(frequency);
             float timeSpan = Time.realtimeSinceStartup - lastTime;
             int frameCount = Time.frameCount - lastFrameCount;
-
+            
             // Display it
 
             fps = string.Format("FPS: {0}", Mathf.RoundToInt(frameCount / timeSpan));

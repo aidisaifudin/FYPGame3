@@ -21,6 +21,7 @@ namespace GleyTrafficSystem
         public float yellowLightTime = -1;
         [Tooltip("How long green light is on (if = -1 the value from the intersection component will be used)")]
         public float greenLightTime = -1;
+        
 
         void Start()
         {
@@ -29,6 +30,10 @@ namespace GleyTrafficSystem
             //Manager.SetSpawnWaypointSelectorDelegate(GetBestNeighbor.GetForwardSpawnWaypoint);
         }
 
+        private void Update()
+        {
+            Manager.SetIntersectionRoadToGreen("Intersection_2", 1, true);
+        }
         //private void Update()
         //{
         //    if (Input.GetKeyDown(KeyCode.Alpha1))
