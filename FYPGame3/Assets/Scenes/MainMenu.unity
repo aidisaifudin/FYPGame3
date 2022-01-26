@@ -361,7 +361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 382005038}
   prev:
@@ -380,14 +379,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 1
-  draw: 1
 --- !u!4 &62609423
 Transform:
   m_ObjectHideFlags: 0
@@ -781,7 +781,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 481269957}
   prev:
@@ -800,14 +799,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 1
   carsLocked: 0
-  draw: 1
 --- !u!4 &136404996
 Transform:
   m_ObjectHideFlags: 0
@@ -851,7 +851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1481882387}
   prev:
@@ -870,14 +869,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &136845586
 Transform:
   m_ObjectHideFlags: 0
@@ -935,7 +935,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1152881074}
   prev:
@@ -954,14 +953,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 1
   carsLocked: 0
-  draw: 1
 --- !u!1001 &141112621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1274,7 +1274,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 889600026}
   prev:
@@ -1293,14 +1292,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &174431900
 Transform:
   m_ObjectHideFlags: 0
@@ -1570,15 +1570,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: SAFE AND SOUND
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
-  m_sharedMaterial: {fileID: -6797017507386184617, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e50268f85808b9c4681d81b83dce4288, type: 2}
+  m_sharedMaterial: {fileID: 7400754524063758034, guid: e50268f85808b9c4681d81b83dce4288, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4285399295
+  m_fontColor: {r: 1, g: 0, b: 0.4330225, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1674,7 +1674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 174431899}
   prev:
@@ -1693,14 +1692,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &291878662
 Transform:
   m_ObjectHideFlags: 0
@@ -1774,8 +1774,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Credit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
-  m_sharedMaterial: {fileID: -6797017507386184617, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e50268f85808b9c4681d81b83dce4288, type: 2}
+  m_sharedMaterial: {fileID: 7400754524063758034, guid: e50268f85808b9c4681d81b83dce4288, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1799,8 +1799,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2193,7 +2193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 773450209}
   prev:
@@ -2212,14 +2211,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &382005039
 Transform:
   m_ObjectHideFlags: 0
@@ -2453,6 +2453,7 @@ MonoBehaviour:
   grid:
   - row:
     - waypointsInCell: 0400000005000000060000000700000008000000090000000a0000000b0000000c0000000d00000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c000000
+      pedestriansWaypointsInCell: 
       spawnWaypoints:
       - waypointIndex: 4
         allowedVehicles: 00000000
@@ -2494,12 +2495,14 @@ MonoBehaviour:
         allowedVehicles: 00000000
       - waypointIndex: 27
         allowedVehicles: 00000000
+      pedestrianSpawnWaypoints: []
       intersectionsInCell: 
       center: {x: -10.000095, y: 0, z: 25}
       size: {x: 50, y: 0, z: 50}
       row: 0
       column: 0
     - waypointsInCell: 000000000100000002000000030000000e0000000f00000010000000110000001d000000
+      pedestriansWaypointsInCell: 
       spawnWaypoints:
       - waypointIndex: 0
         allowedVehicles: 00000000
@@ -2517,402 +2520,433 @@ MonoBehaviour:
         allowedVehicles: 00000000
       - waypointIndex: 17
         allowedVehicles: 00000000
+      pedestrianSpawnWaypoints: []
       intersectionsInCell: 
       center: {x: 39.999905, y: 0, z: 25}
       size: {x: 50, y: 0, z: 50}
       row: 0
       column: 1
   allWaypoints:
-  - allowedCars: 00000000
-    neighbors: 1d000000
+  - neighbors: 1d000000
     prev: 01000000
     otherLanes: 
     position: {x: 34.11154, y: -5.9865704, z: 5.0500603}
     name: Road_0-Lane_0-Out
     listIndex: 0
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 00000000
+    stop: 0
+  - neighbors: 00000000
     prev: 02000000
     otherLanes: 
     position: {x: 26.75527, y: -5.9865704, z: 5.0637136}
     name: Road_0-Lane_0-Waypoint_2
     listIndex: 1
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 01000000
+    stop: 0
+  - neighbors: 01000000
     prev: 03000000
     otherLanes: 
     position: {x: 20.456875, y: -5.9865704, z: 5.0688643}
     name: Road_0-Lane_0-Waypoint_4
     listIndex: 2
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 02000000
+    stop: 0
+  - neighbors: 02000000
     prev: 04000000
     otherLanes: 
     position: {x: 15.014622, y: -5.9865704, z: 5.067135}
     name: Road_0-Lane_0-Waypoint_6
     listIndex: 3
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 03000000
+    stop: 0
+  - neighbors: 03000000
     prev: 05000000
     otherLanes: 
     position: {x: 10.226681, y: -5.9865704, z: 5.0601454}
     name: Road_0-Lane_0-Waypoint_8
     listIndex: 4
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 04000000
+    stop: 0
+  - neighbors: 04000000
     prev: 06000000
     otherLanes: 
     position: {x: 5.8910904, y: -5.9865704, z: 5.0495152}
     name: Road_0-Lane_0-Waypoint_10
     listIndex: 5
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 05000000
+    stop: 0
+  - neighbors: 05000000
     prev: 07000000
     otherLanes: 
     position: {x: 1.8059349, y: -5.9865704, z: 5.036862}
     name: Road_0-Lane_0-Waypoint_12
     listIndex: 6
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 06000000
+    stop: 0
+  - neighbors: 06000000
     prev: 08000000
     otherLanes: 
     position: {x: -2.2305145, y: -5.9865704, z: 5.0238037}
     name: Road_0-Lane_0-Waypoint_14
     listIndex: 7
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 07000000
+    stop: 0
+  - neighbors: 07000000
     prev: 09000000
     otherLanes: 
     position: {x: -6.4196587, y: -5.9865704, z: 5.0119643}
     name: Road_0-Lane_0-Waypoint_16
     listIndex: 8
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 08000000
+    stop: 0
+  - neighbors: 08000000
     prev: 0a000000
     otherLanes: 
     position: {x: -10.9627075, y: -5.9865704, z: 5.0029645}
     name: Road_0-Lane_0-Waypoint_18
     listIndex: 9
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 09000000
+    stop: 0
+  - neighbors: 09000000
     prev: 0b000000
     otherLanes: 
     position: {x: -16.060852, y: -5.9865704, z: 4.9984293}
     name: Road_0-Lane_0-Waypoint_20
     listIndex: 10
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 0a000000
+    stop: 0
+  - neighbors: 0a000000
     prev: 0c000000
     otherLanes: 
     position: {x: -21.915363, y: -5.9865704, z: 4.999979}
     name: Road_0-Lane_0-Waypoint_22
     listIndex: 11
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 0b000000
+    stop: 0
+  - neighbors: 0b000000
     prev: 0d000000
     otherLanes: 
     position: {x: -28.72765, y: -5.9865704, z: 5.0092316}
     name: Road_0-Lane_0-Waypoint_24
     listIndex: 12
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 0c000000
+    stop: 0
+  - neighbors: 0c000000
     prev: 1c000000
     otherLanes: 
     position: {x: -32.509796, y: -5.9865704, z: 5.017147}
     name: Road_0-Lane_0-In
     listIndex: 13
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 0f000000
+    stop: 0
+  - neighbors: 0f000000
     prev: 1d000000
     otherLanes: 
     position: {x: 34.119904, y: -5.9865704, z: 9.050053}
     name: Road_0-Lane_1-In
     listIndex: 14
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 10000000
+    stop: 0
+  - neighbors: 10000000
     prev: 0e000000
     otherLanes: 
     position: {x: 26.759596, y: -5.9865704, z: 9.063711}
     name: Road_0-Lane_1-Waypoint_2
     listIndex: 15
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 11000000
+    stop: 0
+  - neighbors: 11000000
     prev: 0f000000
     otherLanes: 
     position: {x: 20.45672, y: -5.9865704, z: 9.068867}
     name: Road_0-Lane_1-Waypoint_4
     listIndex: 16
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 12000000
+    stop: 0
+  - neighbors: 12000000
     prev: 10000000
     otherLanes: 
     position: {x: 15.009851, y: -5.9865704, z: 9.067134}
     name: Road_0-Lane_1-Waypoint_6
     listIndex: 17
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 13000000
+    stop: 0
+  - neighbors: 13000000
     prev: 11000000
     otherLanes: 
     position: {x: 10.217709, y: -5.9865704, z: 9.060137}
     name: Road_0-Lane_1-Waypoint_8
     listIndex: 18
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 14000000
+    stop: 0
+  - neighbors: 14000000
     prev: 12000000
     otherLanes: 
     position: {x: 5.8791084, y: -5.9865704, z: 9.0494995}
     name: Road_0-Lane_1-Waypoint_10
     listIndex: 19
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 15000000
+    stop: 0
+  - neighbors: 15000000
     prev: 13000000
     otherLanes: 
     position: {x: 1.7928505, y: -5.9865704, z: 9.036841}
     name: Road_0-Lane_1-Waypoint_12
     listIndex: 20
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 16000000
+    stop: 0
+  - neighbors: 16000000
     prev: 14000000
     otherLanes: 
     position: {x: -2.242485, y: -5.9865704, z: 9.023787}
     name: Road_0-Lane_1-Waypoint_14
     listIndex: 21
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 17000000
+    stop: 0
+  - neighbors: 17000000
     prev: 15000000
     otherLanes: 
     position: {x: -6.428608, y: -5.9865704, z: 9.011955}
     name: Road_0-Lane_1-Waypoint_16
     listIndex: 22
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 18000000
+    stop: 0
+  - neighbors: 18000000
     prev: 16000000
     otherLanes: 
     position: {x: -10.967453, y: -5.9865704, z: 9.002964}
     name: Road_0-Lane_1-Waypoint_18
     listIndex: 23
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 19000000
+    stop: 0
+  - neighbors: 19000000
     prev: 17000000
     otherLanes: 
     position: {x: -16.060978, y: -5.9865704, z: 8.99843}
     name: Road_0-Lane_1-Waypoint_20
     listIndex: 24
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 1a000000
+    stop: 0
+  - neighbors: 1a000000
     prev: 18000000
     otherLanes: 
     position: {x: -21.911015, y: -5.9865704, z: 8.999976}
     name: Road_0-Lane_1-Waypoint_22
     listIndex: 25
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 1b000000
+    stop: 0
+  - neighbors: 1b000000
     prev: 19000000
     otherLanes: 
     position: {x: -28.719284, y: -5.9865704, z: 9.009224}
     name: Road_0-Lane_1-Waypoint_24
     listIndex: 26
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 1c000000
+    stop: 0
+  - neighbors: 1c000000
     prev: 1a000000
     otherLanes: 
     position: {x: -32.501434, y: -5.9865704, z: 9.017139}
     name: Road_0-Lane_1-Out
     listIndex: 27
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 0d000000
+    stop: 0
+  - neighbors: 0d000000
     prev: 1b000000
     otherLanes: 
     position: {x: -32.5067, y: -5.9865704, z: 6.4986253}
     name: Road_0-Lane_1-CConnect0
     listIndex: 28
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
-  - allowedCars: 00000000
-    neighbors: 0e000000
+    stop: 0
+  - neighbors: 0e000000
     prev: 00000000
     otherLanes: 
     position: {x: 34.116806, y: -5.9865704, z: 7.568574}
     name: Road_0-Lane_0-CConnect0
     listIndex: 29
+    temporaryDisabled: 0
+    allowedAgents: 
+    allowedCars: 00000000
     maxSpeed: 10
-    stop: 0
     giveWay: 0
     enter: 0
     exit: 0
-    temporaryDisabled: 0
+    stop: 0
   allIntersections: []
   allPriorityIntersections: []
   allLightsIntersections: []
@@ -3184,7 +3218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 62609422}
   prev:
@@ -3203,14 +3236,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &459350422
 Transform:
   m_ObjectHideFlags: 0
@@ -3336,7 +3370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1907554260}
   prev:
@@ -3355,14 +3388,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &481269958
 Transform:
   m_ObjectHideFlags: 0
@@ -4068,7 +4102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 291878661}
   prev:
@@ -4087,14 +4120,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &638924560
 Transform:
   m_ObjectHideFlags: 0
@@ -4589,7 +4623,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1069327698}
   prev:
@@ -4608,14 +4641,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &755776322
 Transform:
   m_ObjectHideFlags: 0
@@ -4728,7 +4762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 459350421}
   prev:
@@ -4747,14 +4780,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &770418755
 Transform:
   m_ObjectHideFlags: 0
@@ -4798,7 +4832,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1131386114}
   prev:
@@ -4817,14 +4850,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &773450210
 Transform:
   m_ObjectHideFlags: 0
@@ -5017,8 +5051,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
-  m_sharedMaterial: {fileID: -6797017507386184617, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e50268f85808b9c4681d81b83dce4288, type: 2}
+  m_sharedMaterial: {fileID: 7400754524063758034, guid: e50268f85808b9c4681d81b83dce4288, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5042,8 +5076,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5487,7 +5521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 770418754}
   prev:
@@ -5506,14 +5539,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &889600027
 Transform:
   m_ObjectHideFlags: 0
@@ -6070,7 +6104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 2076236794}
   prev:
@@ -6089,14 +6122,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1024874322
 Transform:
   m_ObjectHideFlags: 0
@@ -6259,7 +6293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 638924559}
   prev:
@@ -6278,14 +6311,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1069327699
 Transform:
   m_ObjectHideFlags: 0
@@ -6386,7 +6420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1964945968}
   prev:
@@ -6405,14 +6438,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1087687590
 Transform:
   m_ObjectHideFlags: 0
@@ -6599,7 +6633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 136845585}
   prev:
@@ -6618,14 +6651,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1131386115
 Transform:
   m_ObjectHideFlags: 0
@@ -6783,7 +6817,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1024874321}
   prev:
@@ -6802,14 +6835,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1152881075
 Transform:
   m_ObjectHideFlags: 0
@@ -7327,7 +7361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1461485342}
   prev:
@@ -7346,14 +7379,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1254935262
 Transform:
   m_ObjectHideFlags: 0
@@ -8104,7 +8138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1254935261}
   prev:
@@ -8123,14 +8156,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1452118610
 Transform:
   m_ObjectHideFlags: 0
@@ -8174,7 +8208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 755776321}
   prev:
@@ -8197,14 +8230,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 1
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1461485343
 Transform:
   m_ObjectHideFlags: 0
@@ -8299,7 +8333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1928217885}
   prev:
@@ -8318,14 +8351,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 1
   carsLocked: 0
-  draw: 1
 --- !u!4 &1481882388
 Transform:
   m_ObjectHideFlags: 0
@@ -9344,7 +9378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 136404995}
   prev:
@@ -9363,14 +9396,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1788527625
 Transform:
   m_ObjectHideFlags: 0
@@ -9444,8 +9478,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
-  m_sharedMaterial: {fileID: -6797017507386184617, guid: dc1f90a95ef15044ba072503697be6d8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e50268f85808b9c4681d81b83dce4288, type: 2}
+  m_sharedMaterial: {fileID: 7400754524063758034, guid: e50268f85808b9c4681d81b83dce4288, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9469,8 +9503,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9548,7 +9582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1087687589}
   prev:
@@ -9567,14 +9600,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1852294088
 Transform:
   m_ObjectHideFlags: 0
@@ -9933,7 +9967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 2142067166}
   prev:
@@ -9952,14 +9985,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1907554261
 Transform:
   m_ObjectHideFlags: 0
@@ -10099,7 +10133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 141022400}
   prev:
@@ -10122,14 +10155,15 @@ MonoBehaviour:
     toIndex: 1
     draw: 1
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 1
   carsLocked: 0
-  draw: 1
 --- !u!1 &1964945967
 GameObject:
   m_ObjectHideFlags: 0
@@ -10159,7 +10193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1452118609}
   prev:
@@ -10178,14 +10211,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &1964945969
 Transform:
   m_ObjectHideFlags: 0
@@ -10432,7 +10466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1788527624}
   prev:
@@ -10451,14 +10484,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &2076236795
 Transform:
   m_ObjectHideFlags: 0
@@ -10569,7 +10603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e69cc885d907a439a2a3f5e02f3f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedCars: 00000000
   neighbors:
   - {fileID: 1852294087}
   prev:
@@ -10588,14 +10621,15 @@ MonoBehaviour:
     toIndex: 0
     draw: 0
     drawWaypoints: 0
-  maxSpeed: 10
   stop: 0
+  draw: 1
+  allowedCars: 00000000
+  maxSpeed: 10
   giveWay: 0
   enter: 0
   exit: 0
   speedLocked: 0
   carsLocked: 0
-  draw: 1
 --- !u!4 &2142067167
 Transform:
   m_ObjectHideFlags: 0
