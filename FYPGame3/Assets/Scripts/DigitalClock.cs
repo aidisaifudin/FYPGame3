@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DigitalClock : MonoBehaviour
 {
@@ -9,12 +10,12 @@ public class DigitalClock : MonoBehaviour
     public float day;
     public const float REAL_SECONDS_PER_INGAME_DAY = 300f;
 
-    public Text timeText;
+    public TMP_Text timeText;
 
     // Start is called before the first frame update
     void Start()
     {
-        timeText = transform.Find("timeText").GetComponent<Text>();
+        timeText = transform.Find("timeText").GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
