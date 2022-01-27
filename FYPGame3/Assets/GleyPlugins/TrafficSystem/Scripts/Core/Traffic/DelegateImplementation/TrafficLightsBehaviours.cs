@@ -7,7 +7,7 @@ namespace GleyTrafficSystem
     
     public class TrafficLightsBehaviours
     {
-        RedLight redLight;
+        
         public void Start()
         {
             
@@ -20,7 +20,7 @@ namespace GleyTrafficSystem
                     SetLight(true, redLightObjects, name);
                     SetLight(false, yellowLightObjects, name);
                     SetLight(false, greenLightObjects, name);
-                    RedLight.Barricade();
+                   
                     break;
                 case TrafficLightsColor.Yellow:
                     SetLight(false, redLightObjects, name);
