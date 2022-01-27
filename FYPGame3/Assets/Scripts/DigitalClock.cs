@@ -23,9 +23,9 @@ public class DigitalClock : MonoBehaviour
     {
         day += Time.deltaTime / REAL_SECONDS_PER_INGAME_DAY; //day increase when real seconds per in game day ends
 
-        float dayNormalized = day % 1f; //make day variable to 0-1
+        float dayNormalized = day % 3f; //
 
-        float hoursPerDay = 24f;
+        float hoursPerDay = 8f;
         float minutesPerHour = 60f;
 
         string hoursString = Mathf.Floor(dayNormalized * hoursPerDay).ToString("00");
