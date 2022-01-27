@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+
 namespace GleyTrafficSystem
 {
     
     public class TrafficLightsBehaviours
     {
-      
+        RedLight redLight;
         public void Start()
         {
-           
+            
         }
         public static void DefaultBehaviour(TrafficLightsColor currentRoadColor, List<GameObject> redLightObjects, List<GameObject> yellowLightObjects, List<GameObject> greenLightObjects, string name)
         {
@@ -18,9 +20,7 @@ namespace GleyTrafficSystem
                     SetLight(true, redLightObjects, name);
                     SetLight(false, yellowLightObjects, name);
                     SetLight(false, greenLightObjects, name);
-                    Debug.Log("Red Light");
-
-                
+                    RedLight.Barricade();
                     break;
                 case TrafficLightsColor.Yellow:
                     SetLight(false, redLightObjects, name);
@@ -52,6 +52,7 @@ namespace GleyTrafficSystem
                 else
                 {
                     Debug.LogWarning("Intersection " + name + " has null red light objects");
+                    
                 }
             }
         }
