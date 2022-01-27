@@ -70,6 +70,7 @@ public class TaxiManager : MonoBehaviour
 
             Earnings.instance.EarnMoney();
             Destroy(other.gameObject);
+            RandomPassenger.instance.SpawnPassenger();
             //arrow.SetActive(true);
         }
     }

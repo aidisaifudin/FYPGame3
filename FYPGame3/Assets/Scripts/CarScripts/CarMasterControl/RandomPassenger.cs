@@ -8,35 +8,38 @@ public class RandomPassenger : MonoBehaviour
     public Transform[] destinationSpawn;
     public GameObject passenger;
     public GameObject destination;
-    int[] closePickupPoint;
-    int[] destinationPoint;
+    public int[][] closePickupPoint;
+    public int[][] destinationPoint;
+    private int lastDropOff;
+
+    public static RandomPassenger instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        int randomPassenger = Random.Range(0, pickedPassenger.Length - 1);
-        int pickedPassenger = closePickupPoint[randomPassenger];
+        int randomPassenger = Random.Range(0, passengerSpawn.Length);
+        //int pickedPassenger = closePickupPoint[randomPassenger][4];
 
 
 
-        int randomDestination = Random.Range(0, destinationSpawn.Length);
+        lastDropOff = destinationPoint[randomPassenger][Random.Range(0, destinationPoint[randomPassenger].Length - 1)];
 
         Instantiate(passenger, passengerSpawn[randomPassenger].position, transform.rotation);
-        Instantiate(destination, destinationSpawn[randomDestination].position, transform.rotation);
+        Instantiate(destination, destinationSpawn[lastDropOff].position, transform.rotation);
     }
 
-    void SpawnPassenger()
+    public void SpawnPassenger()
     {
-        switch (closePickupPoint)
         {
-            case destinationPoint[0]:
-            case destinationPoint[3]:
-                int randomPassenger = Random.Range(0, pickedPassenger.Length - 1);
-                int pickedPassenger = closePickupPoint[randomPassenger];
-            case destinationPoint[1]:
-            case destinationPoint[2]:
-                int randomPassenger = Random.Range(0, pickedPassenger.Length - 1);
-                int pickedPassenger = closePickupPoint[randomPassenger];
+            int randomPassenger = closePickupPoint[lastDropOff][Random.Range(0, closePickupPoint[lastDropOff].Length - 1)];
+            lastDropOff = destinationPoint[randomPassenger][Random.Range(0, destinationPoint[randomPassenger].Length - 1)];
+            Instantiate(passenger, passengerSpawn[randomPassenger].position, transform.rotation);
+            Instantiate(destination, destinationSpawn[lastDropOff].position, transform.rotation);
         }
     }
 
@@ -44,16 +47,16 @@ public class RandomPassenger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (TaxiManager.destinationReached)
-        {
-            //nextPassenger = Mathf.Abs(int.Parse(destinationSpawn[0].ToString()) - 1);
-            int randomPassenger = Random.Range(0, passengerSpawn.Length);
-            int randomDestination = Random.Range(0, destinationSpawn.Length);
+        //if (TaxiManager.destinationReached)
+        //{
+        //    //nextPassenger = Mathf.Abs(int.Parse(destinationSpawn[0].ToString()) - 1);
+        //    int randomPassenger = Random.Range(0, passengerSpawn.Length);
+        //    int randomDestination = Random.Range(0, destinationSpawn.Length);
 
-            Instantiate(passenger, passengerSpawn[randomPassenger].position, transform.rotation);
-            Instantiate(destination, destinationSpawn[randomDestination].position, transform.rotation);
-            TaxiManager.destinationReached = false;
-        }
+        //    Instantiate(passenger, passengerSpawn[randomPassenger].position, transform.rotation);
+        //    Instantiate(destination, destinationSpawn[randomDestination].position, transform.rotation);
+        //    TaxiManager.destinationReached = false;
+        //}
     }
 
     //Vector3[] ChooseRandomDestination(int numRequired)
