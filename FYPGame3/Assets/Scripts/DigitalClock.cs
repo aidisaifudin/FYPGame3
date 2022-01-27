@@ -23,7 +23,7 @@ public class DigitalClock : MonoBehaviour
     {
         day += Time.deltaTime / REAL_SECONDS_PER_INGAME_DAY; //day increase when real seconds per in game day ends
 
-        float dayNormalized = day % 3f; //
+        float dayNormalized = day % 3f; //start day at 8am, end day at 24:00 resetting to 00:00
 
         float hoursPerDay = 8f;
         float minutesPerHour = 60f;
