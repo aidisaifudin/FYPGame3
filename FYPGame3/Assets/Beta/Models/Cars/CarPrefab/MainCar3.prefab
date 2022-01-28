@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5775865398287329665, guid: 7d0c439cddb2cb1429a67611ca1be90c, type: 3}
+  - {fileID: 2100000, guid: 6e4efcb6278ede44d81d756b2ccca15c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,6 +94,10 @@ GameObject:
   - component: {fileID: 2239739202419813096}
   - component: {fileID: 2239739202419813098}
   - component: {fileID: 2239739202419813099}
+  - component: {fileID: 919132147892540877}
+  - component: {fileID: 919132147892540878}
+  - component: {fileID: 919132147892540879}
+  - component: {fileID: 919132147892540880}
   m_Layer: 0
   m_Name: MainCar3
   m_TagString: Player
@@ -201,6 +205,65 @@ MonoBehaviour:
   m_RevRangeBoundary: 10
   m_SlipLimit: 0.2
   m_BrakeTorque: 10000
+--- !u!114 &919132147892540877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428853989125052292}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbb0d6730215c84c9679e3a0aefbe8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  earningText: {fileID: 0}
+  endOfDayText: {fileID: 0}
+--- !u!114 &919132147892540878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428853989125052292}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6e758bcf3956c4d9d25bc4720ec8a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  marker: {fileID: 0}
+  destination: {fileID: 0}
+  dest: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
+--- !u!114 &919132147892540879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428853989125052292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b8f3899bf6e04449fa93920e3a3d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &919132147892540880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428853989125052292}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ebe644c2cfacd408281ebf16097159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passenger: {fileID: 0}
+  passengerInTaxi: 0
+  destination: {fileID: 0}
+  summary: {fileID: 0}
+  countdownText: {fileID: 0}
 --- !u!1 &2239739202555470046
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +696,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5775865398287329665, guid: 7d0c439cddb2cb1429a67611ca1be90c, type: 3}
+  - {fileID: 2100000, guid: 6e4efcb6278ede44d81d756b2ccca15c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -746,7 +809,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5775865398287329665, guid: 7d0c439cddb2cb1429a67611ca1be90c, type: 3}
+  - {fileID: 2100000, guid: 6e4efcb6278ede44d81d756b2ccca15c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -827,7 +890,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5775865398287329665, guid: 7d0c439cddb2cb1429a67611ca1be90c, type: 3}
+  - {fileID: 2100000, guid: 6e4efcb6278ede44d81d756b2ccca15c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
