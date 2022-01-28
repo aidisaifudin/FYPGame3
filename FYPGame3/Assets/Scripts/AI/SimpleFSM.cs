@@ -23,8 +23,8 @@ public class SimpleFSM : FSM {
 	// Initialize finite state machine for NPC tank
 	protected override void Initialize () {
 		curState = FSMState.Patrol;
-		curSpeed = 3.0f;
-		curRotSpeed = 0.5f;
+		curSpeed = 2.0f;
+		curRotSpeed = 0.1f;
 		//bDead = false;
 		elapsedTime = 0.0f;
 		//shootRate = 3.0f;
@@ -68,7 +68,7 @@ public class SimpleFSM : FSM {
 	// Patrol state
 	protected void UpdatePatrolState() {
 		// Find another random patrol point if current point is reached
-		if (Vector3.Distance(transform.position, destPos) <= 100.0f) {
+		if (Vector3.Distance(transform.position, destPos) <= 50.0f) {
 			print("Reached destination point\nCalculating next point");
 			FindNextPoint();
 		}
@@ -161,7 +161,7 @@ public class SimpleFSM : FSM {
 	protected void FindNextPoint() {
 		print("Finding next point");
 		int rndIndex = Random.Range(0, pointList.Length);
-		float randomRadius = 5.0f;
+		float randomRadius = 1f;
 		
 		Vector3 rndPosition = Vector3.zero;
 		destPos = pointList[rndIndex].transform.position + rndPosition;
@@ -180,7 +180,7 @@ public class SimpleFSM : FSM {
 		float xPos = Mathf.Abs(pos.x - transform.position.x);
 		float zPos = Mathf.Abs(pos.z - transform.position.z);
 		
-		if (xPos <= 50 && zPos <= 50)
+		if (xPos <= 100 && zPos <= 100)
 			return true;
 		
 		return false;

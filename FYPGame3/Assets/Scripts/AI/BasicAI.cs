@@ -29,7 +29,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             agent = GetComponent<NavMeshAgent>();
 
-            waypoints = GameObject.FindGameObjectsWithTag("Waypoint"); //find waypoints tag
+            //waypoints = GameObject.FindGameObjectsWithTag("Waypoint"); //find waypoints tag
             waypointIndex = Random.Range(0, waypoints.Length); //random number between 0 and number of waypoints
 
 
