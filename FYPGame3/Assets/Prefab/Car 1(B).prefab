@@ -81,37 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &461067862479332508
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4431369641335996936}
-  m_Layer: 0
-  m_Name: FrontTriggerHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4431369641335996936
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461067862479332508}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.70000005, z: 0.55}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8356623657404916869}
-  m_Father: {fileID: 1714448275810862846}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &751828271001920352
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +218,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627029905106769367}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 124.265526, y: 1.96, z: -80.99677}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -316,7 +285,7 @@ MonoBehaviour:
     wheelCircumference: 1.2566371
     raycastLength: 0.2703557
     maxSuspension: 0.07035568
-  frontTrigger: {fileID: 4431369641335996936}
+  frontTrigger: {fileID: 0}
   shadowHolder: {fileID: 0}
   vehicleType: 0
   maxSuspension: 0
@@ -329,9 +298,9 @@ MonoBehaviour:
   safeDistance: 12.571768
   overtakeDistance: 6.285884
   length: 1.571471
-  coliderHeight: 1.3000004
-  wheelDistance: 1
-  visibilityScript: {fileID: 6623333504267710706}
+  coliderHeight: 1.3000001
+  wheelDistance: 1.0999985
+  visibilityScript: {fileID: 4738592814266160616}
 --- !u!1 &1861715998458370471
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,7 +333,6 @@ Transform:
   - {fileID: 1897483041640749610}
   - {fileID: 1897483039971874610}
   - {fileID: 6887958826750862511}
-  - {fileID: 4431369641335996936}
   m_Father: {fileID: 2152597169866264429}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -770,50 +738,6 @@ Transform:
   m_Father: {fileID: 6887958826750862511}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7696189367900445621
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8356623657404916869}
-  - component: {fileID: 8445119758059421453}
-  m_Layer: 0
-  m_Name: FrontTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8356623657404916869
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7696189367900445621}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 2.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4431369641335996936}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8445119758059421453
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7696189367900445621}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.76188034, y: 1, z: 4.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7902885182339294271
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,7 +781,7 @@ GameObject:
   - component: {fileID: 7730627924401112177}
   - component: {fileID: 5581424076451965592}
   - component: {fileID: 5928849452122877040}
-  - component: {fileID: 6623333504267710706}
+  - component: {fileID: 4738592814266160616}
   m_Layer: 0
   m_Name: car_1_chasis_B
   m_TagString: Untagged
@@ -940,7 +864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f169b5c4fd8eb6498fcf7c875df2abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6623333504267710706
+--- !u!114 &4738592814266160616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
