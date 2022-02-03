@@ -20,7 +20,7 @@ public class RandomPassenger : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         
         passenger = GameObject.FindGameObjectWithTag("Passenger");
