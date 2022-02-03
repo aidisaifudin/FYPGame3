@@ -20,7 +20,7 @@ public class RandomPassenger : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         int randomPassenger = Random.Range(0, passengerSpawn.Length);
         //int pickedPassenger = closePickupPoint[randomPassenger][4];
