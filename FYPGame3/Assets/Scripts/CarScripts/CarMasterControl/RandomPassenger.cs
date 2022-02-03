@@ -30,7 +30,7 @@ public class RandomPassenger : MonoBehaviour
             /*if last drop off point is 0*/ new int[]{1, 2},
             /*if last drop off point is 1*/ new int[]{0, 3},
             /*if last drop off point is 2*/ new int[]{0, 3},
-            /*if last drop off point is 3*/ new int[]{1, 2},
+            /*if last drop off point is 3*/ new int[]{1, 2}
         };
     }
 
