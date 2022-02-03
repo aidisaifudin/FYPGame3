@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Earnings : MonoBehaviour
 {
-    public Text earningText;
-    public Text endOfDayText;
+    public TMP_Text earningText;
+    public TMP_Text endOfDayText;
 
     int earnings = 0;
 
@@ -19,6 +20,8 @@ public class Earnings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        earningText = transform.Find("earningText").GetComponent<TMP_Text>();
+        endOfDayText = transform.Find("endOfDayText").GetComponent<TMP_Text>();
         earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
     }
