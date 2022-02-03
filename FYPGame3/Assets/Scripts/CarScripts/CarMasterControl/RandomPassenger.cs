@@ -8,8 +8,8 @@ public class RandomPassenger : MonoBehaviour
     public Transform[] destinationSpawn;
     public GameObject passenger;
     public GameObject destination;
-    public int[][] closePickupPoint;
-    public int[][] destinationPoint;
+    private int[][] closePickupPoint;
+    private int[][] destinationPoint;
     private int lastDropOff;
 
     public static RandomPassenger instance;
@@ -17,33 +17,42 @@ public class RandomPassenger : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        destinationPoint = new int[][]
+        {
+            /*if random passenger is 0*/ new int[]{3},
+            /*if random passenger is 1*/ new int[]{2},
+            /*if random passenger is 2*/ new int[]{1},
+            /*if random passenger is 3*/ new int[]{0}
+        };
+
+        closePickupPoint = new int[][]
+        {
+            /*if last drop off point is 0*/ new int[]{1, 2},
+            /*if last drop off point is 1*/ new int[]{0, 3},
+            /*if last drop off point is 2*/ new int[]{0, 3},
+            /*if last drop off point is 3*/ new int[]{1, 2},
+        };
     }
 
     // Start is called before the first frame update
     public void Start()
     {
-        
-        passenger = GameObject.FindGameObjectWithTag("Passenger");
-        destination = GameObject.FindGameObjectWithTag("Destination");
         int randomPassenger = Random.Range(0, passengerSpawn.Length);
-        //int pickedPassenger = closePickupPoint[randomPassenger][4];
-
+        Debug.Log($"spawn {randomPassenger}");
         Instantiate(passenger, passengerSpawn[randomPassenger].position, transform.rotation);
-        Debug.Log("spawn");
-        //lastDropOff = destinationPoint[randomPassenger][Random.Range(0, destinationPoint[randomPassenger].Length - 1)];
-
-
-        //Instantiate(destination, destinationSpawn[lastDropOff].position, transform.rotation);
+        lastDropOff = destinationPoint[randomPassenger][Random.Range(0, destinationPoint[randomPassenger].Length - 1)];
+        Debug.Log($"spawn {lastDropOff}");
+        Instantiate(destination, destinationSpawn[lastDropOff].position, transform.rotation);
     }
 
     public void SpawnPassenger()
     {
-        {
             int randomPassenger = closePickupPoint[lastDropOff][Random.Range(0, closePickupPoint[lastDropOff].Length - 1)];
+            Debug.Log($"spawn {randomPassenger}");
             lastDropOff = destinationPoint[randomPassenger][Random.Range(0, destinationPoint[randomPassenger].Length - 1)];
+            Debug.Log($"spawn {lastDropOff}");
             Instantiate(passenger, passengerSpawn[randomPassenger].position, transform.rotation);
             Instantiate(destination, destinationSpawn[lastDropOff].position, transform.rotation);
-        }
     }
 
 

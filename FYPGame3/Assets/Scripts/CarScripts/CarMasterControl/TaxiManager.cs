@@ -51,7 +51,7 @@ public class TaxiManager : MonoBehaviour
         }
 
         currentTime -= 1 * Time.deltaTime;
-        countdownText.text = currentTime.ToString("0");
+        //countdownText.text = currentTime.ToString("0");
 
         if (currentTime <= 0)
         {
@@ -64,6 +64,7 @@ public class TaxiManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Passenger")
         {
+            Debug.Log($"passenger{other.name} in");
             passengerInTaxi = true;
             Destroy(other.gameObject);
             //arrow.SetActive(true);
