@@ -15,4 +15,14 @@ public class CarBang : MonoBehaviour
     {
         
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer==9)
+
+        {
+            Debug.Log("It hit");
+            Earnings.instance.LoseMoney();
+           
+        }
+    }
 }

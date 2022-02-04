@@ -38,4 +38,10 @@ public class Earnings : MonoBehaviour
         earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
     }
+    public void LoseMoney()
+    {
+        earnings -= 5;
+        earningText.text = " : " + earnings.ToString();
+        endOfDayText.text = " Earnings for today: " + earnings.ToString();
+    }
 }
