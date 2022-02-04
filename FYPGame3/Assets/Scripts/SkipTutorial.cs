@@ -17,6 +17,6 @@ public class SkipTutorial : MonoBehaviour
 
     public void ChangeToGame()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("MainGame");
     }
 }
