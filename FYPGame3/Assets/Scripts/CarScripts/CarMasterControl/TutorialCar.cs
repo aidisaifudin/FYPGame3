@@ -7,6 +7,7 @@ public class TutorialCar : MonoBehaviour
     public GameObject passenger;
     public GameObject destination;
     public GameObject summary;
+    public bool destinationReached;
 
     // Start is called before the first frame update
     void Start()
@@ -14,12 +15,16 @@ public class TutorialCar : MonoBehaviour
         passenger = GameObject.FindGameObjectWithTag("Passenger");
         destination = GameObject.FindGameObjectWithTag("Destination");
         summary.SetActive(false);
+        destinationReached = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        summary.SetActive(true);
+        if (destinationReached)
+        {
+            summary.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,7 +37,7 @@ public class TutorialCar : MonoBehaviour
         }
         else if (other.gameObject.tag == "Destination")
         {
-            //destinationReached = true;
+            destinationReached = true;
 
             Earnings.instance.EarnMoney();
             Destroy(other.gameObject);

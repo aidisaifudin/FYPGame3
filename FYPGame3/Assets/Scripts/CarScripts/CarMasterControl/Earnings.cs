@@ -9,7 +9,7 @@ public class Earnings : MonoBehaviour
     public TMP_Text earningText;
     public TMP_Text endOfDayText;
 
-    int earnings = 0;
+    int earnings = 100;
 
     public static Earnings instance;
 
@@ -20,6 +20,7 @@ public class Earnings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        earnings = 100;
         earningText = transform.Find("earningText").GetComponent<TMP_Text>();
         endOfDayText = transform.Find("endOfDayText").GetComponent<TMP_Text>();
         earningText.text = " : " + earnings.ToString();
