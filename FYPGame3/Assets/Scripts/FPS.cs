@@ -1,38 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class FPS : MonoBehaviour
 {
+    public Text fpsDisplay;
+    public Text averageFPSDisplay;
+    int framesPassed = 0;
+    float fpsTotal = 0f;
+    public Text minFPSDisplay, maxFPSDisplay;
+    float minFPS = Mathf.Infinity;
+    float maxFPS = 0f;
 
-    private int FramesPerSec;
-    private float frequency = 1.0f;
-    private string fps;
-
-
-
-    void Start()
+    private void Start()
     {
-        StartCoroutine(FramePS());
+        Application.targetFrameRate = 30;
     }
-
-    private IEnumerator FramePS()
+    void Update()
     {
-        for (; ; )
+        float fps = 1 / Time.unscaledDeltaTime;
+        fpsDisplay.text = "" + fps;
+        fpsTotal += fps;
+        framesPassed++;
+        averageFPSDisplay.text = "" + (fpsTotal / framesPassed);
+        if (fps > maxFPS && framesPassed > 10)
         {
-            // Capture frame-per-second
-            int lastFrameCount = Time.frameCount;
-            float lastTime = Time.realtimeSinceStartup;
-            yield return new WaitForSeconds(frequency);
-            float timeSpan = Time.realtimeSinceStartup - lastTime;
-            int frameCount = Time.frameCount - lastFrameCount;
-            
-            // Display it
-
-            fps = string.Format("FPS: {0}", Mathf.RoundToInt(frameCount / timeSpan));
+            maxFPS = fps;
+            maxFPSDisplay.text = "Max: " + maxFPS;
+        }
+        if (fps < minFPS && framesPassed > 10)
+        {
+            minFPS = fps;
+            minFPSDisplay.text = "Min: " + minFPS;
         }
     }
-
 
 
 }
