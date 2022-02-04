@@ -41,7 +41,7 @@ public class TaxiManager : MonoBehaviour
         {
             //passenger.transform.SetParent(this.transform);
             Destroy(passenger);
-            Debug.Log("Gone");
+            //Debug.Log("Gone");
         }
 
         if (destinationReached)
