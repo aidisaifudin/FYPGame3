@@ -12,6 +12,7 @@ public class TriggerTutorial : MonoBehaviour
         if(other.tag == "Player")
         {
             panel.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 
