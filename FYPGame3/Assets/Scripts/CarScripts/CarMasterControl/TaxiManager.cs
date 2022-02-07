@@ -47,10 +47,10 @@ public class TaxiManager : MonoBehaviour
             Destroy(destination);
         }
 
-        if (free.SetActive = true)
-        {
-            findingPassenger = true;
-        }
+        //if (free.SetActive = true)
+        //{
+        //    findingPassenger = true;
+        //}
     }
 
     private void OnTriggerEnter(Collider other)
