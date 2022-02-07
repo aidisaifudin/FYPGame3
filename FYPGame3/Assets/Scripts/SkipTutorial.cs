@@ -19,4 +19,11 @@ public class SkipTutorial : MonoBehaviour
     {
         SceneManager.LoadScene("MainGame");
     }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            SceneManager.LoadScene("MainGame");
+        }
+    }
 }
