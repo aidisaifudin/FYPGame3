@@ -7,18 +7,32 @@ public class WaypointMarker : MonoBehaviour
 {
     public Image marker;
     public Transform destination;
+    public GameObject passenger;
     public GameObject dest;
     public Vector3 offset;
 
     // Start is called before the first frame update
     void Start()
     {
+        passenger = GameObject.FindGameObjectWithTag("Passenger");
         dest = GameObject.FindGameObjectWithTag("Destination");
+        //this.SetParent(passenger);
     }
 
     // Update is called once per frame
     private void Update()
     {
+        //if (TaxiManager.passengerInTaxi)
+        //{
+        //    this.SetParent(null);
+        //    this.SetParent(dest);
+        //}
+
+        //if (TaxiManager.findingPassenger)
+        //{
+        //    this.SetParent(null);
+        //    this.SetParent(passenger);
+        //}
 
         float minX = marker.GetPixelAdjustedRect().width / 2;
         float maxX = Screen.width - minX;

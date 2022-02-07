@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TaxiManager : MonoBehaviour
 {
     public GameObject passenger;
-    public bool passengerInTaxi;
+    public static bool passengerInTaxi;
     public GameObject destination;
     public static bool destinationReached;
     //public GameObject reachedPassenger;
@@ -17,6 +17,7 @@ public class TaxiManager : MonoBehaviour
     [SerializeField] Text countdownText;
     public GameObject hired;
     public GameObject free;
+    public static bool findingPassenger;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +26,10 @@ public class TaxiManager : MonoBehaviour
         destination = GameObject.FindGameObjectWithTag("Destination");
         passengerInTaxi = false;
         destinationReached = false;
-        //reachedPassenger.SetActive(false);
         summary.SetActive(false);
-        //arrow.SetActive(false);
         hired.SetActive(false);
         free.SetActive(true);
+        findingPassenger = true;
 
         currentTime = startingTime;
     }
@@ -39,24 +39,17 @@ public class TaxiManager : MonoBehaviour
     {
         if (passengerInTaxi)
         {
-            //passenger.transform.SetParent(this.transform);
             Destroy(passenger);
-            //Debug.Log("Gone");
         }
 
         if (destinationReached)
         {
-            //reachedPassenger.SetActive(true);
             Destroy(destination);
         }
 
-        currentTime -= 1 * Time.deltaTime;
-        //countdownText.text = currentTime.ToString("0");
-
-        if (currentTime <= 0)
+        if (free.SetActive = true)
         {
-            summary.SetActive(true);
-            Time.timeScale = 0;
+            findingPassenger = true;
         }
     }
 
@@ -64,21 +57,18 @@ public class TaxiManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Passenger")
         {
-            Debug.Log($"passenger{other.name} in");
             passengerInTaxi = true;
             Destroy(other.gameObject);
-            //arrow.SetActive(true);
             hired.SetActive(true);
             free.SetActive(false);
         }
         else if (other.gameObject.tag == "Destination")
         {
             destinationReached = true;
-
+            passengerInTaxi = false;
             Earnings.instance.EarnMoney();
             Destroy(other.gameObject);
             RandomPassenger.instance.SpawnPassenger();
-            //arrow.SetActive(true);
             hired.SetActive(false);
             free.SetActive(true);
         }
