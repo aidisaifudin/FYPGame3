@@ -62,7 +62,7 @@ public class TaxiManager : MonoBehaviour
             hired.SetActive(true);
             free.SetActive(false);
         }
-        else if (other.gameObject.tag == "Destination")
+        else if (other.gameObject.tag == "Destination" && passengerInTaxi)
         {
             destinationReached = true;
             passengerInTaxi = false;
