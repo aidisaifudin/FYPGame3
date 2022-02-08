@@ -11,6 +11,7 @@ public class RandomPassenger : MonoBehaviour
     private int[][] closePickupPoint;
     private int[][] destinationPoint;
     private int lastDropOff;
+    public GameObject pass;
 
     public static RandomPassenger instance;
 
@@ -39,7 +40,7 @@ public class RandomPassenger : MonoBehaviour
     {
         int randomPassenger = Random.Range(0, passengerSpawn.Length);
         Debug.Log($"spawn {randomPassenger}");
-        Instantiate(passenger, passengerSpawn[randomPassenger].position, transform.rotation);
+        pass = Instantiate(passenger, passengerSpawn[randomPassenger].position, transform.rotation);
         lastDropOff = destinationPoint[randomPassenger][Random.Range(0, destinationPoint[randomPassenger].Length - 1)];
         Debug.Log($"spawn {lastDropOff}");
         Instantiate(destination, destinationSpawn[lastDropOff].position, transform.rotation);

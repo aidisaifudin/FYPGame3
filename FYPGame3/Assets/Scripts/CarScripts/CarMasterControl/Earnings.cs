@@ -21,8 +21,8 @@ public class Earnings : MonoBehaviour
     void Start()
     {
         earnings = 100;
-        earningText = transform.Find("earningText").GetComponent<TMP_Text>();
-        endOfDayText = transform.Find("endOfDayText").GetComponent<TMP_Text>();
+        earningText = transform.Find("Earning").GetComponent<TMP_Text>();
+        endOfDayText = transform.Find("EndDayEarnings").GetComponent<TMP_Text>();
         earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
     }
