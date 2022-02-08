@@ -67,12 +67,12 @@ public class AIController : MonoBehaviour {
 			transform.rotation = Quaternion.LookRotation(moveDirection);
 			animator.SetTrigger("Walk");
 		}
-			
-		// Calculate actual motion
-		movement = moveDirection * moveSpeed;
-		movement *= Time.deltaTime;
 
-		// Move character controller
-	   	collisionFlags = controller.Move(movement);
-	}
+        // Calculate actual motion
+        movement = moveDirection * moveSpeed;
+        movement *= Time.deltaTime;
+
+        // Move character controller
+        collisionFlags = controller.Move(movement);
+    }
 }
