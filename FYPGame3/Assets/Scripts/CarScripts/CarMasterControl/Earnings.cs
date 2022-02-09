@@ -11,7 +11,7 @@ public class Earnings : MonoBehaviour
     public GameObject insurance;
     public static bool activateInsurance;
 
-    int earnings;
+    public static int earnings = 100;
 
     public static Earnings instance;
 
@@ -22,8 +22,9 @@ public class Earnings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        earnings = PlayerPrefs.GetInt("earnings", 100);
+        earnings = PlayerPrefs.GetInt("earnings", earnings);
         earningText = transform.Find("Earning").GetComponent<TMP_Text>();
+        earningText.text = PlayerPrefs.GetInt("earnings", 100).ToString();
         endOfDayText = transform.Find("EndDayEarnings").GetComponent<TMP_Text>();
         earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
@@ -33,7 +34,9 @@ public class Earnings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(insurance == false)
+        Debug.Log(earnings);
+        
+        if (insurance == false)
         {
             activateInsurance = false;
         }
@@ -41,6 +44,7 @@ public class Earnings : MonoBehaviour
         {
             activateInsurance = true;
         }
+        
     }
 
     public void EarnMoney()
@@ -52,6 +56,7 @@ public class Earnings : MonoBehaviour
     }
     public void LoseMoney()
     {
+        Debug.Log("Lose money");
         earnings -= 5;
         earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
@@ -60,6 +65,7 @@ public class Earnings : MonoBehaviour
     }
     public void LoseMoreMoney()
     {
+        Debug.Log("Lose more money");
         earnings -= 10;
         earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Earnings for today: " + earnings.ToString();

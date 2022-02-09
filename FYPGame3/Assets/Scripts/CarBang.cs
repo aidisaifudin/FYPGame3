@@ -24,13 +24,12 @@ public class CarBang : MonoBehaviour
             {
                 Debug.Log("It hit");
                 Earnings.instance.LoseMoney();
-                SceneManager.LoadScene("CarAccident");
+                
             }
             else if(Earnings.activateInsurance = false)
             {
                 Debug.Log("It hit");
                 Earnings.instance.LoseMoreMoney();
-                SceneManager.LoadScene("CarAccident");
             }
         }
     }

@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Start()
     {
+        PlayerPrefs.GetInt("earnings", Earnings.earnings);
         Time.timeScale = 1;
     }
     public void BackToMainMenu()
@@ -24,6 +25,7 @@ public class MainMenu : MonoBehaviour
     public void MainGame()
     {
         SceneManager.LoadScene("MainGame");
+        PlayerPrefs.GetInt("earnings", Earnings.earnings);
     }
 
     public void Credit()
