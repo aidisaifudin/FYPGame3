@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e0ed1fd57bc65ef48b5662a50463e924
+guid: fed7266ee6d98744e893e56ead1f8f4a
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -262,18 +262,18 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: FChar_A(Clone)
+    - name: MCharG_A(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: FChar_A
-      parentName: FChar_A(Clone)
+    - name: MCharG_A
+      parentName: MCharG_A(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Rig_Group
-      parentName: FChar_A(Clone)
+      parentName: MCharG_A(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -504,11 +504,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 1ffaf5e2adf4a2446996d9f6cdb2491d, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
