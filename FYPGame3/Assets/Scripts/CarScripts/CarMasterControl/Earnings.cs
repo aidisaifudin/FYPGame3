@@ -8,6 +8,8 @@ public class Earnings : MonoBehaviour
 {
     public TMP_Text earningText;
     public TMP_Text endOfDayText;
+    public GameObject insurance;
+    public static bool activateInsurance;
 
     int earnings = 100;
 
@@ -25,12 +27,20 @@ public class Earnings : MonoBehaviour
         endOfDayText = transform.Find("EndDayEarnings").GetComponent<TMP_Text>();
         earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
+        insurance.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(insurance == false)
+        {
+            activateInsurance = false;
+        }
+        else
+        {
+            activateInsurance = true;
+        }
     }
 
     public void EarnMoney()
@@ -42,6 +52,13 @@ public class Earnings : MonoBehaviour
     public void LoseMoney()
     {
         earnings -= 5;
+        earningText.text = " : " + earnings.ToString();
+        endOfDayText.text = " Earnings for today: " + earnings.ToString();
+        insurance.SetActive(false);
+    }
+    public void LoseMoreMoney()
+    {
+        earnings -= 10;
         earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
     }

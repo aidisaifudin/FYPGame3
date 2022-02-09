@@ -17,12 +17,18 @@ public class CarBang : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer==9)
-
+        if (other.gameObject.layer == 9)
         {
-            Debug.Log("It hit");
-            Earnings.instance.LoseMoney();
-           
+            if(Earnings.activateInsurance = true)
+            {
+                Debug.Log("It hit");
+                Earnings.instance.LoseMoney();
+            }
+            else if(Earnings.activateInsurance = false)
+            {
+                Debug.Log("It hit");
+                Earnings.instance.LoseMoreMoney();
+            }
         }
     }
 }

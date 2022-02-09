@@ -40,7 +40,7 @@ public class RandomPassenger : MonoBehaviour
     {
         int randomPassenger = Random.Range(0, passengerSpawn.Length);
         Debug.Log($"spawn {randomPassenger}");
-        pass = Instantiate(passenger, passengerSpawn[randomPassenger].position, transform.rotation);
+        Instantiate(passenger, passengerSpawn[randomPassenger].position, transform.rotation);
         lastDropOff = destinationPoint[randomPassenger][Random.Range(0, destinationPoint[randomPassenger].Length - 1)];
         Debug.Log($"spawn {lastDropOff}");
         Instantiate(destination, destinationSpawn[lastDropOff].position, transform.rotation);
