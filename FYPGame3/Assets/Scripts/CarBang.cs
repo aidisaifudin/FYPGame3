@@ -24,7 +24,6 @@ public class CarBang : MonoBehaviour
             {
                 Debug.Log("It hit");
                 Earnings.instance.LoseMoney();
-                
             }
             else if(Earnings.activateInsurance = false)
             {
