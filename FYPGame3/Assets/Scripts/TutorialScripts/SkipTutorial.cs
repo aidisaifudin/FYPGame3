@@ -18,6 +18,7 @@ public class SkipTutorial : MonoBehaviour
     public void ChangeToGame()
     {
         SceneManager.LoadScene("MainGame");
+        PlayerPrefs.DeleteAll();
     }
     public void OnTriggerEnter(Collider other)
     {

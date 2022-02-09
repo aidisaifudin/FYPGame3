@@ -30,4 +30,7 @@ public class Pause : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    
+    
 }

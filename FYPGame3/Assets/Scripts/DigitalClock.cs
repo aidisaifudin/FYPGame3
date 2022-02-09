@@ -12,6 +12,8 @@ public class DigitalClock : MonoBehaviour
 
     public TMP_Text timeText;
 
+    public static string timer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,5 +34,13 @@ public class DigitalClock : MonoBehaviour
         string minutesString = Mathf.Floor(((dayNormalized * hoursPerDay) % 1f) * minutesPerHour).ToString("00");
 
         timeText.text = hoursString + ":" + minutesString;
+        timer = timeText.text;
+        SaveTime();
+    }
+
+    private void SaveTime()
+    {
+        PlayerPrefs.SetString("time", timer);
+        Debug.Log(timer);
     }
 }

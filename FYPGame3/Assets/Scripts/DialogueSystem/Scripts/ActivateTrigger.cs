@@ -24,6 +24,11 @@ public class ActivateTrigger : MonoBehaviour {
 				Destroy(other.gameObject);
                 Time.timeScale = 0;
                 break;
-		}
+            case "Passenger3":
+                index = 2;
+                Destroy(other.gameObject);
+                Time.timeScale = 0;
+                break;
+        }
 	}
 }
