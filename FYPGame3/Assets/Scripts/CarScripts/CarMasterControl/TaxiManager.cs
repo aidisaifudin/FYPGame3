@@ -12,9 +12,9 @@ public class TaxiManager : MonoBehaviour
     //public GameObject reachedPassenger;
     public GameObject summary;
     //public GameObject arrow;
-    float currentTime = 0f;
-    float startingTime = 300f;
-    [SerializeField] Text countdownText;
+    //float currentTime = 0f;
+    //float startingTime = 300f;
+    //[SerializeField] Text countdownText;
     public GameObject hired;
     public GameObject free;
     public static bool findingPassenger;
@@ -31,7 +31,7 @@ public class TaxiManager : MonoBehaviour
         free.SetActive(true);
         findingPassenger = true;
 
-        currentTime = startingTime;
+        //currentTime = startingTime;
     }
 
     // Update is called once per frame
