@@ -24,9 +24,8 @@ public class Earnings : MonoBehaviour
     {
         earnings = PlayerPrefs.GetInt("earnings", earnings);
         earningText = transform.Find("Earning").GetComponent<TMP_Text>();
-        earningText.text = PlayerPrefs.GetInt("earnings", 100).ToString();
+        earningText.text = " : " + PlayerPrefs.GetInt("earnings", 100).ToString();
         endOfDayText = transform.Find("EndDayEarnings").GetComponent<TMP_Text>();
-        earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
         insurance.SetActive(false);
     }
