@@ -15,6 +15,7 @@ public class DigitalClock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         timeText = transform.Find("timeText").GetComponent<TMP_Text>();
     }
 

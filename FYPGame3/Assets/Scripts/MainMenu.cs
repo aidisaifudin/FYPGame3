@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public void Awake()
+    {
+        PlayerPrefs.DeleteAll();
+    }
     public void Start()
     {
         Time.timeScale = 1;
@@ -19,7 +23,7 @@ public class MainMenu : MonoBehaviour
 
     public void MainGame()
     {
-        SceneManager.LoadScene("Testroad");
+        SceneManager.LoadScene("MainGame");
     }
 
     public void Credit()

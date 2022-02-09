@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarBang : MonoBehaviour
 {
@@ -23,11 +24,13 @@ public class CarBang : MonoBehaviour
             {
                 Debug.Log("It hit");
                 Earnings.instance.LoseMoney();
+                SceneManager.LoadScene("CarAccident");
             }
             else if(Earnings.activateInsurance = false)
             {
                 Debug.Log("It hit");
                 Earnings.instance.LoseMoreMoney();
+                SceneManager.LoadScene("CarAccident");
             }
         }
     }
