@@ -13,7 +13,7 @@ public class TutorialMoney : MonoBehaviour
 
     int earnings;
 
-    public static Earnings instance;
+    public static TutorialMoney instance;
 
     private void Awake()
     {
