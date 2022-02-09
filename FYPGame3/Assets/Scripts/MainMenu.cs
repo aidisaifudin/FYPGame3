@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public void Start()
     {
         PlayerPrefs.GetInt("earnings", Earnings.earnings);
+        PlayerPrefs.GetString("time", DigitalClock.timer);
         Time.timeScale = 1;
     }
     public void BackToMainMenu()
@@ -26,8 +27,7 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("MainGame");
         PlayerPrefs.GetInt("earnings", Earnings.earnings);
-        PlayerPrefs.GetString("hourTime", DigitalClock.hoursString);
-        PlayerPrefs.GetString("minuteTime", DigitalClock.minutesString);
+        PlayerPrefs.GetString("time", DigitalClock.timer);
     }
 
     public void Credit()
