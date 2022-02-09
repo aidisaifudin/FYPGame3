@@ -10,28 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3afdd92d0f2aa414ebb00b6acace5570, type: 3}
-  m_Name: ConversationLady1
+  m_Name: ConversationInsurance
   m_EditorClassIdentifier: 
   speakerLeft: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
-  speakerRight: {fileID: 11400000, guid: 9607b3582af70de40bab53248317fa98, type: 2}
+  speakerRight: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
   lines:
   - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
     spriteIndex: 0
-    text: Hello maam ! How are you ?
-  - character: {fileID: 11400000, guid: 9607b3582af70de40bab53248317fa98, type: 2}
+    text: Oh, there is a suited man talking to a man. Looks interesting, I should
+      go take a look what is it about.
+  - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
     spriteIndex: 0
-    text: Im good thank you for asking!
+    text: Well hello Sir ! You came at the right time! This is not a scam, I am just
+      an Insurance Agent
   - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
     spriteIndex: 0
-    text: 'Do you need to go somewhere? '
-  - character: {fileID: 11400000, guid: 9607b3582af70de40bab53248317fa98, type: 2}
+    text: Ohhh i see. I am not interested thank you
+  - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
     spriteIndex: 0
-    text: No thank you !
-  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
-    spriteIndex: 0
-    text: Okay. Have a nice day !
-  - character: {fileID: 11400000, guid: 9607b3582af70de40bab53248317fa98, type: 2}
-    spriteIndex: 0
-    text: Drive safely !
-  question: {fileID: 0}
+    text: WAIT ! I have a question for you.. Do you have an Insurance right now?
+  question: {fileID: 11400000, guid: 045a8d981f8f03449a28ee998cd17925, type: 2}
   "nextConversat\xEDon": {fileID: 0}
