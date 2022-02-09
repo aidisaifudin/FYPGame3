@@ -26,6 +26,11 @@ namespace GleyTrafficSystem
         float currentHeight;
         Quaternion currentRotation;
 
+        private void Start()
+        {
+            target = GameObject.FindGameObjectWithTag("CubePlayer").transform;
+        }
+
         void FixedUpdate()
         {
             if (target)
