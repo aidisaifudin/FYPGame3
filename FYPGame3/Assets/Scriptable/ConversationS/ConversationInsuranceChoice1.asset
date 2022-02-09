@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afdd92d0f2aa414ebb00b6acace5570, type: 3}
+  m_Name: ConversationInsuranceChoice1
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
+  speakerRight: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
+    spriteIndex: 0
+    text: Oh that is nice ! Great ! In that case, have a nice day!
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: Thank you !
+  - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
+    spriteIndex: 0
+    text: Drive safely ! There have been lots of accidents lately
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: Okay will do! Goodbye
+  - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
+    spriteIndex: 0
+    text: Goodbye !
+  question: {fileID: 0}
+  "nextConversat\xEDon": {fileID: 0}

@@ -10,17 +10,20 @@ public class ActivateTrigger : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider other) {
-		Time.timeScale = 0;
-
+        
+		//Time.timeScale = 0;
+        
 		switch(other.tag) {
 			case "Passenger1":
 				index = 0;
 				Destroy(other.gameObject);
-				break;
+                Time.timeScale = 0;
+                break;
 			case "Passenger2":
 				index = 1;
 				Destroy(other.gameObject);
-				break;
+                Time.timeScale = 0;
+                break;
 		}
 	}
 }
