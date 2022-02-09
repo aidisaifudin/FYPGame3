@@ -3,7 +3,12 @@ guid: fed7266ee6d98744e893e56ead1f8f4a
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert49
+    second: {fileID: 2100000, guid: 98586c99f57102b48ad5860151eca539, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -23,7 +28,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -262,18 +267,18 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: MCharG_A(Clone)
+    - name: MChar_A(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: MCharG_A
-      parentName: MCharG_A(Clone)
-      position: {x: -0, y: 0, z: 0}
+    - name: MChar_A
+      parentName: MChar_A(Clone)
+      position: {x: -4.5130796e-25, y: 3.6788005e-23, z: 1.7763614e-17}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Rig_Group
-      parentName: MCharG_A(Clone)
+      parentName: MChar_A(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -504,7 +509,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 1ffaf5e2adf4a2446996d9f6cdb2491d, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 8e5ab2048d6f8ed4fa9a490368b1865d, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
