@@ -15,6 +15,8 @@ public class Earnings : MonoBehaviour
     public static int endDayMoney = 100;
     public static Earnings instance;
 
+    public GameObject insuranceTab;
+
     private void Awake()
     {
         instance = this;
@@ -39,7 +41,7 @@ public class Earnings : MonoBehaviour
         {
             activateInsurance = false;
         }
-        else
+        else if (insurance == true)
         {
             activateInsurance = true;
         }
@@ -72,5 +74,21 @@ public class Earnings : MonoBehaviour
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
         PlayerPrefs.SetInt("earnings", earnings);
         PlayerPrefs.SetInt("endDayMoney", earnings);
+    }
+
+    public void OpenInsurance()
+    {
+        insuranceTab.SetActive(true);
+    }
+    public void InsuranceChoose()
+    {
+        insurance.SetActive(true);
+        insuranceTab.SetActive(false);
+    }
+
+    public void InsuranceNoChoose()
+    {
+        insurance.SetActive(false);
+        insuranceTab.SetActive(false);
     }
 }
