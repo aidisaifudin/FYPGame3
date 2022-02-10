@@ -9,7 +9,7 @@ public class DigitalClock : MonoBehaviour
 
     public float day;
     public const float REAL_SECONDS_PER_INGAME_DAY = 300f;
-
+    public float endDayTime = 2f;
     public TMP_Text timeText;
 
     public static string timer;
@@ -36,6 +36,12 @@ public class DigitalClock : MonoBehaviour
         timeText.text = hoursString + ":" + minutesString;
         timer = timeText.text;
         SaveTime();
+
+        //if(endDayTime == day)
+        //{
+        //    Time.timeScale = 0;
+        //    TaxiManager.summary.SetActive(true);
+        //}
     }
 
     private void SaveTime()

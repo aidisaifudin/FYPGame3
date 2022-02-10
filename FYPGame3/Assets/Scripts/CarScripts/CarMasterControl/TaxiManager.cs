@@ -12,8 +12,8 @@ public class TaxiManager : MonoBehaviour
     //public GameObject reachedPassenger;
     public GameObject summary;
     //public GameObject arrow;
-    //float currentTime = 0f;
-    //float startingTime = 300f;
+    public float currentTime = 300f;
+    public float startingTime = 300f;
     //[SerializeField] Text countdownText;
     public GameObject hired;
     public GameObject free;
@@ -30,8 +30,6 @@ public class TaxiManager : MonoBehaviour
         hired.SetActive(false);
         free.SetActive(true);
         findingPassenger = true;
-
-        //currentTime = startingTime;
     }
 
     // Update is called once per frame
@@ -47,6 +45,13 @@ public class TaxiManager : MonoBehaviour
             Destroy(destination);
         }
 
+        currentTime = currentTime - 1 * Time.deltaTime;
+        if(currentTime <= 0)
+        {
+            currentTime = 0f;
+            Time.timeScale = 0;
+            summary.SetActive(true);
+        }
         //if (free.SetActive = true)
         //{
         //    findingPassenger = true;

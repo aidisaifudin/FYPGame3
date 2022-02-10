@@ -12,7 +12,7 @@ public class Earnings : MonoBehaviour
     public static bool activateInsurance;
 
     public static int earnings = 100;
-
+    public static int endDayMoney = 100;
     public static Earnings instance;
 
     private void Awake()
@@ -26,7 +26,7 @@ public class Earnings : MonoBehaviour
         earningText = transform.Find("Earning").GetComponent<TMP_Text>();
         earningText.text = " : " + PlayerPrefs.GetInt("earnings", 100).ToString();
         endOfDayText = transform.Find("EndDayEarnings").GetComponent<TMP_Text>();
-        endOfDayText.text = " Earnings for today: " + earnings.ToString();
+        endOfDayText.text = " Earnings for today: " + PlayerPrefs.GetInt("endDayMoney", 100).ToString();
         insurance.SetActive(false);
     }
 
@@ -52,6 +52,7 @@ public class Earnings : MonoBehaviour
         earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
         PlayerPrefs.SetInt("earnings", earnings);
+        PlayerPrefs.SetInt("endDayMoney", earnings);
     }
     public void LoseMoney()
     {
@@ -61,6 +62,7 @@ public class Earnings : MonoBehaviour
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
         insurance.SetActive(false);
         PlayerPrefs.SetInt("earnings", earnings);
+        PlayerPrefs.SetInt("endDayMoney", earnings);
     }
     public void LoseMoreMoney()
     {
@@ -69,5 +71,6 @@ public class Earnings : MonoBehaviour
         earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
         PlayerPrefs.SetInt("earnings", earnings);
+        PlayerPrefs.SetInt("endDayMoney", earnings);
     }
 }
