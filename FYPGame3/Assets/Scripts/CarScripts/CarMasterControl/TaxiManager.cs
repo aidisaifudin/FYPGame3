@@ -52,6 +52,13 @@ public class TaxiManager : MonoBehaviour
             Time.timeScale = 0;
             summary.SetActive(true);
         }
+
+        if (Earnings.earnings <= 0)
+        {
+            Earnings.earnings = 0;
+            Time.timeScale = 0;
+            summary.SetActive(true);
+        }
         //if (free.SetActive = true)
         //{
         //    findingPassenger = true;

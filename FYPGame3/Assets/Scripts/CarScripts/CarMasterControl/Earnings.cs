@@ -11,7 +11,7 @@ public class Earnings : MonoBehaviour
     public GameObject insurance;
     public static bool activateInsurance;
 
-    public static int earnings = 100;
+    public static int earnings = 5;
     public static int endDayMoney = 100;
     public static Earnings instance;
 
@@ -26,7 +26,7 @@ public class Earnings : MonoBehaviour
     {
         earnings = PlayerPrefs.GetInt("earnings", earnings);
         earningText = transform.Find("Earning").GetComponent<TMP_Text>();
-        earningText.text = " : " + PlayerPrefs.GetInt("earnings", 100).ToString();
+        earningText.text = " : " + PlayerPrefs.GetInt("earnings", 5).ToString();
         endOfDayText = transform.Find("EndDayEarnings").GetComponent<TMP_Text>();
         endOfDayText.text = " Earnings for today: " + PlayerPrefs.GetInt("endDayMoney", 100).ToString();
         insurance.SetActive(false);
@@ -45,6 +45,8 @@ public class Earnings : MonoBehaviour
         {
             activateInsurance = true;
         }
+
+        
         
     }
 
