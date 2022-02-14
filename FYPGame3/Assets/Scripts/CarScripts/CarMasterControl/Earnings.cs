@@ -24,6 +24,7 @@ public class Earnings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        earnings = 100;
         earnings = PlayerPrefs.GetInt("earnings", earnings);
         earningText = transform.Find("Earning").GetComponent<TMP_Text>();
         earningText.text = " : " + PlayerPrefs.GetInt("earnings", 5).ToString();
@@ -52,7 +53,7 @@ public class Earnings : MonoBehaviour
 
     public void EarnMoney()
     {
-        earnings += 5;
+        earnings += 50;
         earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
         PlayerPrefs.SetInt("earnings", earnings);
