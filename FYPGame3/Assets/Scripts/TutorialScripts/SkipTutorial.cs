@@ -25,6 +25,7 @@ public class SkipTutorial : MonoBehaviour
         if (other.tag == "Player")
         {
             SceneManager.LoadScene("MainGame");
+            PlayerPrefs.DeleteAll();
         }
     }
 }
