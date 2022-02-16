@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SkipTutorial : MonoBehaviour
 {
+    public GameObject summary;
+
    public void TimePause()
     {
         Time.timeScale = 0;
@@ -19,6 +21,11 @@ public class SkipTutorial : MonoBehaviour
     {
         SceneManager.LoadScene("MainGame");
         PlayerPrefs.DeleteAll();
+    }
+
+    public void CloseSummary()
+    {
+        summary.SetActive(false);
     }
     public void OnTriggerEnter(Collider other)
     {
