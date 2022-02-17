@@ -1,5 +1,62 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1425600682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1425600683}
+  - component: {fileID: 1425600685}
+  - component: {fileID: 1425600684}
+  m_Layer: 9
+  m_Name: CarBang
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1425600683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425600682}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.256}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1774312207807581502}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1425600685
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425600682}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6023178, y: 1, z: 0.2575531}
+  m_Center: {x: 0.048259735, y: 0, z: -0.37122345}
+--- !u!114 &1425600684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425600682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b199d24ae0841d4094470998a35f935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &247724781079529985
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +68,7 @@ GameObject:
   - component: {fileID: 3456876852348241466}
   - component: {fileID: 564928177608654702}
   - component: {fileID: 5287360305439497630}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: car_P_chasis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +156,7 @@ GameObject:
   - component: {fileID: 919132147892540879}
   - component: {fileID: 919132147892540880}
   - component: {fileID: 3205963662000417901}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MainCar3
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -122,6 +179,7 @@ Transform:
   - {fileID: 6954617226983858028}
   - {fileID: 2239739203692346425}
   - {fileID: 2239739202870386994}
+  - {fileID: 1425600683}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -213,13 +271,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428853989125052292}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fbb0d6730215c84c9679e3a0aefbe8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   earningText: {fileID: 0}
   endOfDayText: {fileID: 0}
+  insurance: {fileID: 0}
+  insuranceTab: {fileID: 0}
 --- !u!114 &919132147892540878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,15 +320,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428853989125052292}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1ebe644c2cfacd408281ebf16097159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passenger: {fileID: 0}
-  destination: {fileID: 0}
+  passenger: {fileID: 4888427765922081770, guid: d5f646bba4c21d54199e08d3165cc3c0, type: 3}
+  destination: {fileID: 1099504410656035330, guid: 6ddd06731d08f794d8b6df7e2325fa88, type: 3}
   summary: {fileID: 0}
-  countdownText: {fileID: 0}
+  currentTime: 300
+  startingTime: 300
   hired: {fileID: 0}
   free: {fileID: 0}
 --- !u!114 &3205963662000417901
@@ -293,7 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239739202555470047}
   - component: {fileID: 2239739202555470032}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RearLeftCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,9 +417,9 @@ GameObject:
   - component: {fileID: 2239739202870386997}
   - component: {fileID: 2239739202870386996}
   - component: {fileID: 2239739202870386995}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: CubePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -449,7 +510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239739203000129344}
   - component: {fileID: 2239739203000129345}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FrontLeftCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239739203225957649}
   - component: {fileID: 2239739203225957650}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RearRightCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239739203312961968}
   - component: {fileID: 2239739203312961969}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FrontRightCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -631,7 +692,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2239739203692346425}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WheelColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,7 +728,7 @@ GameObject:
   - component: {fileID: 1843486289695349356}
   - component: {fileID: 8557224627565752060}
   - component: {fileID: 7818659562851394224}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: car_P_back_wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6954617226983858028}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: car_P_wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -780,7 +841,7 @@ GameObject:
   - component: {fileID: 6305859419558003031}
   - component: {fileID: 5479279268036575229}
   - component: {fileID: 1574269095070132929}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: car_P_right_wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -861,7 +922,7 @@ GameObject:
   - component: {fileID: 2032155987969475913}
   - component: {fileID: 7809987294704786030}
   - component: {fileID: 4079913803524354598}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: car_P_left_wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
