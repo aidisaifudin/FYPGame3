@@ -87,6 +87,11 @@ public class Earnings : MonoBehaviour
     {
         insurance.SetActive(true);
         insuranceTab.SetActive(false);
+        earnings -= 50;
+        earningText.text = " : " + earnings.ToString();
+        endOfDayText.text = " Earnings for today: " + earnings.ToString();
+        PlayerPrefs.SetInt("earnings", earnings);
+        PlayerPrefs.SetInt("endDayMoney", earnings);
     }
 
     public void InsuranceNoChoose()
