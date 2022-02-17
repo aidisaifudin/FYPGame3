@@ -87,6 +87,7 @@ public class Earnings : MonoBehaviour
     {
         insurance.SetActive(true);
         insuranceTab.SetActive(false);
+        earnings -= 50;
     }
 
     public void InsuranceNoChoose()
