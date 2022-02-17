@@ -8,12 +8,14 @@ public class Earnings : MonoBehaviour
 {
     public TMP_Text earningText;
     public TMP_Text endOfDayText;
+    public TMP_Text lossesText;
     public GameObject insurance;
     public static bool activateInsurance;
 
     public static int earnings = 5;
     public static int endDayMoney = 100;
     public static Earnings instance;
+    public static int losses = 0;
 
     public GameObject insuranceTab;
 
@@ -25,9 +27,11 @@ public class Earnings : MonoBehaviour
     void Start()
     {
         earnings = 100;
+        lossesText = transform.Find("Losses").GetComponent<TMP_Text>();
+        //losses.Text = " Losses: " + PlayerPrefs.GetInt("losses", 0).ToString();
         earnings = PlayerPrefs.GetInt("earnings", earnings);
         earningText = transform.Find("Earning").GetComponent<TMP_Text>();
-        earningText.text = " : " + PlayerPrefs.GetInt("earnings", 5).ToString();
+        earningText.text = " : " + PlayerPrefs.GetInt("earnings", 100).ToString();
         endOfDayText = transform.Find("EndDayEarnings").GetComponent<TMP_Text>();
         endOfDayText.text = " Earnings for today: " + PlayerPrefs.GetInt("endDayMoney", 100).ToString();
         insurance.SetActive(false);
@@ -66,17 +70,21 @@ public class Earnings : MonoBehaviour
         earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
         insurance.SetActive(false);
+        losses += 5;
         PlayerPrefs.SetInt("earnings", earnings);
         PlayerPrefs.SetInt("endDayMoney", earnings);
+        PlayerPrefs.SetInt("losses", losses);
     }
     public void LoseMoreMoney()
     {
         Debug.Log("Lose more money");
         earnings -= 10;
+        losses -= 10;
         earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Earnings for today: " + earnings.ToString();
         PlayerPrefs.SetInt("earnings", earnings);
         PlayerPrefs.SetInt("endDayMoney", earnings);
+        PlayerPrefs.SetInt("losses", losses);
     }
 
     public void OpenInsurance()
