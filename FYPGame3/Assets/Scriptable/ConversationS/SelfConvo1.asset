@@ -10,30 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3afdd92d0f2aa414ebb00b6acace5570, type: 3}
-  m_Name: Conversation1
+  m_Name: SelfConvo1
   m_EditorClassIdentifier: 
   speakerLeft: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
-  speakerRight: {fileID: 11400000, guid: 9607b3582af70de40bab53248317fa98, type: 2}
+  speakerRight: {fileID: 0}
   lines:
   - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
     spriteIndex: 0
-    text: 'Hello, good morning ma''am!
+    text: 'What a lovely day!
 
-'
-  - character: {fileID: 11400000, guid: 9607b3582af70de40bab53248317fa98, type: 2}
-    spriteIndex: 0
-    text: 'Good Morning to you too!
 
 '
   - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
     spriteIndex: 0
-    text: 'Where would you like to go?
+    text: 'Such good weather to go to the beach
 
 '
-  - character: {fileID: 11400000, guid: 9607b3582af70de40bab53248317fa98, type: 2}
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
     spriteIndex: 0
-    text: 'Metro Office please, thank you!
-
-'
+    text: "No, I have to work\u2026Alright, let\u2019s do this!"
   question: {fileID: 0}
   "nextConversat\xEDon": {fileID: 0}

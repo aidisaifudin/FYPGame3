@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afdd92d0f2aa414ebb00b6acace5570, type: 3}
+  m_Name: Stranger4
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+  speakerRight: {fileID: 11400000, guid: d9837816f05b97346bc5178c430b7b50, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: "Excuse me, are you okay? You don\u2019t look well. Need a lift to the
+      nearest clinic?\r\n"
+  - character: {fileID: 11400000, guid: d9837816f05b97346bc5178c430b7b50, type: 2}
+    spriteIndex: 0
+    text: " *coughs* Oh, no, I\u2019m fine. Just too much smoke from vehicles around
+      here.\r\n"
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: "Are you sure? \r\n"
+  - character: {fileID: 11400000, guid: d9837816f05b97346bc5178c430b7b50, type: 2}
+    spriteIndex: 0
+    text: 'Yes, thank you for the concern. Sorry if I made you worried.
+
+'
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: 'No problem. Have a good day ahead!
+
+'
+  - character: {fileID: 11400000, guid: d9837816f05b97346bc5178c430b7b50, type: 2}
+    spriteIndex: 0
+    text: ' You too!
+
+'
+  question: {fileID: 0}
+  "nextConversat\xEDon": {fileID: 0}

@@ -10,24 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3afdd92d0f2aa414ebb00b6acace5570, type: 3}
-  m_Name: ConversationInsurance
+  m_Name: InsuranceAgent
   m_EditorClassIdentifier: 
   speakerLeft: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
   speakerRight: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
   lines:
   - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
     spriteIndex: 0
-    text: Oh, there is a suited man talking to a man. Looks interesting, I should
-      go take a look what is it about.
+    text: Hello, you need a lift?
   - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
     spriteIndex: 0
-    text: Well hello Sir ! You came at the right time! This is not a scam, I am just
-      an Insurance Agent
+    text: "Oh no, I\u2019m just waiting for someone\u2026 By the way, I happen to
+      be an Insurance Agent. Could I please have 5 minutes of your time?\r\n"
   - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
     spriteIndex: 0
-    text: Ohhh i see. I am not interested thank you
+    text: 'Oh, sorry, I am not interested, thank you.
+
+'
   - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
     spriteIndex: 0
-    text: WAIT ! I have a question for you.. Do you have an Insurance right now?
+    text: 'Wait! I promise you this is important.
+
+'
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: 'Okay, sure.
+
+'
+  - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
+    spriteIndex: 0
+    text: 'Good, so, sir, are you subscribed to any insurance plans?
+
+'
   question: {fileID: 11400000, guid: 045a8d981f8f03449a28ee998cd17925, type: 2}
   "nextConversat\xEDon": {fileID: 0}

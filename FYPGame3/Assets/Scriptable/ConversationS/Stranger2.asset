@@ -10,28 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3afdd92d0f2aa414ebb00b6acace5570, type: 3}
-  m_Name: ConversationLady1
+  m_Name: Stranger2
   m_EditorClassIdentifier: 
   speakerLeft: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
-  speakerRight: {fileID: 11400000, guid: 9607b3582af70de40bab53248317fa98, type: 2}
+  speakerRight: {fileID: 11400000, guid: b4333de9a6c1cd34a80275e1ae300f03, type: 2}
   lines:
   - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
     spriteIndex: 0
-    text: Hello maam ! How are you ?
-  - character: {fileID: 11400000, guid: 9607b3582af70de40bab53248317fa98, type: 2}
+    text: Hello! Where are you going on this lovely day?
+  - character: {fileID: 11400000, guid: b4333de9a6c1cd34a80275e1ae300f03, type: 2}
     spriteIndex: 0
-    text: Im good thank you for asking!
+    text: "Hey, I am going to eat at Ahmad\u2019s Ayam! You should try it! The chicken
+      there is really good!"
   - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
     spriteIndex: 0
-    text: 'Do you need to go somewhere? '
-  - character: {fileID: 11400000, guid: 9607b3582af70de40bab53248317fa98, type: 2}
+    text: "Wow, you really are making me hungry\u2026 Alright, have a nice day! \r\n"
+  - character: {fileID: 11400000, guid: b4333de9a6c1cd34a80275e1ae300f03, type: 2}
     spriteIndex: 0
-    text: No thank you !
-  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
-    spriteIndex: 0
-    text: Okay. Have a nice day !
-  - character: {fileID: 11400000, guid: 9607b3582af70de40bab53248317fa98, type: 2}
-    spriteIndex: 0
-    text: Drive safely !
+    text: You too!
   question: {fileID: 0}
   "nextConversat\xEDon": {fileID: 0}

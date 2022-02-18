@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a19206b7e56bc94f9a18c224d56913b, type: 3}
-  m_Name: QuestionInsurance
+  m_Name: QuestionPolice
   m_EditorClassIdentifier: 
-  text: Do you have Insurance?
+  text: 'Do you have Insurance?
+
+'
   choices:
   - text: Yes
-    conversation: {fileID: 11400000, guid: e9c727733cd81c7428104ae79c7f5be1, type: 2}
+    conversation: {fileID: 11400000, guid: 6bb5f83ad5055934cbc591859c2cb9ed, type: 2}
   - text: No
-    conversation: {fileID: 11400000, guid: 3a9598ee895df2c4ea64df6cae6add8c, type: 2}
+    conversation: {fileID: 0}

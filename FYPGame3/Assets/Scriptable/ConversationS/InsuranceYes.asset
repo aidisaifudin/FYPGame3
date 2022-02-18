@@ -10,30 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3afdd92d0f2aa414ebb00b6acace5570, type: 3}
-  m_Name: ConversationInsuranceChoice2
+  m_Name: InsuranceYes
   m_EditorClassIdentifier: 
   speakerLeft: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
   speakerRight: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
   lines:
   - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
     spriteIndex: 0
-    text: Oh no! Why not ?! You may never know what will happen to you while driving
-      on this busy road
+    text: Wow, that is good! Keep it up! Insurance is so important, as it will keep
+      you safe.
   - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
     spriteIndex: 0
-    text: Ermm, what does the Insurance cover?
+    text: " I agree, especially since this town is so busy with traffic. I would
+      have lost tons of money from everything that\u2019s happened to me, if I had
+      no insurance to cover for them.\r\n"
   - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
     spriteIndex: 0
-    text: Glad you asked ! It covers most types of accidents. The basic road accidents,
-      it also covers car theft. Sounds promising isn't it?
+    text: 'Indeed! Always keep yourself covered with insurance. You have a good day
+      then sir!
+
+'
   - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
     spriteIndex: 0
-    text: 'I will consider about it. You might be right. '
+    text: "You too! \r\n"
   - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
     spriteIndex: 0
-    text: Yes please do ! Drive safely Sir ! Goodbye
-  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
-    spriteIndex: 0
-    text: Goodbye!
+    text: 'Drive safe!
+
+'
   question: {fileID: 0}
   "nextConversat\xEDon": {fileID: 0}

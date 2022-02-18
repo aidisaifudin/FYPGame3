@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afdd92d0f2aa414ebb00b6acace5570, type: 3}
+  m_Name: PoliceNo
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: 5239641e6e341b44f8547c9ef804b59f, type: 2}
+  speakerRight: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 5239641e6e341b44f8547c9ef804b59f, type: 2}
+    spriteIndex: 0
+    text: 'Why not? It is important that we secure ourselves!
+
+'
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: "I am a careful person sir, you don\u2019t have to worry\r\n"
+  - character: {fileID: 11400000, guid: 5239641e6e341b44f8547c9ef804b59f, type: 2}
+    spriteIndex: 0
+    text: "There have been reports of missing cars lately, you sure that yours won\u2019t
+      be next?\r\n"
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: "Missing cars? Now that you\u2019ve mentioned that, I am feeling a little
+      scared.\r\n"
+  - character: {fileID: 11400000, guid: 5239641e6e341b44f8547c9ef804b59f, type: 2}
+    spriteIndex: 0
+    text: 'I suggest you buy insurance now, consider all the money you would save
+      if any accidents happen to you, or you become a victim of theft.
+
+'
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: 'Sure Officer, thank you!
+
+'
+  - character: {fileID: 11400000, guid: 5239641e6e341b44f8547c9ef804b59f, type: 2}
+    spriteIndex: 0
+    text: "You\u2019re welcome. Please be more careful and drive safely. \r\n"
+  question: {fileID: 0}
+  "nextConversat\xEDon": {fileID: 0}

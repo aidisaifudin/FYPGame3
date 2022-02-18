@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afdd92d0f2aa414ebb00b6acace5570, type: 3}
+  m_Name: InsuranceNo
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
+  speakerRight: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
+    spriteIndex: 0
+    text: "Oh no! Why would you not get insurance? \r\n"
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: " don\u2019t really think it is necessary, as I am careful with my actions,
+      so I\u2019m sure nothing that bad will come my way.\r\n"
+  - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
+    spriteIndex: 0
+    text: ' I understand, but you cannot predict the future, can you? Anything can
+      happen, especially in this busy town'
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: "Well\u2026 You might be right. May I know what insurance covers?"
+  - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
+    spriteIndex: 0
+    text: "Well, insurance covers general accidents, and even car theft. You never
+      know, anything might happen to you, sir. \r\n"
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: "Oh wow, I didn\u2019t really consider any of that. Thank you for telling
+      me.\r\n"
+  - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
+    spriteIndex: 0
+    text: "You're welcome! Please consider it sir, might cost you quite a bit now,
+      but in the long run, you\u2019ll get your money back.\r\n"
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: ' I will consider it. Thank you!
+
+'
+  - character: {fileID: 11400000, guid: d70dd23c13c35474fa79518a3be5e085, type: 2}
+    spriteIndex: 0
+    text: 'No problem. Have a good day, and drive safely please! Goodbye!
+
+'
+  question: {fileID: 0}
+  "nextConversat\xEDon": {fileID: 0}

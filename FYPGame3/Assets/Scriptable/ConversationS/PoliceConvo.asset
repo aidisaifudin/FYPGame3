@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afdd92d0f2aa414ebb00b6acace5570, type: 3}
+  m_Name: PoliceConvo
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: 5239641e6e341b44f8547c9ef804b59f, type: 2}
+  speakerRight: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 5239641e6e341b44f8547c9ef804b59f, type: 2}
+    spriteIndex: 0
+    text: Hello there, can I see your driving ID please.
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: '*Hands over ID* Hello officer, have I done something wrong?
+
+'
+  - character: {fileID: 11400000, guid: 5239641e6e341b44f8547c9ef804b59f, type: 2}
+    spriteIndex: 0
+    text: 'No you have not, this is just a normal spot check.  By the way, may I
+      know if you have insurance?
+
+'
+  question: {fileID: 11400000, guid: c481fc41392c0a74d92317de6306a0fd, type: 2}
+  "nextConversat\xEDon": {fileID: 0}
