@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afdd92d0f2aa414ebb00b6acace5570, type: 3}
+  m_Name: TheftConvo
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+  speakerRight: {fileID: 11400000, guid: 938267db39232b342b56bceec117873b, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: ' Looks like someone is looking restless.
+
+'
+  - character: {fileID: 11400000, guid: 938267db39232b342b56bceec117873b, type: 2}
+    spriteIndex: 0
+    text: 'Oh no, my car is missing!!! I swear I parked it right here!
+
+'
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: "Alright sir, please calm down. Breathe and relax. Let\u2019s not panic.\r\n"
+  - character: {fileID: 11400000, guid: 938267db39232b342b56bceec117873b, type: 2}
+    spriteIndex: 0
+    text: 'Do not tell me what to do right now when my CAR is gone!
+
+'
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: ' Okay, sorry. But still, how about you call the police and your insurance
+      agent to sort this matter out, ok?
+
+'
+  - character: {fileID: 11400000, guid: 938267db39232b342b56bceec117873b, type: 2}
+    spriteIndex: 0
+    text: "Ok, but I don\u2019t have any insurance on me! I\u2019m doomed, I lost
+      my one and only car and I have nothing to compensate for it!\r\n"
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: ' Please calm down. I guess this is why insurance is important. You never
+      know when incidents like this might happen.
+
+'
+  - character: {fileID: 11400000, guid: 938267db39232b342b56bceec117873b, type: 2}
+    spriteIndex: 0
+    text: 'Yeah.. I regret not buying any Insurance. I will definitely buy it next
+      time, when I get another car. Hopefully I can just find my current one, though.
+
+'
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: ' Indeed. Well, good luck with the police investigation, I hope you can
+      recover your car.
+
+'
+  - character: {fileID: 11400000, guid: 938267db39232b342b56bceec117873b, type: 2}
+    spriteIndex: 0
+    text: 'Thanks, have a good day ahead.
+
+'
+  question: {fileID: 0}
+  "nextConversat\xEDon": {fileID: 0}

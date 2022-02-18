@@ -12,8 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3afdd92d0f2aa414ebb00b6acace5570, type: 3}
   m_Name: AccidentScene
   m_EditorClassIdentifier: 
-  speakerLeft: {fileID: 0}
-  speakerRight: {fileID: 0}
-  lines: []
+  speakerLeft: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+  speakerRight: {fileID: 11400000, guid: 5239641e6e341b44f8547c9ef804b59f, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: 'Oh dear, there has been a huge accident here! I hope the people involved
+      are okay.
+
+'
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: "That could have been me, and if I wasn\u2019t secured with insurance,
+      I would have lost tons of money, and probably be in debt for the rest of my
+      life.\r\n"
+  - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
+    spriteIndex: 0
+    text: "We really never know when accidents might fall upon us. It can happen
+      anytime \r\n"
+  - character: {fileID: 11400000, guid: 5239641e6e341b44f8547c9ef804b59f, type: 2}
+    spriteIndex: 0
+    text: 'Please keep moving! We do not want a crowd here!
+
+'
+  - character: {fileID: 11400000, guid: 5239641e6e341b44f8547c9ef804b59f, type: 2}
+    spriteIndex: 0
+    text: '*Blows Whistle* Keep on moving!
+
+'
   question: {fileID: 0}
   "nextConversat\xEDon": {fileID: 0}
