@@ -9,6 +9,7 @@ public class Earnings : MonoBehaviour
     public TMP_Text earningText;
     public TMP_Text endOfDayText;
     public TMP_Text lossesText;
+    public TMP_Text totalText;
     public GameObject insurance;
     public static bool activateInsurance;
 
