@@ -1979,10 +1979,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversation:
-  - {fileID: 11400000, guid: 0faaddd8a5662d8428ac64f7cd47faaa, type: 2}
-  - {fileID: 11400000, guid: f9917b6e0c187464c9bbd7ebef6ddd51, type: 2}
-  - {fileID: 11400000, guid: 3f77054049c105a409dc4b22f78b0ba2, type: 2}
-  message: {fileID: 243118055}
+  - {fileID: 11400000, guid: 7f3443ed168a09947910815e814a33b9, type: 2}
+  notification: {fileID: 243118055}
+  message1: {fileID: 1670328181}
+  message2: {fileID: 28857630}
   speakerLeft: {fileID: 1380288862}
   speakerRight: {fileID: 262634987}
   questionPanel: {fileID: 1850119726}
@@ -3799,7 +3799,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   choice:
-    text: 
+    language1: 
+    language2: 
     conversation: {fileID: 0}
   conversationChangeEvent:
     m_PersistentCalls:
@@ -7734,6 +7735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   question: {fileID: 0}
+  title: {fileID: 0}
   questionText: {fileID: 714178637}
   choiceTemplateButton: {fileID: 896202601}
 --- !u!114 &1850119729
