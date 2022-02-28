@@ -8,8 +8,10 @@ public struct Line {
 	public Character character;
 	public int spriteIndex;
 
-	[TextArea(2, 3)]
-	public string text;
+    [TextArea(2, 3)]
+    public string language1;
+    [TextArea(2, 3)]
+    public string language2;
 }
 
 [CreateAssetMenu(fileName = "New Conversation", menuName = "Conversation")]

@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class ConversationControllerScenario : MonoBehaviour {
 	public Conversation conversation;
-	public GameObject message;
+	public GameObject notification;
+    public TMP_Text message1;
+    public TMP_Text message2;
 
-	public GameObject speakerLeft;
+    public GameObject speakerLeft;
 	public GameObject speakerRight;
 
 	private SpeakerUI speakerUILeft;
@@ -26,7 +29,19 @@ public class ConversationControllerScenario : MonoBehaviour {
 	}
 
 	private void Start() {
-		speakerUILeft = speakerLeft.GetComponent<SpeakerUI>();
+        switch (SetLanguage.languageIndex)
+        {
+            case 0: // English
+                message1.text = "INCOMING MESSAGE\n\nTOUCH HERE TO CONTINUE...";
+                message2.text = "TAP ON DIALOG BOX TO SCROLL";
+                break;
+            case 1: // Bahasa
+                message1.text = "PESAN YANG MASUK\n\nSENTUH DI SINI UNTUK LANJUTKAN...";
+                message2.text = "TAP PADA KOTAK DIALOG UNTUK GULIR";
+                break;
+        }
+
+        speakerUILeft = speakerLeft.GetComponent<SpeakerUI>();
 		speakerUIRight = speakerRight.GetComponent<SpeakerUI>();
 		quesController = questionPanel.GetComponent<QuestionController>();
 	}
@@ -50,7 +65,7 @@ public class ConversationControllerScenario : MonoBehaviour {
 		conversationStarted = false;
 		speakerUILeft.Hide();
 		speakerUIRight.Hide();
-		message.SetActive(false);
+        notification.SetActive(false);
 	}
 
 	private void Initialize() {
@@ -77,10 +92,26 @@ public class ConversationControllerScenario : MonoBehaviour {
 		Character character = line.character;
 
 		if(speakerUILeft.SpeakerIs(character)) {
-			SetDialog(speakerUILeft, speakerUIRight, line.text);
-		} else {
-			SetDialog(speakerUIRight, speakerUILeft, line.text);
-		}
+            switch (SetLanguage.languageIndex)
+            {
+                case 0:
+                    SetDialog(speakerUILeft, speakerUIRight, line.language1);
+                    break;
+                case 1:
+                    SetDialog(speakerUILeft, speakerUIRight, line.language2);
+                    break;
+            }
+        } else {
+            switch (SetLanguage.languageIndex)
+            {
+                case 0:
+                    SetDialog(speakerUIRight, speakerUILeft, line.language1);
+                    break;
+                case 1:
+                    SetDialog(speakerUIRight, speakerUILeft, line.language2);
+                    break;
+            }
+        }
 
 		activeLineIndex += 1;
 	}

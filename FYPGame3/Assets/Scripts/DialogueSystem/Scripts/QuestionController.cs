@@ -6,7 +6,8 @@ using TMPro;
 
 public class QuestionController : MonoBehaviour {
 	public Question question;
-	public TMP_Text questionText;
+    public TMP_Text title;
+    public TMP_Text questionText;
 	public Button choiceTemplateButton;
 
 	private List<ChoiceController> choiceControllers = new List<ChoiceController>();
@@ -31,9 +32,19 @@ public class QuestionController : MonoBehaviour {
 	}
 
 	private void Initialize() {
-		questionText.text = question.text;
+        switch (SetLanguage.languageIndex)
+        {
+            case 0:
+                title.text = "Pertanyaan";
+                questionText.text = question.language1;
+                break;
+            case 1:
+                title.text = "Question";
+                questionText.text = question.language2;
+                break;
+        }
 
-		for(int index = 0; index < question.choices.Length; index++) {
+        for (int index = 0; index < question.choices.Length; index++) {
 			ChoiceController c = ChoiceController.AddChoiceButton(choiceTemplateButton, question.choices[index], index);
 			choiceControllers.Add(c);
 		}

@@ -9,17 +9,21 @@ public class SpeakerUI : MonoBehaviour {
 	public TMP_Text fullName;
 	public static bool isTyping;
 	public float typeSpeed;
-	//bool oneTime = false;
-	//public bool isActive;
 
-	private Character speaker;
+    //public AudioSource audioSource;
+    //public AudioClip typing;
+    //bool oneTime = false;
+    //public bool isActive;
+
+    private Character speaker;
 	public Character Speaker {
 		get { return speaker; }
 		set {
 			speaker = value;
 			portrait.sprite = speaker.avatar;
-			fullName.text = speaker.fullName;
-		}
+            fullName.text = speaker.fullName[SetLanguage.languageIndex];
+            //fullName.text = speaker.fullName;
+        }
 	}
 
 	void Awake() {
@@ -71,8 +75,9 @@ public class SpeakerUI : MonoBehaviour {
 
 	public IEnumerator TypeEffect(string text) {
 		foreach(char letter in text.ToCharArray()) {
-			//text += letter;
-			dialog.text += letter;
+            //text += letter;
+            //audioSource.PlayOneShot(typing);
+            dialog.text += letter;
 			yield return new WaitForSecondsRealtime(typeSpeed);
 		}
 

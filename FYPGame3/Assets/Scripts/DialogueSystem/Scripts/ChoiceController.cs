@@ -30,8 +30,17 @@ public class ChoiceController : MonoBehaviour {
 		if(conversationChangeEvent == null)
 			conversationChangeEvent = new ConversationChangeEvent();
 
-		GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
-		GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>().color = Color.black;
+        switch (SetLanguage.languageIndex)
+        {
+            case 0:
+                GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>().text = choice.language1;
+                break;
+            case 1:
+                GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>().text = choice.language2;
+                break;
+        }
+
+        GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>().color = Color.black;
 	}
 
 	public void MakeChoice() {

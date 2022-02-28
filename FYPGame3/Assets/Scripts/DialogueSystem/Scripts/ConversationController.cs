@@ -2,12 +2,15 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using TMPro;
 
 public class ConversationController : MonoBehaviour {
 	public Conversation[] conversation;
-	public GameObject message;
+	public GameObject notification;
+    public TMP_Text message1;
+    public TMP_Text message2;
 
-	public GameObject speakerLeft;
+    public GameObject speakerLeft;
 	public GameObject speakerRight;
 
 	private SpeakerUI speakerUILeft;
@@ -27,19 +30,30 @@ public class ConversationController : MonoBehaviour {
 	}
 
 	void Start() {
-		activeLineIndex = 0;
+        //activeLineIndex = 0;
+        switch (SetLanguage.languageIndex)
+        {
+            case 0: // English
+                message1.text = "PESAN YANG MASUK\n\nSENTUH DI SINI UNTUK LANJUTKAN...";
+                message2.text = "TAP PADA KOTAK DIALOG UNTUK GULIR";
+                break;
+            case 1: // Bahasa
+                message1.text = "INCOMING MESSAGE\n\nTOUCH HERE TO CONTINUE...";
+                message2.text = "TAP ON DIALOG BOX TO SCROLL";
+                break;
+        }
 
-		speakerUILeft = speakerLeft.GetComponent<SpeakerUI>();
+        speakerUILeft = speakerLeft.GetComponent<SpeakerUI>();
 		speakerUIRight = speakerRight.GetComponent<SpeakerUI>();
 
 		questionController = questionPanel.GetComponent<QuestionController>();
 	}
 
 	void Update() {
-		if(ActivateTrigger.index >= 0)
-			message.SetActive(true);
+        if (ActivateTrigger.index >= 0)
+            notification.SetActive(true);
 
-		if(Input.GetKeyDown(KeyCode.Return)) // For keyboard input
+        if (Input.GetKeyDown(KeyCode.Return)) // For keyboard input
 			if(ActivateTrigger.index >= 0 && SpeakerUI.isTyping == false) {
 				AdvanceLine();
 			}
@@ -60,7 +74,7 @@ public class ConversationController : MonoBehaviour {
 		speakerUILeft.Hide();
 		speakerUIRight.Hide();
 		ActivateTrigger.index = -1;
-		message.SetActive(false);
+        notification.SetActive(false);
 		Time.timeScale = 1;
 	}
 
@@ -90,10 +104,26 @@ public class ConversationController : MonoBehaviour {
 		Character character = line.character;
 
 		if(speakerUILeft.SpeakerIs(character)) {
-			SetDialog(speakerUILeft, speakerUIRight, line.text);
-		} else {
-			SetDialog(speakerUIRight, speakerUILeft, line.text);
-		}
+            switch (SetLanguage.languageIndex)
+            {
+                case 0:
+                    SetDialog(speakerUILeft, speakerUIRight, line.language1);
+                    break;
+                case 1:
+                    SetDialog(speakerUILeft, speakerUIRight, line.language2);
+                    break;
+            }
+        } else {
+            switch (SetLanguage.languageIndex)
+            {
+                case 0:
+                    SetDialog(speakerUIRight, speakerUILeft, line.language1);
+                    break;
+                case 1:
+                    SetDialog(speakerUIRight, speakerUILeft, line.language2);
+                    break;
+            }
+        }
 
 		activeLineIndex += 1;
 	}
