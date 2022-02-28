@@ -7,7 +7,7 @@ public class SetLanguage : MonoBehaviour {
 	public static int languageIndex;
 	public TMP_Dropdown dropDown;
 	public TMP_Text playButtonText;
-	public TMP_Text instructionsButtonText;
+	//public TMP_Text instructionsButtonText;
 	public TMP_Text creditsButtonText;
 
 	void Awake() {
@@ -20,14 +20,14 @@ public class SetLanguage : MonoBehaviour {
 
 		switch (dropDown.value) {
 			case 0: // English
-				playButtonText.text = "PLAY";
-				instructionsButtonText.text = "INSTRUCTIONS";
-				creditsButtonText.text = "CREDITS";
+				playButtonText.text = "BERMAIN";
+				//instructionsButtonText.text = "INSTRUCTIONS";
+				creditsButtonText.text = "KREDIT";
 				break;
 			case 1: // Bahasa
-				playButtonText.text = "BERMAIN";
-				instructionsButtonText.text = "INSTRUKSI";
-				creditsButtonText.text = "KREDIT";
+				playButtonText.text = "PLAY";
+				//instructionsButtonText.text = "INSTRUKSI";
+				creditsButtonText.text = "CREDITS";
 				break;
 		}
 	}
