@@ -51,6 +51,14 @@ public class TaxiManager : MonoBehaviour
             currentTime = 0f;
             Time.timeScale = 0;
             summary.SetActive(true);
+            if(Earnings.earned <= Earnings.losses)
+            {
+                Earnings.instance.DriveBetter();
+            }
+            else
+            {
+                Earnings.instance.GoodJob();
+            }
         }
 
         if (Earnings.earnings <= 0)
@@ -58,6 +66,7 @@ public class TaxiManager : MonoBehaviour
             Earnings.earnings = 0;
             Time.timeScale = 0;
             summary.SetActive(true);
+            Earnings.instance.DriveBetter();
         }
         //if (free.SetActive = true)
         //{
