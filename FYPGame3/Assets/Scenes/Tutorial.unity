@@ -1179,6 +1179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b199d24ae0841d4094470998a35f935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scorePrefab: {fileID: 100000, guid: 7cf1c4536e2ce564d8bbe29ceed25cb6, type: 3}
 --- !u!4 &43872865 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8886167242559879730, guid: 7631f308560326a49b565da96025c8ec, type: 3}
@@ -20827,18 +20828,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1428853989125052292, guid: 9faaf2ac94a94ce4592bc641cb24f76f, type: 3}
   m_PrefabInstance: {fileID: 826372365}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &675679643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675679642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 976bc0b93d606d3438d4547a5f68510d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &675679650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32064,6 +32053,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1425600684, guid: 9faaf2ac94a94ce4592bc641cb24f76f, type: 3}
+      propertyPath: scorePrefab
+      value: 
+      objectReference: {fileID: 100000, guid: 7cf1c4536e2ce564d8bbe29ceed25cb6, type: 3}
     - target: {fileID: 247724781079529985, guid: 9faaf2ac94a94ce4592bc641cb24f76f, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -32191,6 +32184,10 @@ PrefabInstance:
     - target: {fileID: 2239739203692346424, guid: 9faaf2ac94a94ce4592bc641cb24f76f, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205963662000417901, guid: 9faaf2ac94a94ce4592bc641cb24f76f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5287360305439497630, guid: 9faaf2ac94a94ce4592bc641cb24f76f, type: 3}
       propertyPath: m_Materials.Array.data[0]
