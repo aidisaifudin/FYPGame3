@@ -13,20 +13,35 @@ MonoBehaviour:
   m_Name: Stranger2
   m_EditorClassIdentifier: 
   speakerLeft: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
-  speakerRight: {fileID: 11400000, guid: b4333de9a6c1cd34a80275e1ae300f03, type: 2}
+  speakerRight: {fileID: 11400000, guid: 938267db39232b342b56bceec117873b, type: 2}
   lines:
   - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
     spriteIndex: 0
-    text: Hello! Where are you going on this lovely day?
-  - character: {fileID: 11400000, guid: b4333de9a6c1cd34a80275e1ae300f03, type: 2}
+    language1: Halo Pak! Mau kemana kamu di hari yang indah ini?
+    language2: 'Hello sir! Where are you going on this lovely day?
+
+'
+  - character: {fileID: 11400000, guid: 938267db39232b342b56bceec117873b, type: 2}
     spriteIndex: 0
-    text: "Hey, I am going to eat at Ahmad\u2019s Ayam! You should try it! The chicken
-      there is really good!"
+    language1: 'Hei, aku akan makan di Ayam Ahmad! Kamu harus mencobanya! Ayam di
+      sana sangat enak!
+
+'
+    language2: "Hey, I am going to eat at Ahmad\u2019s Ayam! You should try it! The
+      chicken there is really good!\r\n"
   - character: {fileID: 11400000, guid: f0138e56c119a48418a837d45f6ee4e3, type: 2}
     spriteIndex: 0
-    text: "Wow, you really are making me hungry\u2026 Alright, have a nice day! \r\n"
-  - character: {fileID: 11400000, guid: b4333de9a6c1cd34a80275e1ae300f03, type: 2}
+    language1: "Wow, kamu benar-benar membuatku lapar\u2026 Baiklah, semoga harimu
+      menyenangkan"
+    language2: "Wow, you really are making me hungry\u2026 Alright, have a nice day!
+      \r\n"
+  - character: {fileID: 11400000, guid: 938267db39232b342b56bceec117873b, type: 2}
     spriteIndex: 0
-    text: You too!
+    language1: 'Kamu juga!
+
+'
+    language2: 'You too!
+
+'
   question: {fileID: 0}
   "nextConversat\xEDon": {fileID: 0}
