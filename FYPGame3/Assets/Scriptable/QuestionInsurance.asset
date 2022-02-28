@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a19206b7e56bc94f9a18c224d56913b, type: 3}
   m_Name: QuestionInsurance
   m_EditorClassIdentifier: 
-  text: Do you have Insurance?
+  language1: 'Apakah Anda berlangganan paket asuransi?
+
+'
+  language2: 'Are you subscribed to any insurance plans?
+
+'
   choices:
-  - text: Yes
+  - language1: Ya
+    language2: Yes
     conversation: {fileID: 11400000, guid: e9c727733cd81c7428104ae79c7f5be1, type: 2}
-  - text: No
+  - language1: Tidak
+    language2: No
     conversation: {fileID: 11400000, guid: 3a9598ee895df2c4ea64df6cae6add8c, type: 2}
