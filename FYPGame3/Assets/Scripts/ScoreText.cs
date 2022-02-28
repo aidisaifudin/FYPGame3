@@ -15,7 +15,7 @@ public class ScoreText : MonoBehaviour {
 		
 		// Compute and set alpha value
 		float newAlpha = 1.0f - (Time.time - startTime) / fadeTime;
-		GetComponent<TextMesh>().color = new Color(1, 1, 1, newAlpha);
+		GetComponent<TextMesh>().color = new Color(255, 0, 0, newAlpha);
 		
 		// If alpha decreased to zero, destroy this game object
 		if(newAlpha <= 0) {

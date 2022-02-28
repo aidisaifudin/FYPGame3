@@ -32,11 +32,13 @@ public class Earnings : MonoBehaviour
     void Start()
     {
         earnings = 100;
-        earned = PlayerPrefs.GetInt("earned", 0);
+        earned = 0;
+        losses = 0;
+        earned = PlayerPrefs.GetInt("earned", earned);
         earnedText = transform.Find("EndDayEarnings").GetComponent<TMP_Text>();
         earnedText.text = " Earnings For Today: " + PlayerPrefs.GetInt("earned", 0).ToString();
 
-        losses = PlayerPrefs.GetInt("losses", 0);
+        losses = PlayerPrefs.GetInt("losses", losses);
         lossesText = transform.Find("Losses").GetComponent<TMP_Text>();
         lossesText.text = " Losses For Today: " + PlayerPrefs.GetInt("losses", 0).ToString();
 
@@ -87,6 +89,7 @@ public class Earnings : MonoBehaviour
         PlayerPrefs.SetInt("endDayMoney", earnings);
         PlayerPrefs.SetInt("earned", earned);
         PlayerPrefs.SetInt("losses", losses);
+        
     }
 
     public void LoseMoney()
@@ -129,7 +132,7 @@ public class Earnings : MonoBehaviour
         insuranceTab.SetActive(false);
         earnings -= 50;
         earningText.text = " : " + earnings.ToString();
-        endOfDayText.text = " Earnings for today: " + earnings.ToString();
+        endOfDayText.text = " Total Amount: " + earnings.ToString();
         PlayerPrefs.SetInt("earnings", earnings);
         PlayerPrefs.SetInt("endDayMoney", earnings);
         insuranceButton.SetActive(false);

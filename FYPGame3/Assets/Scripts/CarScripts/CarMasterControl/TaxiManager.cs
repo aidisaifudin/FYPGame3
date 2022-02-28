@@ -26,7 +26,7 @@ public class TaxiManager : MonoBehaviour
         destination = GameObject.FindGameObjectWithTag("Destination");
         passengerInTaxi = false;
         destinationReached = false;
-        summary.SetActive(false);
+        //summary.SetActive(false);
         hired.SetActive(false);
         free.SetActive(true);
         findingPassenger = true;
