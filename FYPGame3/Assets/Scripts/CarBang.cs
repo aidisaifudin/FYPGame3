@@ -22,14 +22,14 @@ public class CarBang : MonoBehaviour
     {
         if (other.gameObject.layer == 9)
         {
-            if(Earnings.activateInsurance = true)
+            if(Earnings.activateInsurance == true)
             {
                 Debug.Log("It hit");
                 Earnings.instance.LoseMoney(); GameObject scoreText = Instantiate(scorePrefab, transform.position, Quaternion.LookRotation(transform.forward)) as GameObject;
                 scoreText.GetComponent<TextMesh>().text = "-5";
 
             }
-            else if(Earnings.activateInsurance = false)
+            else if(Earnings.activateInsurance == false)
             {
                 Debug.Log("It hit");
                 Earnings.instance.LoseMoreMoney(); GameObject scoreText = Instantiate(scorePrefab, transform.position, Quaternion.LookRotation(transform.forward)) as GameObject;
