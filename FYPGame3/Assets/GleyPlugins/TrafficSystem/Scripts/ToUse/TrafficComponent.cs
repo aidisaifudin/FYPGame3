@@ -16,7 +16,7 @@ namespace GleyTrafficSystem
         [Tooltip("Minimum distance from the player where a vehicle can be instantiated")]
         public float minDistanceToAdd = 50;
         [Tooltip("Distance from the player where a vehicle can be removed")]
-        public float distanceToRemove = 100;
+        public float distanceToRemove = 50;
         [Tooltip("How long yellow light is on (if = -1 the value from the intersection component will be used)")]
         public float yellowLightTime = -1;
         [Tooltip("How long green light is on (if = -1 the value from the intersection component will be used)")]
