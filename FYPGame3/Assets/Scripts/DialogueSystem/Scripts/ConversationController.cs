@@ -66,6 +66,7 @@ public class ConversationController : MonoBehaviour {
 	public void NextDialog() {
 		if(ActivateTrigger.index >= 0 && SpeakerUI.isTyping == false)
 			AdvanceLine();
+        Debug.Log("Convo Trigger");
 	}
 
 	void EndConversation() {

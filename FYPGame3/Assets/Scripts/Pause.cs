@@ -11,6 +11,7 @@ public class Pause : MonoBehaviour
 
     public void Start()
     {
+        Time.timeScale = 1;
         pausePanel.SetActive(false);
     }
 

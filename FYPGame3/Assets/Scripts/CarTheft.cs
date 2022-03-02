@@ -9,8 +9,9 @@ public class CarTheft : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Accident");
-            SceneManager.LoadScene("CarAccident");
+            Debug.Log("Theft");
+            SceneManager.LoadScene("CarTheft");
+            Time.timeScale = 1;
         }
     }
 }
