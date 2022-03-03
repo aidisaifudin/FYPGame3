@@ -31,12 +31,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wayPoints: {fileID: 9221087157262508525}
-  animator: {fileID: 8284321149002540981}
+  animator: {fileID: 8587178305091619604}
   walkSpeed: 2
   waypointDistance: 2
   walkingTime: 3
   idleTime: 2
   rotateSpeed: 1.5
+--- !u!95 &8587178305091619604
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3412653509852587893}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 001cc0e365c0a624e94da118508c9955, type: 3}
+  m_Controller: {fileID: 9100000, guid: 2d1a8efff0bf07940ae7e12e8165ac3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9221087157262508527
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,11 +2442,6 @@ PrefabInstance:
 --- !u!4 &2600827573071035855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e0ed1fd57bc65ef48b5662a50463e924, type: 3}
-  m_PrefabInstance: {fileID: 2566286083521108516}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &8284321149002540981 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: e0ed1fd57bc65ef48b5662a50463e924, type: 3}
   m_PrefabInstance: {fileID: 2566286083521108516}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3412653509852587893 stripped
