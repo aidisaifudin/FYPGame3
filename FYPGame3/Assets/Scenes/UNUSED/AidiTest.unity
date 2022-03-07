@@ -4082,7 +4082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Wheel: {fileID: 1061801512}
-  MaxSteerAngle: 50
+  MaxSteerAngle: 70
   ReleaseSpeed: 150
   OutPut: 0
   Car: {fileID: 2093738146}
@@ -4873,7 +4873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1468446146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8402,6 +8402,10 @@ PrefabInstance:
       propertyPath: UI
       value: 
       objectReference: {fileID: 1754426921}
+    - target: {fileID: 2239739202419813099, guid: 9faaf2ac94a94ce4592bc641cb24f76f, type: 3}
+      propertyPath: m_MaximumSteerAngle
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9faaf2ac94a94ce4592bc641cb24f76f, type: 3}
 --- !u!1001 &2336124353144023958
