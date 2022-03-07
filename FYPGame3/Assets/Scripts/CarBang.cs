@@ -7,6 +7,7 @@ public class CarBang : MonoBehaviour
 
 {
     public GameObject scorePrefab;
+    public GameObject scorePrefab1;
     
     // Start is called before the first frame update
     void Start()
@@ -27,8 +28,9 @@ public class CarBang : MonoBehaviour
             {
                 Debug.Log("It hit");
                 Earnings.instance.LoseMoney(); 
-                //GameObject scoreText = Instantiate(scorePrefab, transform.position, Quaternion.LookRotation(transform.forward)) as GameObject;
-                //scoreText.GetComponent<TextMesh>().text = "-5";
+                GameObject scoreText1 = Instantiate(scorePrefab1, transform.position, Quaternion.LookRotation(transform.forward)) as GameObject;
+                Destroy(scoreText1, 1);
+                scoreText1.GetComponent<TextMesh>().text = "-5";
 
             }
             else if(Earnings.activateInsurance == false)
