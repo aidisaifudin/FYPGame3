@@ -17,6 +17,8 @@ public class TaxiManager : MonoBehaviour
     //[SerializeField] Text countdownText;
     public GameObject hired;
     public GameObject free;
+    public GameObject closeBtn;
+    
     public static bool findingPassenger;
 
     // Start is called before the first frame update
@@ -54,10 +56,13 @@ public class TaxiManager : MonoBehaviour
             if(Earnings.earned <= Earnings.losses)
             {
                 Earnings.instance.DriveBetter();
+                
             }
             else
             {
                 Earnings.instance.GoodJob();
+                
+
             }
         }
 
@@ -67,7 +72,11 @@ public class TaxiManager : MonoBehaviour
             Time.timeScale = 0;
             summary.SetActive(true);
             Earnings.instance.DriveBetter();
+            closeBtn.gameObject.SetActive(false);
+            
+            
         }
+        
         //if (free.SetActive = true)
         //{
         //    findingPassenger = true;

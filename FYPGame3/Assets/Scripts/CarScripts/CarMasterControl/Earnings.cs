@@ -125,6 +125,7 @@ public class Earnings : MonoBehaviour
     public void OpenInsurance()
     {
         insuranceTab.SetActive(true);
+        Time.timeScale = 0;
     }
     public void InsuranceChoose()
     {
@@ -137,12 +138,14 @@ public class Earnings : MonoBehaviour
         PlayerPrefs.SetInt("endDayMoney", earnings);
         insuranceButton.SetActive(false);
         activateInsurance = true;
+        Time.timeScale = 1;
     }
 
     public void InsuranceNoChoose()
     {
         insurance.SetActive(false);
         insuranceTab.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void GoodJob()
