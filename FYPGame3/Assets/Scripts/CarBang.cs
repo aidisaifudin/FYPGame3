@@ -28,7 +28,8 @@ public class CarBang : MonoBehaviour
             {
                 Debug.Log("It hit");
                 Earnings.instance.LoseMoney(); 
-                GameObject scoreText1 = Instantiate(scorePrefab1, transform.position, Quaternion.LookRotation(transform.forward)) as GameObject;
+                GameObject scoreText1 = Instantiate(scorePrefab1, transform.position, transform.rotation) as GameObject;
+                scoreText1.transform.Rotate(0f, 180f, 0f);
                 Destroy(scoreText1, 1);
                 scoreText1.GetComponent<TextMesh>().text = "-5";
 
@@ -37,7 +38,8 @@ public class CarBang : MonoBehaviour
             {
                 Debug.Log("It hit");
                 Earnings.instance.LoseMoreMoney();
-                GameObject scoreText = Instantiate(scorePrefab, transform.position, Quaternion.LookRotation(transform.forward)) as GameObject;
+                GameObject scoreText = Instantiate(scorePrefab, transform.position,transform.rotation) as GameObject;
+                scoreText.transform.Rotate(0f, 180f, 0f);
                 Destroy(scoreText, 1);
                 scoreText.GetComponent<TextMesh>().text = "-10";
             }
