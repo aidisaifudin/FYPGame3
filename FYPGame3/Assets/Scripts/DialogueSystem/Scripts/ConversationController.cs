@@ -51,7 +51,10 @@ public class ConversationController : MonoBehaviour {
 
 	void Update() {
         if (ActivateTrigger.index >= 0)
+        {
             notification.SetActive(true);
+            Debug.Log("Pressed");
+        }
 
         if (Input.GetKeyDown(KeyCode.Return)) // For keyboard input
 			if(ActivateTrigger.index >= 0 && SpeakerUI.isTyping == false) {
@@ -64,9 +67,12 @@ public class ConversationController : MonoBehaviour {
 
 	// For mobile input
 	public void NextDialog() {
-		if(ActivateTrigger.index >= 0 && SpeakerUI.isTyping == false)
-			AdvanceLine();
-        Debug.Log("Convo Trigger");
+        if (ActivateTrigger.index >= 0 && SpeakerUI.isTyping == false)
+        {
+            AdvanceLine();
+            Debug.Log("Convo Trigger");
+        }
+        Debug.Log(ActivateTrigger.index);
 	}
 
 	void EndConversation() {

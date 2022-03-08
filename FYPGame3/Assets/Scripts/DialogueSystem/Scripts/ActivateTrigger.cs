@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class ActivateTrigger : MonoBehaviour {
 	public static int index;
@@ -56,6 +58,20 @@ public class ActivateTrigger : MonoBehaviour {
                 break;
             case "Passenger9":
                 index = 8;
+                Destroy(other.gameObject);
+                Time.timeScale = 0;
+                break;
+
+            case "Passenger10":
+                index = 9;
+                SceneManager.LoadScene(5);
+                Destroy(other.gameObject);
+                Time.timeScale = 0;
+                break;
+
+            case "Passenger11":
+                index = 10;
+                SceneManager.LoadScene(2);
                 Destroy(other.gameObject);
                 Time.timeScale = 0;
                 break;
