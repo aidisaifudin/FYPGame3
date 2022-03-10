@@ -19,12 +19,12 @@ public class SetLanguage : MonoBehaviour {
 		SetPreference("Language");
 
 		switch (dropDown.value) {
-			case 0: // English
+			case 0: // Bahasa
 				playButtonText.text = "BERMAIN";
 				//instructionsButtonText.text = "INSTRUCTIONS";
 				creditsButtonText.text = "KREDIT";
 				break;
-			case 1: // Bahasa
+			case 1: // English
 				playButtonText.text = "PLAY";
 				//instructionsButtonText.text = "INSTRUKSI";
 				creditsButtonText.text = "CREDITS";
