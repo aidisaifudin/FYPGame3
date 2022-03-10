@@ -8,6 +8,7 @@ public class CarBang : MonoBehaviour
 {
     private Animator anim;
     public GameObject scorePrefab;
+    public GameObject minus5;
     private bool invincible = false;
     // public GameObject scorePrefab1;
 
@@ -31,11 +32,14 @@ public class CarBang : MonoBehaviour
                 if (Earnings.activateInsurance == true)
                 {
 
+                    
+                    minus5.SetActive(true);
+                    GetComponent<Animator>().SetBool("Minus5", true);
+                    invincible = true;
+
+                    StartCoroutine(Minus5());
                     Earnings.instance.LoseMoney();
-                    // GameObject scoreText1 = Instantiate(scorePrefab1, transform.position, transform.rotation) as GameObject;
-                    // scoreText1.transform.Rotate(0f, 180f, 0f);
-                    // Destroy(scoreText1, 5);
-                    // scoreText1.GetComponent<TextMesh>().text = "-5";
+
 
                 }
                 else if (Earnings.activateInsurance == false)
@@ -59,6 +63,16 @@ public class CarBang : MonoBehaviour
         invincible = true;
         yield return new WaitForSeconds(10.0f);
         GetComponent<Animator>().SetBool("Minus", false);
+        invincible = false;
+        Debug.Log("coroutineA running again");
+    }
+    IEnumerator Minus5()
+    {
+        // wait for 1 second
+        Debug.Log("coroutineA created");
+        invincible = true;
+        yield return new WaitForSeconds(10.0f);
+        GetComponent<Animator>().SetBool("Minus5", false);
         invincible = false;
         Debug.Log("coroutineA running again");
     }
