@@ -6145,8 +6145,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1898297134}
-        m_TargetAssemblyTypeName: Earnings, Assembly-CSharp
+      - m_Target: {fileID: 675679650}
+        m_TargetAssemblyTypeName: TutorialCar, Assembly-CSharp
         m_MethodName: InsuranceChoose
         m_Mode: 1
         m_Arguments:
@@ -18920,8 +18920,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1898297134}
-        m_TargetAssemblyTypeName: Earnings, Assembly-CSharp
+      - m_Target: {fileID: 675679650}
+        m_TargetAssemblyTypeName: TutorialCar, Assembly-CSharp
         m_MethodName: OpenInsurance
         m_Mode: 1
         m_Arguments:
@@ -20433,6 +20433,22 @@ MonoBehaviour:
   summary: {fileID: 97940542}
   destinationReached: 0
   tryAgainBtn: {fileID: 997925920}
+  earningText: {fileID: 137879533}
+  endOfDayText: {fileID: 1654323002}
+  lossesText: {fileID: 1962647428}
+  earnedText: {fileID: 1576271464}
+  goodJob: {fileID: 1962550073}
+  driveBetter: {fileID: 721650822}
+  insurance: {fileID: 1325585822}
+  insuranceTab: {fileID: 122530289}
+  insuranceButton: {fileID: 625000235}
+  insuranceActivated: 0
+  scorePrefab: {fileID: 0}
+  scorePrefab1: {fileID: 0}
+  closeBtn: {fileID: 1371635575}
+  earnedTutorial: 0
+  lossesTutorial: 0
+  earningsTutorial: 100
 --- !u!1 &675915458
 GameObject:
   m_ObjectHideFlags: 0
@@ -25462,8 +25478,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1898297134}
-        m_TargetAssemblyTypeName: Earnings, Assembly-CSharp
+      - m_Target: {fileID: 675679650}
+        m_TargetAssemblyTypeName: TutorialCar, Assembly-CSharp
         m_MethodName: InsuranceNoChoose
         m_Mode: 1
         m_Arguments:
@@ -62685,7 +62701,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898297132}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fbb0d6730215c84c9679e3a0aefbe8e, type: 3}
   m_Name: 
