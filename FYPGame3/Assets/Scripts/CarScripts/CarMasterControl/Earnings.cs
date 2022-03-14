@@ -21,7 +21,9 @@ public class Earnings : MonoBehaviour
     public static Earnings instance;
     public static int losses = 0;
 
-    public GameObject insuranceTab;
+    public GameObject insuranceTabEnglish;
+    public GameObject insuranceTabBahasa;
+
     public GameObject insuranceButton;
 
     private void Awake()
@@ -124,13 +126,27 @@ public class Earnings : MonoBehaviour
 
     public void OpenInsurance()
     {
-        insuranceTab.SetActive(true);
+        //insuranceTab.SetActive(true);
+        switch (SetLanguage.languageIndex)
+        {
+            case 0: // Bahasa
+
+                insuranceTabBahasa.SetActive(true);
+
+                break;
+            case 1: // English
+
+                insuranceTabEnglish.SetActive(true);
+                break;
+        }
         Time.timeScale = 0;
     }
     public void InsuranceChoose()
     {
         insurance.SetActive(true);
-        insuranceTab.SetActive(false);
+        insuranceTabBahasa.SetActive(false);
+        insuranceTabEnglish.SetActive(false);
+        //insuranceTab.SetActive(false);
         earnings -= 50;
         earningText.text = " : " + earnings.ToString();
         endOfDayText.text = " Total Amount: " + earnings.ToString();
@@ -144,7 +160,9 @@ public class Earnings : MonoBehaviour
     public void InsuranceNoChoose()
     {
         insurance.SetActive(false);
-        insuranceTab.SetActive(false);
+        insuranceTabBahasa.SetActive(false);
+        insuranceTabEnglish.SetActive(false);
+        //insuranceTab.SetActive(false);
         Time.timeScale = 1;
     }
 
