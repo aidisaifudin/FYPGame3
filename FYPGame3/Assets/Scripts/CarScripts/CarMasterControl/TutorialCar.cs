@@ -22,14 +22,17 @@ public class TutorialCar : MonoBehaviour
     public GameObject insuranceButton;
     public bool insuranceActivated;
 
-    public GameObject scorePrefab;
     public GameObject scorePrefab1;
+    public GameObject scorePrefab;
+    public GameObject minus5;
 
     public GameObject closeBtn;
 
     public int earnedTutorial = 0;
     public int lossesTutorial = 0;
     public int earningsTutorial = 100;
+
+    private bool invincible = false;
 
     // Start is called before the first frame update
     void Start()
@@ -107,28 +110,44 @@ public class TutorialCar : MonoBehaviour
 
         else if (other.gameObject.layer == 9)
         {
-            if (insuranceActivated == true)
+            if (!invincible)
             {
-                Debug.Log("It hit");
-                
-                lossesTutorial += 5;
-                earningsTutorial -= 5;
-                GameObject scoreText1 = Instantiate(scorePrefab1, transform.position, transform.rotation) as GameObject;
-                scoreText1.transform.Rotate(0f, 180f, 0f);
-                Destroy(scoreText1, 1);
-                scoreText1.GetComponent<TextMesh>().text = "-5";
+                if (insuranceActivated == true)
+                {
+                    Debug.Log("It hit");
 
-            }
-            else if (insuranceActivated == false)
-            {
-                Debug.Log("It hit");
-                //Earnings.instance.LoseMoreMoney();
-                lossesTutorial += 5;
-                earningsTutorial -= 5;
-                GameObject scoreText = Instantiate(scorePrefab, transform.position, transform.rotation) as GameObject;
-                scoreText.transform.Rotate(0f, 180f, 0f);
-                Destroy(scoreText, 1);
-                scoreText.GetComponent<TextMesh>().text = "-10";
+                    lossesTutorial += 5;
+                    earningsTutorial -= 5;
+                  //  GameObject scoreText1 = Instantiate(scorePrefab1, transform.position, transform.rotation) as GameObject;
+                   // scoreText1.transform.Rotate(0f, 180f, 0f);
+                    //Destroy(scoreText1, 1);
+                    //scoreText1.GetComponent<TextMesh>().text = "-5";
+
+                    minus5.SetActive(true);
+                    GetComponent<Animator>().SetBool("Min5", true);
+                    invincible = true;
+
+                    StartCoroutine(Minus5Tutorial());
+
+
+                }
+                else if (insuranceActivated == false)
+                {
+                    Debug.Log("It hit");
+                    //Earnings.instance.LoseMoreMoney();
+                    lossesTutorial += 10;
+                    earningsTutorial -= 10;
+                   // GameObject scoreText = Instantiate(scorePrefab, transform.position, transform.rotation) as GameObject;
+                   // scoreText.transform.Rotate(0f, 180f, 0f);
+                   // Destroy(scoreText, 1);
+                    //scoreText.GetComponent<TextMesh>().text = "-10";
+
+                    scorePrefab.SetActive(true);
+                    GetComponent<Animator>().SetBool("Min10", true);
+                    invincible = true;
+
+                    StartCoroutine(Minus10Tutorial());
+                }
             }
         }
     }
@@ -179,5 +198,28 @@ public class TutorialCar : MonoBehaviour
     public void DriveBetter()
     {
         driveBetter.gameObject.SetActive(true);
+    }
+    IEnumerator Minus5Tutorial()
+    {
+        // wait for 1 second
+        Debug.Log("coroutineA created");
+        Handheld.Vibrate();
+        invincible = true;
+        yield return new WaitForSeconds(10.0f);
+        GetComponent<Animator>().SetBool("Min5", false);
+        invincible = false;
+        Debug.Log("coroutineA running again");
+    }
+    IEnumerator Minus10Tutorial()
+    {
+        // wait for 1 second
+        Debug.Log("coroutineA created");
+        Handheld.Vibrate();
+        invincible = true;
+        yield return new WaitForSeconds(10.0f);
+
+        GetComponent<Animator>().SetBool("Min10", false);
+        invincible = false;
+        Debug.Log("coroutineA running again");
     }
 }

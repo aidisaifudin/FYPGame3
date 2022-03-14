@@ -37,7 +37,7 @@ public class CarBang : MonoBehaviour
                     GetComponent<Animator>().SetBool("Minus5", true);
                     invincible = true;
 
-                   // StartCoroutine(Minus5());
+                    StartCoroutine(Minus5());
                     Earnings.instance.LoseMoney();
 
 
@@ -60,8 +60,10 @@ public class CarBang : MonoBehaviour
     {
         // wait for 1 second
         Debug.Log("coroutineA created");
+        Handheld.Vibrate();
         invincible = true;
         yield return new WaitForSeconds(10.0f);
+        
         GetComponent<Animator>().SetBool("Minus", false);
         invincible = false;
         Debug.Log("coroutineA running again");
@@ -70,6 +72,7 @@ public class CarBang : MonoBehaviour
     {
         // wait for 1 second
         Debug.Log("coroutineA created");
+        Handheld.Vibrate();
         invincible = true;
         yield return new WaitForSeconds(10.0f);
         GetComponent<Animator>().SetBool("Minus5", false);
@@ -79,6 +82,7 @@ public class CarBang : MonoBehaviour
     public void Minus5Tutorial()
     {
         Debug.Log("It hit minus5");
+        Handheld.Vibrate();
         minus5.SetActive(true);
         GetComponent<Animator>().SetBool("Minus5", true);
         invincible = true;

@@ -96,11 +96,12 @@ public class TaxiManager : MonoBehaviour
         {
             destinationReached = true;
             passengerInTaxi = false;
+            hired.SetActive(false);
+            free.SetActive(true);
             Earnings.instance.EarnMoney();
             Destroy(other.gameObject);
             RandomPassenger.instance.SpawnPassenger();
-            hired.SetActive(false);
-            free.SetActive(true);
+        
         }
     }
 }
