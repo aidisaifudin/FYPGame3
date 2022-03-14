@@ -43,7 +43,7 @@ public class RandomPassenger : MonoBehaviour
         Instantiate(passenger, passengerSpawn[randomPassenger].position, transform.rotation);
         lastDropOff = destinationPoint[randomPassenger][Random.Range(0, destinationPoint[randomPassenger].Length - 1)];
         Debug.Log($"spawn {lastDropOff}");
-        Instantiate(destination, destinationSpawn[lastDropOff].position, transform.rotation);
+        Instantiate(destination, destinationSpawn[lastDropOff].position, Quaternion.Euler(0, 90, 0));
     }
 
     public void SpawnPassenger()
@@ -53,7 +53,7 @@ public class RandomPassenger : MonoBehaviour
         lastDropOff = destinationPoint[randomPassenger][Random.Range(0, destinationPoint[randomPassenger].Length - 1)];
         Instantiate(passenger, passengerSpawn[randomPassenger].position, transform.rotation);
         Debug.Log($"spawn {lastDropOff}");
-        Instantiate(destination, destinationSpawn[lastDropOff].position, transform.rotation);
+        Instantiate(destination, destinationSpawn[lastDropOff].position, Quaternion.Euler(0,90,0));
     }
 
 
