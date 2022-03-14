@@ -91,7 +91,7 @@ public class Earnings : MonoBehaviour
         PlayerPrefs.SetInt("endDayMoney", earnings);
         PlayerPrefs.SetInt("earned", earned);
         PlayerPrefs.SetInt("losses", losses);
-        
+        PlayerPrefs.Save();
     }
 
     public void LoseMoney()
@@ -107,6 +107,7 @@ public class Earnings : MonoBehaviour
         PlayerPrefs.SetInt("endDayMoney", earnings);
         PlayerPrefs.SetInt("earned", earned);
         PlayerPrefs.SetInt("losses", losses);
+        PlayerPrefs.Save();
     }
 
     public void LoseMoreMoney()
@@ -122,6 +123,7 @@ public class Earnings : MonoBehaviour
         PlayerPrefs.SetInt("endDayMoney", earnings);
         PlayerPrefs.SetInt("earned", earned);
         PlayerPrefs.SetInt("losses", losses);
+        PlayerPrefs.Save();
     }
 
     public void OpenInsurance()
@@ -152,6 +154,7 @@ public class Earnings : MonoBehaviour
         endOfDayText.text = " Total Amount: " + earnings.ToString();
         PlayerPrefs.SetInt("earnings", earnings);
         PlayerPrefs.SetInt("endDayMoney", earnings);
+        PlayerPrefs.Save();
         insuranceButton.SetActive(false);
         activateInsurance = true;
         Time.timeScale = 1;
