@@ -18,7 +18,8 @@ public class TutorialCar : MonoBehaviour
     public TMP_Text goodJob;
     public TMP_Text driveBetter;
     public GameObject insurance;
-    public GameObject insuranceTab;
+    public GameObject insuranceTabBahasa;
+    public GameObject insuranceTabEnglish;
     public GameObject insuranceButton;
     public bool insuranceActivated;
 
@@ -169,14 +170,29 @@ public class TutorialCar : MonoBehaviour
 
     public void OpenInsurance()
     {
-        insuranceTab.SetActive(true);
+        //insuranceTab.SetActive(true);
+
+
+        switch (SetLanguage.languageIndex)
+        {
+            case 0: // Bahasa
+
+                insuranceTabBahasa.SetActive(true);
+
+                break;
+            case 1: // English
+
+                insuranceTabEnglish.SetActive(true);
+                break;
+        }
         Time.timeScale = 0;
     }
 
     public void InsuranceChoose()
     {
         insurance.SetActive(true);
-        insuranceTab.SetActive(false);
+        insuranceTabBahasa.SetActive(false);
+        insuranceTabEnglish.SetActive(false);
         earningsTutorial -= 50;
         insuranceButton.SetActive(false);
         insuranceActivated = true;
@@ -186,7 +202,8 @@ public class TutorialCar : MonoBehaviour
     public void InsuranceNoChoose()
     {
         insurance.SetActive(false);
-        insuranceTab.SetActive(false);
+        insuranceTabBahasa.SetActive(false);
+        insuranceTabEnglish.SetActive(false);
         Time.timeScale = 1;
     }
 

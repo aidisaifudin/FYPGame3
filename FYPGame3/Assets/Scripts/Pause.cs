@@ -7,24 +7,40 @@ using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
-    public GameObject pausePanel;
+    public GameObject pausePanelEnglish;
+    public GameObject pausePanelBahasa;
 
     public void Start()
     {
         Time.timeScale = 1;
-        pausePanel.SetActive(false);
+        pausePanelEnglish.SetActive(false);
+        pausePanelBahasa.SetActive(false);
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0;
-        pausePanel.SetActive(true);
+        switch (SetLanguage.languageIndex)
+        {
+            case 0: // Bahasa
+
+                pausePanelBahasa.SetActive(true);
+
+                break;
+            case 1: // English
+
+                pausePanelEnglish.SetActive(true);
+                break;
+        }
+
+       
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        pausePanel.SetActive(false);
+        pausePanelBahasa.SetActive(false);
+        pausePanelEnglish.SetActive(false);
     }
 
     public void GoMainMenu()

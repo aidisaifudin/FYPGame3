@@ -6,14 +6,40 @@ using UnityEngine.SceneManagement;
 public class SkipTutorial : MonoBehaviour
 {
     public GameObject summary;
+    public GameObject skipPanelEnglish;
+    public GameObject skipPanelBahasa;
 
-   public void TimePause()
+    public void TimePause()
     {
+        switch (SetLanguage.languageIndex)
+        {
+            case 0: // Bahasa
+
+                skipPanelBahasa.SetActive(true);
+
+                break;
+            case 1: // English
+
+                skipPanelEnglish.SetActive(true);
+                break;
+        }
         Time.timeScale = 0;
     }
 
     public void Resume()
     {
+        switch (SetLanguage.languageIndex)
+        {
+            case 0: // Bahasa
+
+                skipPanelBahasa.SetActive(false);
+
+                break;
+            case 1: // English
+
+                skipPanelEnglish.SetActive(false);
+                break;
+        }
         Time.timeScale = 1;
     }
 
