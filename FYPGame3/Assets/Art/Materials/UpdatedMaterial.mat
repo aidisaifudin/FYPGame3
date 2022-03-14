@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: UpdatedMaterial
   m_Shader: {fileID: 4800000, guid: 849dc4ff793a3f943ad21a3b6ee26456, type: 3}
-  m_ShaderKeywords: _ADDITIONAL_LIGHTS_ENABLED _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+  m_ShaderKeywords: _ENVIRONMENT_LIGHTING_ENABLED _SHADOW_MASK _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
     _SPECULAR_SETUP _ZWRITE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -94,7 +94,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AdditionalLights: 1
+    - _AdditionalLights: 0
     - _AdditionalLightsSpecular: 0
     - _AlphaClip: 0
     - _AnisoSpecular: 0
@@ -108,7 +108,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Emission: 0
-    - _EnvironmentLightingEnabled: 0
+    - _EnvironmentLightingEnabled: 1
     - _EnvironmentReflections: 1
     - _Fog: 0
     - _Fresnel: 0
@@ -127,7 +127,7 @@ Material:
     - _RampSmoothness: 0.005
     - _RampTriple: 0
     - _ReceiveShadows: 1
-    - _ShadowMask: 0
+    - _ShadowMask: 1
     - _Smoothness: 0.3
     - _SmoothnessTextureChannel: 1
     - _Specular: 0
