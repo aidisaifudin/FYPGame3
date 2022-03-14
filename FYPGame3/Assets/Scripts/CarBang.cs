@@ -32,19 +32,19 @@ public class CarBang : MonoBehaviour
                 if (Earnings.activateInsurance == true)
                 {
 
-                    
+                    Debug.Log("It hit minus5");
                     minus5.SetActive(true);
                     GetComponent<Animator>().SetBool("Minus5", true);
                     invincible = true;
 
-                    StartCoroutine(Minus5());
+                   // StartCoroutine(Minus5());
                     Earnings.instance.LoseMoney();
 
 
                 }
                 else if (Earnings.activateInsurance == false)
                 {
-                    Debug.Log("It hit");
+                   
                     scorePrefab.SetActive(true);
                     GetComponent<Animator>().SetBool("Minus", true);
                     invincible = true;
@@ -75,5 +75,15 @@ public class CarBang : MonoBehaviour
         GetComponent<Animator>().SetBool("Minus5", false);
         invincible = false;
         Debug.Log("coroutineA running again");
+    }
+    public void Minus5Tutorial()
+    {
+        Debug.Log("It hit minus5");
+        minus5.SetActive(true);
+        GetComponent<Animator>().SetBool("Minus5", true);
+        invincible = true;
+
+        // StartCoroutine(Minus5());
+        Earnings.instance.LoseMoney();
     }
 }

@@ -110,7 +110,7 @@ public class TutorialCar : MonoBehaviour
             if (insuranceActivated == true)
             {
                 Debug.Log("It hit");
-                //Earnings.instance.LoseMoney();
+                
                 lossesTutorial += 5;
                 earningsTutorial -= 5;
                 GameObject scoreText1 = Instantiate(scorePrefab1, transform.position, transform.rotation) as GameObject;
