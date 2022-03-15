@@ -66,14 +66,14 @@ public class ActivateTrigger : MonoBehaviour {
                 index = 9;
                 SceneManager.LoadScene(5);
                 Destroy(other.gameObject);
-                Time.timeScale = 0;
+                //Time.timeScale = 0;
                 break;
 
             case "Passenger11":
                 index = 10;
                 SceneManager.LoadScene(2);
                 Destroy(other.gameObject);
-                Time.timeScale = 0;
+               // Time.timeScale = 0;
                 break;
         }
 	}

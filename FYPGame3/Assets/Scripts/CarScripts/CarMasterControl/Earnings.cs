@@ -28,6 +28,7 @@ public class Earnings : MonoBehaviour
 
     private void Awake()
     {
+        activateInsurance = false;
         instance = this;
     }
     // Start is called before the first frame update
@@ -38,18 +39,18 @@ public class Earnings : MonoBehaviour
         losses = 0;
         earned = PlayerPrefs.GetInt("earned", earned);
         earnedText = transform.Find("EndDayEarnings").GetComponent<TMP_Text>();
-        earnedText.text = " Earnings For Today: " + PlayerPrefs.GetInt("earned", 0).ToString();
+        earnedText.text = " Earnings For Today: " + PlayerPrefs.GetInt("earned",0).ToString();
 
         losses = PlayerPrefs.GetInt("losses", losses);
         lossesText = transform.Find("Losses").GetComponent<TMP_Text>();
-        lossesText.text = " Losses For Today: " + PlayerPrefs.GetInt("losses", 0).ToString();
+        lossesText.text = " Losses For Today: " + PlayerPrefs.GetInt("losses",0).ToString();
 
         earnings = PlayerPrefs.GetInt("earnings", earnings);
         earningText = transform.Find("Earning").GetComponent<TMP_Text>();
-        earningText.text = " : " + PlayerPrefs.GetInt("earnings", 100).ToString();
+        earningText.text = " : " + PlayerPrefs.GetInt("earnings",100).ToString();
 
         endOfDayText = transform.Find("Total Earnings").GetComponent<TMP_Text>();
-        endOfDayText.text = " Total Amount: " + PlayerPrefs.GetInt("endDayMoney", 100).ToString();
+        endOfDayText.text = " Total Amount: " + PlayerPrefs.GetInt("endDayMoney",100).ToString();
 
         goodJob = transform.Find("Good Job!").GetComponent<TMP_Text>();
         goodJob.gameObject.SetActive(false);
@@ -72,7 +73,7 @@ public class Earnings : MonoBehaviour
         //}
         //else if (insurance == true)
         //{
-        //    activateInsurance = true;
+        
         //}
 
         
@@ -177,5 +178,10 @@ public class Earnings : MonoBehaviour
     public void DriveBetter()
     {
         driveBetter.gameObject.SetActive(true);
+    }
+
+    public void ResetEarnings()
+    {
+        earnings = 100;
     }
 }

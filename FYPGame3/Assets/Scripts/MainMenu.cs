@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Start()
     {
-        PlayerPrefs.GetInt("earnings", Earnings.earnings);
+       // PlayerPrefs.GetInt("earnings", Earnings.earnings);
         PlayerPrefs.GetString("time", DigitalClock.timer);
         Time.timeScale = 1;
     }
@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
     public void MainGame()
     {
         SceneManager.LoadScene("MainGame");
-        PlayerPrefs.GetInt("earnings", Earnings.earnings);
+        //PlayerPrefs.GetInt("earnings", Earnings.earnings);
         PlayerPrefs.GetString("time", DigitalClock.timer);
     }
 
@@ -36,7 +36,9 @@ public class MainMenu : MonoBehaviour
     }
     public void Tutorial()
     {
+       
         SceneManager.LoadScene("Tutorial");
+        Earnings.instance.ResetEarnings();
     }
     public void Settings()
     {
