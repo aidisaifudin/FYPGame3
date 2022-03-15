@@ -164,8 +164,10 @@ public class TutorialCar : MonoBehaviour
 
     public void RestartLevel()
     {
-        PlayerPrefs.DeleteAll();
+        summary.SetActive(false);
+        //PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("Tutorial");
+        PlayerPrefs.DeleteAll();
     }
 
     public void OpenInsurance()
